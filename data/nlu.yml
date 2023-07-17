@@ -1,0 +1,150 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yeah
+    - sure
+    - okay I think so
+    - I think I can
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - not much
+    - not really
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - no I can't
+    - I couldn't
+    - no I think
+    - sorry, I think I cannot
+    - sry no
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - Good
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - fine
+    - not bad
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+    - I feel bad
+
+- intent: get_event_time
+  examples: |
+    - When is the event
+    - What time is the event
+    - What day is the event being held
+
+- intent: state_problem
+  examples: |
+    - I have some [insomnia](problem) recently
+    - I couldn't fall [asleep](problem) last night
+    - I've been having trouble [sleeping](problem) lately
+    - I can't [sleep](problem) lately
+    - I always feel a [headache](problem) these days
+    - I have trouble [breathing](problem) sometimes
+    - I sometimes find it hard to [breathe](problem)
+
+
+- intent: state_unwilling
+  examples: |
+    - I just don't want to go
+    - I just wouldn't want to go out
+    - Just don't want to attend
+    - I just don't wanna socialize
+    - I prefer to stay alone
+    - Just want to stay at home
+    - I don't want to meet anyone
+
+- intent: state_available_time
+  examples: |
+    - Yeah. I have to work tomorrow, the [day after](day) can
+    - The [day after tomorrow](day) will be better for me
+    - The [18th](day) will be fine with me
+    - [7th](day) is better
+    - Yes, [21st](day) is better for me
+    - This [Sunday](day) works better for me
+    - Yes, [Saturday](day) would be better
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+    - Can I eat glass

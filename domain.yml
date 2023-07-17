@@ -1,0 +1,83 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - get_event_time
+  - state_problem
+  - state_unwilling
+  - state_available_time
+  - bot_challenge
+  - out_of_scope
+
+entities:
+  - problem
+  - day
+
+slots:
+  problem:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: problem
+  day:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: day
+
+responses:
+  utter_greet:
+  - text: "Hi there! How are you today?"
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "I'm sorry to hear that. Maybe hanging out will help!"
+  - text: "I'm sorry to hear that. It happens. Maybe hanging out will help!"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_check_help:
+  - text: "Is there anything else I can help you with?"
+  - text: "What else can I help you with?"
+
+  utter_ask_prob:
+  - text: "Is there something specific that's been bothering you or that you'd like to talk about? I'm here to listen and offer support."
+
+  utter_ask_reason:
+  - text: "Would you like to tell me why? If it's the bad schedule we may make adjustments"
+  - text: "Do you mind telling me why? Or if it's the bad timing then when would you be available?"
+  
+  utter_happy_end:
+  - text: "Okay! Have a nice day!"
+  - text: "Okay, hope you enjoy the rest of the day!"
+
+  utter_event_time:
+  - text: "The offline event takes place this Friday."
+
+  utter_goodbye:
+  - text: "Bye bye"
+  - text: "Goodbye there"
+  - text: "See you"
+
+  utter_iamabot:
+  - text: "I am a bot. I am here to help."
+
+  utter_out_of_scope:
+  - text: Sorry, I can't handle that request.
+
+actions:
+    - action_ask_attend
+    - action_get_affirm
+    - action_record_prob
+    - action_record_unwilling
+    - action_record_time
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
