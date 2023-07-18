@@ -13,6 +13,8 @@ intents:
   - state_available_time
   - bot_challenge
   - out_of_scope
+  - approve_notify
+  - EXTERNAL_notify
 
 entities:
   - problem
@@ -72,12 +74,14 @@ responses:
   - text: Sorry, I can't handle that request.
 
 actions:
-    - action_ask_attend
-    - action_get_affirm
-    - action_record_prob
-    - action_record_unwilling
-    - action_record_time
+- action_set_notify
+- action_notify_triggered
+- action_ask_attend
+- action_get_affirm
+- action_record_unwilling
+- action_record_time
+- action_record_prob
 
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+# session_config:
+#   session_expiration_time: 60
+#   carry_over_slots_to_new_session: true

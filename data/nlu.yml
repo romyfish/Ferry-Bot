@@ -148,3 +148,11 @@ nlu:
     - What is 2 + 2?
     - Who's the US President?
     - Can I eat glass
+
+- intent: approve_notify
+  examples: |
+    - approve notify
+    - approve notification
+    - approve
+    - notify
+    - notification

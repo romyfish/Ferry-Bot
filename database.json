@@ -1,0 +1,76 @@
+{
+    "events": [
+        {
+            "id": 0,
+            "groupID": "1",
+            "date": "2023-07-14",
+            "online": "False",
+            "content": "hiking",
+            "participants": {
+                "611": "affirm",
+                "649": "affirm",
+                "534": "refuse",
+                "768": "2023-07-15"
+            },
+            "status": "finish"
+        },
+        {
+            "id": 1,
+            "groupID": "1",
+            "date": "2023-07-20",
+            "online": "False",
+            "content": "session",
+            "participants": {
+                "611": "unknown",
+                "649": "2023-07-21"
+            },
+            "status": "unknown"
+        }
+    ],
+    "users": [
+        {
+            "id": "611",
+            "name": "Romy",
+            "surname": "Yu",
+            "birthdate": "1979-02-14",
+            "gender": "F",
+            "email": "romyfish@163.com",
+            "groupID": "1",
+            "chatID": "6110406512402871",
+            "condition": "None"
+        },
+        {
+            "id": "649",
+            "name": "Wanshu",
+            "surname": "Yu",
+            "birthdate": "2000-02-28",
+            "gender": "F",
+            "email": "2817055y@163.com",
+            "groupID": "1",
+            "chatID": "6490110454383266",
+            "condition": "sleep"
+        },
+        {
+            "id": "534",
+            "name": "AAA",
+            "surname": "S",
+            "birthdate": "1955-01-18",
+            "gender": "M",
+            "email": "AAA@163.com",
+            "groupID": "1",
+            "chatID": "None",
+            "condition": "None"
+        },
+        {
+            "id": "768",
+            "name": "BBB",
+            "surname": "S",
+            "birthdate": "1973-08-13",
+            "gender": "M",
+            "email": "BBB@163.com",
+            "groupID": "1",
+            "chatID": "None",
+            "condition": "None"
+        }
+    ]
+}

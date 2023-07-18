@@ -2,6 +2,11 @@ version: "3.1"
 
 rules:
 
+- rule: approve notification
+  steps:
+  - intent: approve_notify
+  - action: action_set_notify
+
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
@@ -22,7 +27,12 @@ rules:
   - intent: out_of_scope
   - action: utter_out_of_scope
 
-# - rule: welcome user
+- rule: react to notification
+  steps:
+  - intent: EXTERNAL_notify
+  - action: action_notify_triggered
+
+# - rule: welcome user 
 #     conversation_start: true  # this rule only applies at the beginning of a conversation
 #     steps:
 #       - intent: greet

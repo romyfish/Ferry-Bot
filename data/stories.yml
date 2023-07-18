@@ -110,3 +110,30 @@ stories:
   - action: action_ask_attend
   - intent: deny
   - action: utter_ask_reason
+
+- story: EXTERNAL happiest path
+  steps:
+  - intent: EXTERNAL_notify
+  - action: action_notify_triggered
+  - intent: affirm
+  - action: action_get_affirm
+  - action: utter_check_help
+  - intent: deny
+  - action: utter_happy_end
+
+- story: EXTERNAL attend but need help
+  steps:
+  - intent: EXTERNAL_notify
+  - action: action_notify_triggered
+  - intent: affirm
+  - action: action_get_affirm
+  - action: utter_check_help
+  - intent: affirm
+  - action: utter_ask_prob
+
+- story: EXTERNAL cannot attend
+  steps:
+  - intent: EXTERNAL_notify
+  - action: action_notify_triggered
+  - intent: deny
+  - action: utter_ask_reason
