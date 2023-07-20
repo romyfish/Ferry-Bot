@@ -15,7 +15,7 @@ rules:
 - rule: Answer event time anytime the user ask
   steps:
   - intent: get_event_time
-  - action: utter_event_time
+  - action: action_event_time
 
 - rule: Confirm 'I am a bot' anytime the user challenges
   steps:

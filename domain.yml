@@ -59,9 +59,6 @@ responses:
   - text: "Okay! Have a nice day!"
   - text: "Okay, hope you enjoy the rest of the day!"
 
-  utter_event_time:
-  - text: "The offline event takes place this Friday."
-
   utter_goodbye:
   - text: "Bye bye"
   - text: "Goodbye there"
@@ -76,11 +73,11 @@ responses:
 actions:
 - action_set_notify
 - action_notify_triggered
-- action_ask_attend
 - action_get_affirm
 - action_record_unwilling
 - action_record_time
 - action_record_prob
+- action_event_time
 
 # session_config:
 #   session_expiration_time: 60

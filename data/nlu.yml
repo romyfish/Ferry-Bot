@@ -58,7 +58,10 @@ nlu:
     - I couldn't
     - no I think
     - sorry, I think I cannot
+    - I think I cant
     - sry no
+    - no thanks
+    - no thx
 
 - intent: mood_great
   examples: |
@@ -97,22 +100,47 @@ nlu:
     - so saad
     - so sad
     - I feel bad
+    - too bad
+    - awful
 
 - intent: get_event_time
   examples: |
     - When is the event
     - What time is the event
+    - What day is the event held
     - What day is the event being held
+    - When is the next event
+    - What time is the next event
+    - What day is the next event held
+    - When will the event be held
+    - What day will the event be held
+    - What time will the event be held
 
 - intent: state_problem
   examples: |
     - I have some [insomnia](problem) recently
     - I couldn't fall [asleep](problem) last night
+    - I cannot fall [asleep](problem)
     - I've been having trouble [sleeping](problem) lately
+    - I have trouble [sleeping](problem)
     - I can't [sleep](problem) lately
     - I always feel a [headache](problem) these days
+    - I woke up with a slight [headache](problem)
+    - I can't get rid of my [headache](problem)
+    - I've got a [headache](problem)
+    - I had a [headache](problem)
+    - I feel a [headache](problem)
+    - I have had a terrible [headache](problem) for the last two days
     - I have trouble [breathing](problem) sometimes
     - I sometimes find it hard to [breathe](problem)
+    - I couldn't [breathe](problem)
+    - I can't [breathe](problem)
+    - I could hardly [breathe](problem)
+    - My [breath](problem) came in short pants
+    - I'm out of [breath](problem)
+    - I was out of [breath](problem)
+    - I always feel [frustrated](problem)
+    - I feel out of [energy](problem) these days
 
 
 - intent: state_unwilling
@@ -122,16 +150,30 @@ nlu:
     - Just don't want to attend
     - I just don't wanna socialize
     - I prefer to stay alone
+    - prefer to stay at hoem
     - Just want to stay at home
     - I don't want to meet anyone
+    - Staying at home is better for me
+    - Staying alone is better for me
+    - Just not interested
+    - That's no good for me
 
 - intent: state_available_time
   examples: |
     - Yeah. I have to work tomorrow, the [day after](day) can
+    - Yeah. I have to work tomorrow, the [day after tomorrow](day) can
     - The [day after tomorrow](day) will be better for me
     - The [18th](day) will be fine with me
-    - [7th](day) is better
+    - [1st](day) is better
+    - [7th](day) will be better
+    - I can go on [22nd](day)
     - Yes, [21st](day) is better for me
+    - The [Monday](day) will be better for me
+    - I can go on [Tuesday](day)
+    - I can make it on [Wednesday](day)
+    - I will go on [Thursday](day)
+    - The [Friday](day) will be fine with me
+    - [Saturday](day) is better
     - This [Sunday](day) works better for me
     - Yes, [Saturday](day) would be better
 
@@ -145,9 +187,11 @@ nlu:
 - intent: out_of_scope
   examples: |
     - I want to order food
-    - What is 2 + 2?
-    - Who's the US President?
+    - What is 2 + 2
+    - Who's the US President
     - Can I eat glass
+    - What is pantone
+    - Can you rule the world
 
 - intent: approve_notify
   examples: |

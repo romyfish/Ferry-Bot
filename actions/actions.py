@@ -48,7 +48,7 @@ class ActionSetNotify(Action):
     ) -> List[Dict[Text, Any]]:
 
         # query from database for the event day and set the notifying datetime before
-        send_date = next_event_date - datetime.timedelta(days=1)
+        # send_date = next_event_date - datetime.timedelta(days=1)
         # date = datetime.datetime.combine(send_date, send_time)
         date = datetime.datetime.now() + datetime.timedelta(seconds=30)
         str_date = datetime.datetime.strftime(date,'%Y-%m-%d %H:%M:%S')
@@ -83,19 +83,6 @@ class ActionNotifyTriggered(Action):
         rfile.close()
         event_name = data["events"][next_event_ID]["content"]
         dispatcher.utter_message(text="Are you free to attend the offline group {} tomorrow?".format(event_name))
-
-        return []
-    
-class ActionAskAttend(Action):
-
-    def name(self) -> Text:
-        return "action_ask_attend"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        dispatcher.utter_message(text="Are you free to attend the offline group event tomorrow?")
 
         return []
 
@@ -248,5 +235,28 @@ class ActionRecordProb(Action):
         text_message = "Okay, I will keep your problem with {} in mind and look for some help for you. Hope you get better soon".format(problem_name)
         # dispatcher.utter_message(text="Okay, I will keep in mind and look for some help for you. Hope you get better soon")
         dispatcher.utter_message(text=text_message)
+
+        return []
+    
+class ActionEventTime(Action):
+
+    def name(self) -> Text:
+        return "action_event_time"
+
+    def run(self, dispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        rfile = open('./database.json', 'r')
+        content = rfile.read()
+        data = json.loads(content)
+        rfile.close()
+        event_name = data["events"][next_event_ID]["content"]
+        # if it is tomorrow, change the expressing
+        if tomorrow_date.date() == next_event_date.date():
+            event_day = "tomorrow"
+        else:
+            event_day = "on " + next_event_date.strftime("%Y-%m-%d")
+        dispatcher.utter_message(text="The offline group {} event takes place {}.".format(event_name, event_day))
 
         return []
