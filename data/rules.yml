@@ -32,6 +32,11 @@ rules:
   - intent: EXTERNAL_notify
   - action: action_notify_triggered
 
+- rule: react to notification
+  steps:
+  - intent: EXTERNAL_time_change
+  - action: action_time_change_checking
+
 # - rule: welcome user 
 #     conversation_start: true  # this rule only applies at the beginning of a conversation
 #     steps:

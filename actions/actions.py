@@ -13,6 +13,7 @@ from rasa_sdk.events import ReminderScheduled, ReminderCancelled
 import json
 import datetime
 import re
+import requests
 
 today_date = datetime.datetime.now().strftime("%Y-%m-%d")
 tomorrow_date = datetime.datetime.now() + datetime.timedelta(days=1)
@@ -50,7 +51,7 @@ class ActionSetNotify(Action):
         # query from database for the event day and set the notifying datetime before
         # send_date = next_event_date - datetime.timedelta(days=1)
         # date = datetime.datetime.combine(send_date, send_time)
-        date = datetime.datetime.now() + datetime.timedelta(seconds=30)
+        date = datetime.datetime.now() + datetime.timedelta(seconds=15)
         str_date = datetime.datetime.strftime(date,'%Y-%m-%d %H:%M:%S')
         dispatcher.utter_message("Confirmed. I will check with you at {}".format(str_date))
         # dispatcher.utter_message("Confirmed. I will check with you the day before the event every week.")
@@ -154,7 +155,7 @@ class ActionRecordTime(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         day_text = tracker.get_slot("day")
 
-        # --- ! record the new time and report to backend/manager ---
+        # --- ! record the new time, ask to other users, and report to the manager ---
         # identify the new date
         digit_date = []
         digit_date = re.findall("\d+", day_text)
@@ -194,8 +195,16 @@ class ActionRecordTime(Action):
         # dispatcher.utter_message(text="Sure! I'm checking with other participants. I'll let you know when it's confirmed. Hope to see you soon!")
         dispatcher.utter_message(text=text_message)
 
-        return []
-    
+        # trigger a reminder to ask other users
+        date = datetime.datetime.now() + datetime.timedelta(seconds=10)
+        reminder = ReminderScheduled(
+            "EXTERNAL_time_change",
+            trigger_date_time=date,
+            name="event_time_change",
+            kill_on_user_message=False,
+        )
+
+        return [reminder]
 
 sleep_ls = ["insomnia", "sleep", "asleep", "sleeping", "slept"]
 breath_ls = ["breath", "breathing", "breathe"]
@@ -258,5 +267,91 @@ class ActionEventTime(Action):
         else:
             event_day = "on " + next_event_date.strftime("%Y-%m-%d")
         dispatcher.utter_message(text="The offline group {} event takes place {}.".format(event_name, event_day))
+
+        return []
+
+access_token = "EABcR4tIrngQBAEeVwoWPsJz2TRcc3ZAwdvXXdJas1b1Xk4zvl1oAxvAVTJUrOzTgzAzgcnWfVA2G0f1PRNU0IzjBtjXJOFX5GQ07kSZBOmbkOfr6FFhvpaXiEck3HJfIemJplWznAFv0X95hSUeIaHLZB1M2IxtmVvDiBuyOx7jPSX1e4cs"
+def send_FBmessage(user_psid, message_text):
+    url = 'https://graph.facebook.com/v2.6/me/messages?access_token=' + access_token
+
+    headers = {
+        'Content-Type': 'application/json'
+    }
+
+    data = {
+        'messaging_type': 'UPDATE',
+        'recipient': {
+            'id': user_psid
+        },
+        'message': {
+            'text': message_text
+        }
+    }
+
+    response = requests.post(url, headers=headers, json=data)
+
+    return response.json()
+
+class ActionTimeChangeChecking(Action):
+    """Check the new event time with other user"""
+
+    def name(self) -> Text:
+        return "action_time_change_checking"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        rfile = open('./database.json', 'r')
+        content = rfile.read()
+        data = json.loads(content)
+        rfile.close()
+        event_name = data["events"][next_event_ID]["content"]
+        participants = data["events"][next_event_ID]["participants"]
+        for p in participants:
+            if re.findall("\d+", participants[p]) != []:
+                change_user_ID = p
+                new_event_date = participants[p]
+        message_text="Sorry, someone has asked for rescheduling tomorrow's offline group {} for {}. Are you okay with that?".format(event_name, new_event_date)
+        for p in participants:
+            if p != change_user_ID and participants[p] != "refuse":
+                for user in data["users"]:
+                    if user["id"] == p:
+                        user_psid = user["chatID"]
+                        break
+                send_FBmessage(user_psid, message_text)
+
+        return []
+    
+class ActionGetChangeAgree(Action):
+
+    def name(self) -> Text:
+        return "action_get_change_agree"
+
+    def run(self, dispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        day_text = tracker.get_slot("day")
+
+        # --- ! record the user approve the time change ---
+        conversation_id = tracker.sender_id   # tracker.sender_id / "6490110454383266"
+        rfile = open('./database.json', 'r')
+        content = rfile.read()
+        data = json.loads(content)
+        rfile.close()
+        for user in data["users"]:
+            if user["chatID"] == conversation_id:
+                userID = user["id"]
+                break
+        data["events"][next_event_ID]["participants"][userID] = "affirm_change"
+        new_json = json.dumps(data, indent=4)
+        wfile = open('./database.json', 'w')
+        wfile.write(new_json)
+        wfile.close()
+
+        dispatcher.utter_message(text="Sure! I'll put it on the record.")
 
         return []

@@ -42,6 +42,7 @@ nlu:
     - sure
     - okay I think so
     - I think I can
+    - okay
 
 - intent: deny
   examples: |
@@ -165,6 +166,7 @@ nlu:
     - The [day after tomorrow](day) will be better for me
     - The [18th](day) will be fine with me
     - [1st](day) is better
+    - [6th](day) is better for me
     - [7th](day) will be better
     - I can go on [22nd](day)
     - Yes, [21st](day) is better for me

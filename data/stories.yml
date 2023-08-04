@@ -105,3 +105,13 @@ stories:
   - action: utter_check_help
   - intent: affirm
   - action: utter_ask_prob
+
+- story: get affirm to time change
+  steps:
+  - intent: affirm
+  - action: action_get_change_agree
+
+- story: get deny to time change
+  steps:
+  - intent: deny
+  - action: utter_get_change_deny

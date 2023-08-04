@@ -15,6 +15,7 @@ intents:
   - out_of_scope
   - approve_notify
   - EXTERNAL_notify
+  - EXTERNAL_time_change
 
 entities:
   - problem
@@ -68,7 +69,10 @@ responses:
   - text: "I am a bot. I am here to help."
 
   utter_out_of_scope:
-  - text: Sorry, I can't handle that request.
+  - text: "Sorry, I can't handle that request."
+
+  utter_get_change_deny:
+  - text: "Got it. I'll record it."
 
 actions:
 - action_set_notify
@@ -78,6 +82,8 @@ actions:
 - action_record_time
 - action_record_prob
 - action_event_time
+- action_time_change_checking
+- action_get_change_agree
 
 # session_config:
 #   session_expiration_time: 60

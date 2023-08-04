@@ -17,12 +17,12 @@
         {
             "id": 1,
             "groupID": "1",
-            "date": "2023-07-20",
+            "date": "2023-08-05",
             "online": "False",
             "content": "session",
             "participants": {
-                "611": "unknown",
-                "649": "2023-07-21"
+                "611": "2023-08-07",
+                "649": "affirm_change"
             },
             "status": "unknown"
         }
@@ -37,7 +37,7 @@
             "email": "romyfish@163.com",
             "groupID": "1",
             "chatID": "6110406512402871",
-            "condition": "None"
+            "condition": "headache"
         },
         {
             "id": "649",
