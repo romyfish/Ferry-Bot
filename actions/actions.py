@@ -206,8 +206,6 @@ class ActionRecordTime(Action):
 
         return [reminder]
 
-sleep_ls = ["insomnia", "sleep", "asleep", "sleeping", "slept"]
-breath_ls = ["breath", "breathing", "breathe"]
 class ActionRecordProb(Action):
 
     def name(self) -> Text:
@@ -216,17 +214,9 @@ class ActionRecordProb(Action):
     def run(self, dispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        problem_text = tracker.get_slot("problem")
+        problem = tracker.get_slot("problem")
 
         # --- ! record the problem and report to backend/manager ---
-        # ! try to use rase intent to sort out
-        if problem_text in sleep_ls:
-            problem_name = "sleep"
-        elif problem_text in breath_ls:
-            problem_name = "breath"
-        else:
-            problem_name = problem_text
-        
         conversation_id = tracker.sender_id   # tracker.sender_id / "6490110454383266"
         rfile = open('./database.json', 'r')
         content = rfile.read()
@@ -234,14 +224,14 @@ class ActionRecordProb(Action):
         rfile.close()
         for user in data["users"]:
             if user["chatID"] == conversation_id:
-                user["condition"] = problem_name
+                user["condition"] = problem
                 break
         new_json = json.dumps(data, indent=4)
         wfile = open('./database.json', 'w')
         wfile.write(new_json)
         wfile.close()
 
-        text_message = "Okay, I will keep your problem with {} in mind and look for some help for you. Hope you get better soon".format(problem_name)
+        text_message = "Okay, I will keep your problem with {} in mind and look for some help for you. Hope you get better soon".format(problem)
         # dispatcher.utter_message(text="Okay, I will keep in mind and look for some help for you. Hope you get better soon")
         dispatcher.utter_message(text=text_message)
 

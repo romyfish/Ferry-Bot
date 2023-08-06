@@ -2,10 +2,16 @@ version: "3.1"
 
 rules:
 
-- rule: approve notification
+- rule: Approve notification
+  conversation_start: true
   steps:
   - intent: approve_notify
   - action: action_set_notify
+
+- rule: Response to user's gratitude
+  steps:
+  - intent: thanks
+  - action: utter_re_thanks
 
 - rule: Say goodbye anytime the user says goodbye
   steps:

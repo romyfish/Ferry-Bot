@@ -30,6 +30,21 @@ nlu:
     - bye bye
     - see you later
 
+- intent: thanks
+  examples: |
+    - thanks
+    - thank you
+    - thank u
+    - thx
+    - thanks a lot
+    - you are really nice
+    - u r so sweet
+    - Thank you so much
+    - thanks so much
+    - thank you very much
+    - I appreciate it.
+    - I really appreciate it
+
 - intent: affirm
   examples: |
     - yes
@@ -166,7 +181,6 @@ nlu:
     - The [day after tomorrow](day) will be better for me
     - The [18th](day) will be fine with me
     - [1st](day) is better
-    - [6th](day) is better for me
     - [7th](day) will be better
     - I can go on [22nd](day)
     - Yes, [21st](day) is better for me
@@ -202,3 +216,60 @@ nlu:
     - approve
     - notify
     - notification
+
+- synonym: sleep
+  examples: |
+    - insomnia
+    - asleep
+    - sleeping
+    - slept
+
+- synonym: breath
+  examples: |
+    - breathing
+    - breathe
+
+- lookup: day
+  examples: |
+    - day after
+    - day after tomorrow
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    - Sunday
+    - 1st
+    - 2nd
+    - 3rd
+    - 4th
+    - 5th
+    - 6th
+    - 7th
+    - 8th
+    - 9th
+    - 10th
+    - 11th
+    - 12th
+    - 13th
+    - 14th
+    - 15th
+    - 16th
+    - 17th
+    - 18th
+    - 19th
+    - 20th
+    - 21st
+    - 22nd
+    - 23rd
+    - 24th
+    - 25th
+    - 26th
+    - 27th
+    - 28th
+    - 29th
+    - 30th
+    - 31st
+    
+    

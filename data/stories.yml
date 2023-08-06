@@ -2,25 +2,13 @@ version: "3.1"
 
 stories:
 
-- story: happiest path
+- story: happy
   steps:
   - intent: greet
   - action: utter_greet
   - intent: mood_great
   - action: utter_happy
-  - action: utter_check_help
-  - intent: deny
-  - action: utter_happy_end
-
-- story: happy but need help
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
-  - action: utter_check_help
-  - intent: affirm
-  - action: utter_ask_prob
+  - checkpoint: check_help
 
 - story: unhappy
   steps:
@@ -28,44 +16,20 @@ stories:
   - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
-  - action: utter_check_help
-  - intent: deny
-  - action: utter_happy_end
-
-- story: unhappy and need help
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_check_help
-  - intent: affirm
-  - action: utter_ask_prob
+  - checkpoint: check_help
 
 - story: state the problem
   steps:
   - intent: state_problem
   - action: action_record_prob
 
-- story: EXTERNAL happiest path
+- story: EXTERNAL + attend
   steps:
   - intent: EXTERNAL_notify
   - action: action_notify_triggered
   - intent: affirm
   - action: action_get_affirm
-  - action: utter_check_help
-  - intent: deny
-  - action: utter_happy_end
-
-- story: EXTERNAL attend but need help
-  steps:
-  - intent: EXTERNAL_notify
-  - action: action_notify_triggered
-  - intent: affirm
-  - action: action_get_affirm
-  - action: utter_check_help
-  - intent: affirm
-  - action: utter_ask_prob
+  - checkpoint: check_help
 
 - story: EXTERNAL cannot attend
   steps:
@@ -78,30 +42,24 @@ stories:
   steps:
   - intent: state_unwilling
   - action: action_record_unwilling
-  - action: utter_check_help
-  - intent: deny
-  - action: utter_happy_end
-
-- story: state unwilling to attend and need help
-  steps:
-  - intent: state_unwilling
-  - action: action_record_unwilling
-  - action: utter_check_help
-  - intent: affirm
-  - action: utter_ask_prob
+  - checkpoint: check_help
 
 - story: time unavailable to attend
   steps:
   - intent: state_available_time
   - action: action_record_time
+  - checkpoint: check_help
+
+- story: not need help
+  steps:
+  - checkpoint: check_help
   - action: utter_check_help
   - intent: deny
   - action: utter_happy_end
 
-- story: time unavailable to attend and need help
+- story: need help
   steps:
-  - intent: state_available_time
-  - action: action_record_time
+  - checkpoint: check_help
   - action: utter_check_help
   - intent: affirm
   - action: utter_ask_prob

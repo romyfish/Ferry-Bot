@@ -17,12 +17,12 @@
         {
             "id": 1,
             "groupID": "1",
-            "date": "2023-08-05",
+            "date": "2023-08-08",
             "online": "False",
             "content": "session",
             "participants": {
-                "611": "2023-08-07",
-                "649": "affirm_change"
+                "611": "2023-08-08",
+                "649": "affirm"
             },
             "status": "unknown"
         }
@@ -48,7 +48,7 @@
             "email": "2817055y@163.com",
             "groupID": "1",
             "chatID": "6490110454383266",
-            "condition": "sleep"
+            "condition": "breath"
         },
         {
             "id": "534",
