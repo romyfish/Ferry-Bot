@@ -8,7 +8,7 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import ReminderScheduled, ReminderCancelled
+from rasa_sdk.events import ReminderScheduled, ReminderCancelled, UserUtteranceReverted, ConversationPaused 
 
 import json
 import datetime
@@ -26,11 +26,12 @@ data = json.loads(content)
 rfile.close()
 for event in data["events"]:
     event_date = datetime.datetime.strptime(event["date"],'%Y-%m-%d')
-    if datetime.datetime.now() < event_date:
+    if datetime.datetime.now() < event_date and event["status"] != "canceled":
         # when find the event take place tomorrow or later
         next_event_ID = event["id"]
         next_event_date = event_date
         break
+mng_psid = data["manager"]["chatID"]
 
 # the time to send the checking notification to users
 send_time = datetime.time(10, 30)
@@ -47,22 +48,35 @@ class ActionSetNotify(Action):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
+        
+        conversation_id = tracker.sender_id   # tracker.sender_id / "6490110454383266"
 
         # query from database for the event day and set the notifying datetime before
         # send_date = next_event_date - datetime.timedelta(days=1)
         # date = datetime.datetime.combine(send_date, send_time)
+        # if conversation_id == mng_psid: date += datetime.timedelta(hours=1)
         date = datetime.datetime.now() + datetime.timedelta(seconds=15)
         str_date = datetime.datetime.strftime(date,'%Y-%m-%d %H:%M:%S')
-        dispatcher.utter_message("Confirmed. I will check with you at {}".format(str_date))
-        # dispatcher.utter_message("Confirmed. I will check with you the day before the event every week.")
 
-        reminder = ReminderScheduled(
-            "EXTERNAL_notify",
-            trigger_date_time=date,
-            name="event_notify",
-            kill_on_user_message=False,
-        )
+        if conversation_id != mng_psid:
+            dispatcher.utter_message("Confirmed. I will check with you at {}".format(str_date))
+            # dispatcher.utter_message("Confirmed. I will check with you the day before the event every week.")
 
+            reminder = ReminderScheduled(
+                "EXTERNAL_notify",
+                trigger_date_time=date,
+                name="event_notify",
+                kill_on_user_message=False,
+            )
+        else:
+            dispatcher.utter_message("Confirmed. I will inform you the results from everyone at {}".format(str_date))
+
+            reminder = ReminderScheduled(
+                "EXTERNAL_inform",
+                trigger_date_time=date,
+                name="event_inform",
+                kill_on_user_message=False,
+            )
         return [reminder]
     
 class ActionNotifyTriggered(Action):
@@ -96,7 +110,7 @@ class ActionGetAffirm(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # --- record the individual available and report to backend/manager ---
+        # --- record the individual available ---
         conversation_id = tracker.sender_id   # tracker.sender_id / "6490110454383266"
         rfile = open('./database.json', 'r')
         content = rfile.read()
@@ -155,7 +169,7 @@ class ActionRecordTime(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         day_text = tracker.get_slot("day")
 
-        # --- ! record the new time, ask to other users, and report to the manager ---
+        # --- ! record the new time and ask to other users ---
         # identify the new date
         digit_date = []
         digit_date = re.findall("\d+", day_text)
@@ -196,7 +210,7 @@ class ActionRecordTime(Action):
         dispatcher.utter_message(text=text_message)
 
         # trigger a reminder to ask other users
-        date = datetime.datetime.now() + datetime.timedelta(seconds=10)
+        date = datetime.datetime.now() + datetime.timedelta(seconds=5)
         reminder = ReminderScheduled(
             "EXTERNAL_time_change",
             trigger_date_time=date,
@@ -260,6 +274,182 @@ class ActionEventTime(Action):
 
         return []
 
+class ActionGetChangeAgree(Action):
+
+    def name(self) -> Text:
+        return "action_get_change_agree"
+
+    def run(self, dispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # --- ! record the user approve the time change ---
+        conversation_id = tracker.sender_id   # tracker.sender_id / "6490110454383266"
+        rfile = open('./database.json', 'r')
+        content = rfile.read()
+        data = json.loads(content)
+        rfile.close()
+        for user in data["users"]:
+            if user["chatID"] == conversation_id:
+                userID = user["id"]
+                break
+        data["events"][next_event_ID]["participants"][userID] = "approve_change"
+        new_json = json.dumps(data, indent=4)
+        wfile = open('./database.json', 'w')
+        wfile.write(new_json)
+        wfile.close()
+
+        dispatcher.utter_message(text="Sure! I'll put it on the record.")
+
+        return []
+    
+class ActionInformResult(Action):
+
+    def name(self) -> Text:
+        return "action_inform_result"
+
+    def run(self, dispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # --- only tell the manager about results ---
+        conversation_id = tracker.sender_id   # tracker.sender_id / "6490110454383266"
+        if conversation_id == mng_psid:
+            rfile = open('./database.json', 'r')
+            content = rfile.read()
+            data = json.loads(content)
+            rfile.close()
+            participants = data["events"][next_event_ID]["participants"]   # !! express with sentence or table
+            refuse = []
+            users_change = []
+            change_time = []
+            approve_change = []
+            affirm_count = 0
+            for p in participants:
+                if participants[p] == "refuse":
+                    refuse.append(p)
+                elif re.findall("\d+", participants[p]) != []:
+                    users_change.append(p)
+                    change_time.append(participants[p])
+                elif participants[p] == "approve_change":
+                    approve_change.append(p)
+                else:
+                    affirm_count += 1
+            results = ""
+            if refuse != []:
+                str_refuse = ""
+                if len(refuse) >= 2:
+                    for i in range(len(refuse)-1):
+                        str_refuse += refuse[i] + ", "
+                    str_refuse = str_refuse[:-2] + " and " + refuse[len(refuse)-1]
+                else:
+                    str_refuse += refuse[0]
+                results += str_refuse + " refused to attend. "
+            if users_change != []:
+                str_change = ""
+                for i in range(len(users_change)):
+                    str_change += users_change[i] + " suggested to reschedule the event on " + change_time[i] + ". "
+                results += str_change
+            if approve_change != []:
+                str_approve_change = ""
+                if len(approve_change) >= 2:
+                    for i in range(len(approve_change)-1):
+                        str_approve_change += approve_change[i] + ", "
+                    str_approve_change = str_approve_change[:-2] + " and " + approve_change[len(approve_change)-1]
+                else:
+                    str_approve_change += approve_change[0]
+                results += str_approve_change + " approved to reschedule the event. "
+            else:
+                results += "no other one approved to reschedule the event."
+            if results == "":
+                results += "everyone affirmed to attend the event!"
+            elif affirm_count > 0:
+                results += "And the others affirmed to attend the event!"
+            dispatcher.utter_message(text=results)
+        else:
+            dispatcher.utter_message(text="I'm afraid not sure for now")
+        return []
+
+class ActionRescheduleEvent(Action):
+    """Manager reschedule next event"""
+
+    def name(self) -> Text:
+        return "action_reschedule_event"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        
+        conversation_id = tracker.sender_id   # tracker.sender_id / "6490110454383266"
+        if conversation_id != mng_psid:
+            dispatcher.utter_message(text="Sorry, only the manager can reschedule the event.")
+            return [UserUtteranceReverted()]
+        dispatcher.utter_message(text="Sure, I'll record it in database and inform everyone.")
+        rfile = open('./database.json', 'r')
+        content = rfile.read()
+        data = json.loads(content)
+        rfile.close()
+        participants = data["events"][next_event_ID]["participants"]
+        for p in participants:
+            if re.findall("\d+", participants[p]) != []:
+                new_event_date = participants[p]
+        data["events"][next_event_ID]["date"] = new_event_date
+        new_json = json.dumps(data, indent=4)
+        wfile = open('./database.json', 'w')
+        wfile.write(new_json)
+        wfile.close()
+        # trigger a reminder to inform everyone the event rescheduled
+        date = datetime.datetime.now() + datetime.timedelta(seconds=5)
+        reminder = ReminderScheduled(
+            "EXTERNAL_inform_reschedule",
+            trigger_date_time=date,
+            name="event_inform_reschedule",
+            kill_on_user_message=False,
+        )
+
+        return [reminder]
+
+class ActionCancelEvent(Action):
+    """Manager cancel next event"""
+
+    def name(self) -> Text:
+        return "action_cancel_event"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        conversation_id = tracker.sender_id   # tracker.sender_id / "6490110454383266"
+        if conversation_id != mng_psid:
+            dispatcher.utter_message(text="Sorry, only the manager can cancel the event.")
+            return [UserUtteranceReverted()]
+        dispatcher.utter_message(text="Okay, I'll record it in database and inform everyone.")
+        rfile = open('./database.json', 'r')
+        content = rfile.read()
+        data = json.loads(content)
+        rfile.close()
+        data["events"][next_event_ID]["status"] = "canceled"
+        new_json = json.dumps(data, indent=4)
+        wfile = open('./database.json', 'w')
+        wfile.write(new_json)
+        wfile.close()
+        # trigger a reminder to inform everyone the event canceled
+        date = datetime.datetime.now() + datetime.timedelta(seconds=5)
+        reminder = ReminderScheduled(
+            "EXTERNAL_inform_cancel",
+            trigger_date_time=date,
+            name="event_inform_cancel",
+            kill_on_user_message=False,
+        )
+
+        return [reminder]
+    
 access_token = "EABcR4tIrngQBAEeVwoWPsJz2TRcc3ZAwdvXXdJas1b1Xk4zvl1oAxvAVTJUrOzTgzAzgcnWfVA2G0f1PRNU0IzjBtjXJOFX5GQ07kSZBOmbkOfr6FFhvpaXiEck3HJfIemJplWznAFv0X95hSUeIaHLZB1M2IxtmVvDiBuyOx7jPSX1e4cs"
 def send_FBmessage(user_psid, message_text):
     url = 'https://graph.facebook.com/v2.6/me/messages?access_token=' + access_token
@@ -315,18 +505,83 @@ class ActionTimeChangeChecking(Action):
                 send_FBmessage(user_psid, message_text)
 
         return []
-    
-class ActionGetChangeAgree(Action):
+
+class ActionInformReschedule(Action):
+    """inform every user the event rescheduled"""
 
     def name(self) -> Text:
-        return "action_get_change_agree"
+        return "action_inform_reschedule"
 
-    def run(self, dispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        day_text = tracker.get_slot("day")
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
 
-        # --- ! record the user approve the time change ---
+        rfile = open('./database.json', 'r')
+        content = rfile.read()
+        data = json.loads(content)
+        rfile.close()
+        event_name = data["events"][next_event_ID]["content"]
+        new_event_date = data["events"][next_event_ID]["date"]
+        participants = data["events"][next_event_ID]["participants"]
+        message_text="Hi, tomorrow's offline group {} is rescheduled to {}. Hope to see you!".format(event_name, new_event_date)
+        for p in participants:
+            for user in data["users"]:
+                if user["id"] == p:
+                    user_psid = user["chatID"]
+                    break
+            send_FBmessage(user_psid, message_text)
+
+        return []
+    
+class ActionInformCancel(Action):
+    """inform every user the event canceled"""
+
+    def name(self) -> Text:
+        return "action_inform_cancel"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        rfile = open('./database.json', 'r')
+        content = rfile.read()
+        data = json.loads(content)
+        rfile.close()
+        event_name = data["events"][next_event_ID]["content"]
+        participants = data["events"][next_event_ID]["participants"]
+        status = data["events"][next_event_ID]["status"]
+        message_text="Hi, tomorrow's offline group {} is {}. Hope to see you next week!".format(event_name, status)
+        for p in participants:
+            for user in data["users"]:
+                if user["id"] == p:
+                    user_psid = user["chatID"]
+                    break
+            send_FBmessage(user_psid, message_text)
+
+        return []
+    
+class ActionDefaultFallback(Action):
+    """ultimate fallback action to handoff to a human manager"""
+
+    def name(self) -> Text:
+        return "action_default_fallback"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Sorry, I can't help you. I am passing you to the manager...")
+        
+        # message to manager with the situation asking for handoff
         conversation_id = tracker.sender_id   # tracker.sender_id / "6490110454383266"
         rfile = open('./database.json', 'r')
         content = rfile.read()
@@ -334,14 +589,10 @@ class ActionGetChangeAgree(Action):
         rfile.close()
         for user in data["users"]:
             if user["chatID"] == conversation_id:
-                userID = user["id"]
+                user_name = user["name"]
                 break
-        data["events"][next_event_ID]["participants"][userID] = "affirm_change"
-        new_json = json.dumps(data, indent=4)
-        wfile = open('./database.json', 'w')
-        wfile.write(new_json)
-        wfile.close()
+        message_text="Hi manager, I can't handle {}'s request. Please log in to response...".format(user_name)
+        send_FBmessage(mng_psid, message_text)
 
-        dispatcher.utter_message(text="Sure! I'll put it on the record.")
-
-        return []
+        return [ConversationPaused(), UserUtteranceReverted()]
+    

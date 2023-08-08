@@ -12,11 +12,18 @@ intents:
   - state_problem
   - state_unwilling
   - state_available_time
+  - ask_result
+  - confrim_result
+  - reschedule_event
+  - cancel_event
   - bot_challenge
   - out_of_scope
   - approve_notify
   - EXTERNAL_notify
+  - EXTERNAL_inform
   - EXTERNAL_time_change
+  - EXTERNAL_inform_reschedule
+  - EXTERNAL_inform_cancel
 
 entities:
   - problem
@@ -70,6 +77,9 @@ responses:
   - text: "No worries~"
   - text: "Cheers!"
 
+  utter_smile:
+  - text: ":)"
+
   utter_iamabot:
   - text: "I am a bot. I am here to help."
 
@@ -78,6 +88,12 @@ responses:
 
   utter_get_change_deny:
   - text: "Got it. I'll record it."
+
+  utter_ask_rephrase:
+  - text: "Sorry, I didn't quite understand that. Could you please rephrase?"
+
+  # utter_default:
+  # - text: "Sorry, I can't help you. Do you need human service?"
 
 actions:
 - action_set_notify
@@ -89,6 +105,11 @@ actions:
 - action_event_time
 - action_time_change_checking
 - action_get_change_agree
+- action_inform_result
+- action_reschedule_event
+- action_cancel_event
+- action_inform_reschedule
+- action_inform_cancel
 
 session_config:
   session_expiration_time: 3   # value in minutes

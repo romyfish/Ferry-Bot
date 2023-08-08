@@ -173,6 +173,7 @@ nlu:
     - Staying alone is better for me
     - Just not interested
     - That's no good for me
+    - prefer not to say
 
 - intent: state_available_time
   examples: |
@@ -192,6 +193,54 @@ nlu:
     - [Saturday](day) is better
     - This [Sunday](day) works better for me
     - Yes, [Saturday](day) would be better
+
+- intent: ask_result
+  examples: |
+    - Hi, How is the result
+    - how is the checking
+    - will they all come tomorrow
+    - will they come to the event
+    - are they all coming
+    - are they going this time
+    - will everyone come
+    - hey, tell me about the checking results
+    - result
+
+- intent: confrim_result
+  examples: |
+    - copy
+    - copy that
+    - get
+    - got it
+
+- intent: reschedule_event
+  examples: |
+    - okay, let's change the time
+    - let's do the reschedule
+    - let's reschedule it
+    - reschedule the event
+    - reschedule it
+    - just reschedule the event
+    - just reschedule it
+    - sure, just do the reschedule
+    - do reschedule
+    - agree reschedule
+    - change the time
+    - just change the time
+
+- intent: cancel_event
+  examples: |
+    - okay, let's cancel event
+    - let's cancel event
+    - let's cancel it
+    - just cancel it
+    - just cancel the event this week
+    - okay, cancel this week event
+    - cancel the next event
+    - the event should be canceled
+    - it has to be canceled
+    - I have to cancel it
+    - cancel the event
 
 - intent: bot_challenge
   examples: |

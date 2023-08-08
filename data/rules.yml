@@ -23,6 +23,26 @@ rules:
   - intent: get_event_time
   - action: action_event_time
 
+- rule: Manager ask checking result
+  steps:
+  - intent: ask_result
+  - action: action_inform_result
+
+- rule: Manager get the result
+  steps:
+  - intent: confrim_result
+  - action: utter_smile
+
+- rule: Manager reschedule next event
+  steps:
+  - intent: reschedule_event
+  - action: action_reschedule_event
+
+- rule: Manager cancel next event
+  steps:
+  - intent: cancel_event
+  - action: action_cancel_event
+
 - rule: Confirm 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
@@ -40,8 +60,29 @@ rules:
 
 - rule: react to notification
   steps:
+  - intent: EXTERNAL_inform
+  - action: action_inform_result
+
+- rule: react to notification
+  steps:
   - intent: EXTERNAL_time_change
   - action: action_time_change_checking
+
+- rule: inform reschedule
+  steps:
+  - intent: EXTERNAL_inform_reschedule
+  - action: action_inform_reschedule
+
+- rule: inform event cancel
+  steps:
+  - intent: EXTERNAL_inform_cancel
+  - action: action_inform_cancel
+
+- rule: two stage fallback
+  steps:
+  - intent: nlu_fallback
+  - action: action_two_stage_fallback
+  - active_loop: action_two_stage_fallback
 
 # - rule: welcome user 
 #     conversation_start: true  # this rule only applies at the beginning of a conversation

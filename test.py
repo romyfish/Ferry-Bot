@@ -98,32 +98,32 @@ import re
 # print(send_time)
 # print(datetime.datetime.combine(date,send_time))
 
-import requests
-access_token = "EABcR4tIrngQBAEeVwoWPsJz2TRcc3ZAwdvXXdJas1b1Xk4zvl1oAxvAVTJUrOzTgzAzgcnWfVA2G0f1PRNU0IzjBtjXJOFX5GQ07kSZBOmbkOfr6FFhvpaXiEck3HJfIemJplWznAFv0X95hSUeIaHLZB1M2IxtmVvDiBuyOx7jPSX1e4cs"
-def send_facebook_message(user_psid, message_text):
-    url = 'https://graph.facebook.com/v2.6/me/messages?access_token=' + access_token
+# import requests
+# access_token = "EABcR4tIrngQBAEeVwoWPsJz2TRcc3ZAwdvXXdJas1b1Xk4zvl1oAxvAVTJUrOzTgzAzgcnWfVA2G0f1PRNU0IzjBtjXJOFX5GQ07kSZBOmbkOfr6FFhvpaXiEck3HJfIemJplWznAFv0X95hSUeIaHLZB1M2IxtmVvDiBuyOx7jPSX1e4cs"
+# def send_facebook_message(user_psid, message_text):
+#     url = 'https://graph.facebook.com/v2.6/me/messages?access_token=' + access_token
 
-    headers = {
-        'Content-Type': 'application/json'
-    }
+#     headers = {
+#         'Content-Type': 'application/json'
+#     }
 
-    data = {
-        'messaging_type': 'UPDATE',
-        'recipient': {
-            'id': user_psid
-        },
-        'message': {
-            'text': message_text
-        }
-    }
+#     data = {
+#         'messaging_type': 'UPDATE',
+#         'recipient': {
+#             'id': user_psid
+#         },
+#         'message': {
+#             'text': message_text
+#         }
+#     }
 
-    response = requests.post(url, headers=headers, json=data)
+#     response = requests.post(url, headers=headers, json=data)
 
-    return response.json()
+#     return response.json()
 
-user_psid = "6110406512402871"
-message_text = "Message test update"
-send_facebook_message(user_psid, message_text)
+# user_psid = "6110406512402871"
+# message_text = "Message test update"
+# send_facebook_message(user_psid, message_text)
 
 # rfile = open('./database.json', 'r')
 # content = rfile.read()
@@ -136,3 +136,4 @@ send_facebook_message(user_psid, message_text)
 #         change_user_ID = rp
 #         new_event_date = participants[rp]
 #         print(change_user_ID, new_event_date)
+

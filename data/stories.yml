@@ -18,11 +18,6 @@ stories:
   - action: utter_cheer_up
   - checkpoint: check_help
 
-- story: state the problem
-  steps:
-  - intent: state_problem
-  - action: action_record_prob
-
 - story: EXTERNAL + attend
   steps:
   - intent: EXTERNAL_notify
@@ -37,6 +32,29 @@ stories:
   - action: action_notify_triggered
   - intent: deny
   - action: utter_ask_reason
+
+- story: EXTERNAL cannot attend with unwilling
+  steps:
+  - intent: EXTERNAL_notify
+  - action: action_notify_triggered
+  - intent: state_unwilling
+  - action: action_record_unwilling
+  - checkpoint: check_help
+
+- story: EXTERNAL cannot attend with new time
+  steps:
+  - intent: EXTERNAL_notify
+  - action: action_notify_triggered
+  - intent: state_available_time
+  - action: action_record_time
+  - checkpoint: check_help
+
+- story: EXTERNAL inform manager
+  steps:
+  - intent: EXTERNAL_inform
+  - action: action_inform_result
+  - intent: confrim_result
+  - action: utter_smile
 
 - story: state unwilling to attend
   steps:
@@ -63,6 +81,11 @@ stories:
   - action: utter_check_help
   - intent: affirm
   - action: utter_ask_prob
+
+- story: state the problem
+  steps:
+  - intent: state_problem
+  - action: action_record_prob
 
 - story: get affirm to time change
   steps:
