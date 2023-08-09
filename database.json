@@ -17,14 +17,18 @@
         {
             "id": 1,
             "groupID": "1",
-            "date": "2023-08-08",
+            "date": "2023-08-11",
             "online": "False",
             "content": "session",
             "participants": {
-                "611": "2023-08-08",
-                "649": "affirm"
+                "611": "approve_change",
+                "649": "2023-08-12 or 2023-08-13"
             },
-            "status": "unknown"
+            "potential_date": {
+                "2023-08-12": 2,
+                "2023-08-13": 1
+            },
+            "status": "pending"
         }
     ],
     "users": [
@@ -48,7 +52,7 @@
             "email": "2817055y@163.com",
             "groupID": "1",
             "chatID": "6490110454383266",
-            "condition": "breath"
+            "condition": "headache"
         },
         {
             "id": "534",
@@ -72,5 +76,13 @@
             "chatID": "None",
             "condition": "None"
         }
-    ]
+    ],
+    "manager": {
+        "id": "611",
+        "name": "Romy",
+        "surname": "Yu",
+        "gender": "F",
+        "email": "romyfish@163.com",
+        "chatID": "6110406512402871"
+    }
 }

@@ -49,6 +49,14 @@ stories:
   - action: action_record_time
   - checkpoint: check_help
 
+- story: EXTERNAL cannot attend with new time (after)
+  steps:
+  - intent: EXTERNAL_notify
+  - action: action_notify_triggered
+  - intent: state_available_time_after
+  - action: action_record_time_after
+  - checkpoint: check_help
+
 - story: EXTERNAL inform manager
   steps:
   - intent: EXTERNAL_inform
@@ -66,6 +74,12 @@ stories:
   steps:
   - intent: state_available_time
   - action: action_record_time
+  - checkpoint: check_help
+
+- story: time unavailable to attend (after)
+  steps:
+  - intent: state_available_time_after
+  - action: action_record_time_after
   - checkpoint: check_help
 
 - story: not need help
@@ -92,7 +106,14 @@ stories:
   - intent: affirm
   - action: action_get_change_agree
 
+- story: get affirm to time change and let user pick a day
+  steps:
+  - intent: affirm
+  - action: action_get_change_agree
+  - intent: state_available_time
+  - action: action_record_time
+
 - story: get deny to time change
   steps:
   - intent: deny
-  - action: utter_get_change_deny
+  - action: action_get_change_deny

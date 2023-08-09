@@ -3,7 +3,7 @@ version: "3.1"
 rules:
 
 - rule: Approve notification
-  conversation_start: true
+  # conversation_start: true
   steps:
   - intent: approve_notify
   - action: action_set_notify

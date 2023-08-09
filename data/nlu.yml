@@ -193,6 +193,30 @@ nlu:
     - [Saturday](day) is better
     - This [Sunday](day) works better for me
     - Yes, [Saturday](day) would be better
+    - I will pick [2023-08-14](day)
+    - I choose [09-14](day)
+
+- intent: state_available_time_after
+  examples: |
+    - Yeah. I have to work tomorrow, after [tomorrow](day) I can
+    - Yeah. I have too many work tomorrow,  I can make it after [tomorrow](day)
+    - Yeah. I have too many things to do tomorrow,  I can make it after [tomorrow](day)
+    - After [tomorrow](day) will be better for me
+    - After the [18th](day) will be fine with me
+    - After [1st](day) is better
+    - After [7th](day) will be better
+    - I can go after [22nd](day)
+    - Yes, After [21st](day) is better for me
+    - After the [Monday](day) will be better for me
+    - I can go after [Tuesday](day)
+    - I can make it after [Wednesday](day)
+    - I will go after [Monday](day)
+    - I am free after [Tuesday](day)
+    - I will be free after [Thursday](day)
+    - After the [Friday](day) will be fine with me
+    - After [Saturday](day) is better
+    - After [Friday](day) works better for me
+    - Yes, after [Saturday](day) would be better
 
 - intent: ask_result
   examples: |

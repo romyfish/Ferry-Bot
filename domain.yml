@@ -12,6 +12,8 @@ intents:
   - state_problem
   - state_unwilling
   - state_available_time
+  - state_available_time_after
+  - state_available_time_range
   - ask_result
   - confrim_result
   - reschedule_event
@@ -86,9 +88,6 @@ responses:
   utter_out_of_scope:
   - text: "Sorry, I can't handle that request."
 
-  utter_get_change_deny:
-  - text: "Got it. I'll record it."
-
   utter_ask_rephrase:
   - text: "Sorry, I didn't quite understand that. Could you please rephrase?"
 
@@ -101,10 +100,12 @@ actions:
 - action_get_affirm
 - action_record_unwilling
 - action_record_time
+- action_record_time_after
 - action_record_prob
 - action_event_time
 - action_time_change_checking
 - action_get_change_agree
+- action_get_change_deny
 - action_inform_result
 - action_reschedule_event
 - action_cancel_event
