@@ -1,0 +1,122 @@
+[
+  {
+    "text": "I was out of breath",
+    "entities": [
+      {
+        "start": 13,
+        "end": 19,
+        "value": "breath",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "problem",
+        "start": 13,
+        "end": 19,
+        "confidence_entity": 0.9220044016838074,
+        "value": "breath",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I have some insomnia recently",
+    "entities": [
+      {
+        "start": 12,
+        "end": 20,
+        "value": "insomnia",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "problem",
+        "start": 12,
+        "end": 20,
+        "confidence_entity": 0.6866862177848816,
+        "value": "sleep",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I feel a headache",
+    "entities": [
+      {
+        "start": 9,
+        "end": 17,
+        "value": "headache",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "problem",
+        "start": 9,
+        "end": 17,
+        "confidence_entity": 0.9974362254142761,
+        "value": "headache",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I cannot fall asleep",
+    "entities": [
+      {
+        "start": 14,
+        "end": 20,
+        "value": "asleep",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "problem",
+        "start": 14,
+        "end": 20,
+        "confidence_entity": 0.603899359703064,
+        "value": "sleep",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I couldn't breathe",
+    "entities": [
+      {
+        "start": 11,
+        "end": 18,
+        "value": "breathe",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "problem",
+        "start": 11,
+        "end": 18,
+        "confidence_entity": 0.986299455165863,
+        "value": "breath",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

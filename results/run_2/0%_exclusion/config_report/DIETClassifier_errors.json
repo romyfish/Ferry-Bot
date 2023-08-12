@@ -1,0 +1,36 @@
+[
+  {
+    "text": "What is 2 + 2",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 8,
+        "end": 9,
+        "confidence_entity": 0.9925372004508972,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "day",
+        "start": 12,
+        "end": 13,
+        "confidence_entity": 0.9976340532302856,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I always feel frustrated",
+    "entities": [
+      {
+        "start": 14,
+        "end": 24,
+        "value": "frustrated",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

@@ -34,7 +34,7 @@ for event in data["events"]:
 mng_psid = data["manager"]["chatID"]
 
 # the time to send the checking notification to users
-send_time = datetime.time(10, 30)
+send_time = datetime.time(15, 55)
 
 class ActionSetNotify(Action):
     """Schedules a notification to checking if the user will attend events"""
@@ -55,7 +55,7 @@ class ActionSetNotify(Action):
         # send_date = next_event_date - datetime.timedelta(days=1)
         # date = datetime.datetime.combine(send_date, send_time)
         # if conversation_id == mng_psid: date += datetime.timedelta(hours=1)
-        date = datetime.datetime.now() + datetime.timedelta(seconds=15)
+        date = datetime.datetime.now() + datetime.timedelta(seconds=5)
         str_date = datetime.datetime.strftime(date,'%Y-%m-%d %H:%M:%S')
 
         if conversation_id != mng_psid:
@@ -273,6 +273,7 @@ class ActionRecordTime(Action):
         if potential_dates.get(new_date) == None:
             askOther = True
             potential_dates[new_date] = 0
+            data["events"][next_event_ID]["participants"][userID] = new_date
         else:
             potential_dates[new_date] += 1
         data["events"][next_event_ID]["potential_date"] = potential_dates
@@ -626,7 +627,7 @@ class ActionCancelEvent(Action):
 
         return [reminder]
     
-access_token = "EABcR4tIrngQBAEeVwoWPsJz2TRcc3ZAwdvXXdJas1b1Xk4zvl1oAxvAVTJUrOzTgzAzgcnWfVA2G0f1PRNU0IzjBtjXJOFX5GQ07kSZBOmbkOfr6FFhvpaXiEck3HJfIemJplWznAFv0X95hSUeIaHLZB1M2IxtmVvDiBuyOx7jPSX1e4cs"
+access_token = "EABcR4tIrngQBOxSZAPhZB3AZA42lTLWZCDYKOFqTG5SEnmKkZAKCyCEd2qxlzDLZAZBZAVM2zGBNomUKmF0C18AL1FGSCyybPiLNIeU31xv4QdoJZCnxI2MR62MfZAmsTpDrEJklrsAr48kRF4wyfrz8Mj8ZARabkbXvaxZBDErcQpLkDUF95DX8Nnbl6U4sa3oOekDC"
 def send_FBmessage(user_psid, message_text):
     url = 'https://graph.facebook.com/v2.6/me/messages?access_token=' + access_token
 

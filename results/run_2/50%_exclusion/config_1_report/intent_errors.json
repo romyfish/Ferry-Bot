@@ -1,0 +1,138 @@
+[
+  {
+    "text": "I want to order food",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.5219366550445557
+    }
+  },
+  {
+    "text": "are you a bot?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.6824249029159546
+    }
+  },
+  {
+    "text": "am I talking to a bot?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.2656245529651642
+    }
+  },
+  {
+    "text": "see you around",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.3880424201488495
+    }
+  },
+  {
+    "text": "thx",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.949344277381897
+    }
+  },
+  {
+    "text": "u r so sweet",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.7298600077629089
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.656331479549408
+    }
+  },
+  {
+    "text": "good afternoon",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.8727498650550842
+    }
+  },
+  {
+    "text": "I just wouldn't want to go out",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.3900691866874695
+    }
+  },
+  {
+    "text": "I don't think so",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.46659690141677856
+    }
+  },
+  {
+    "text": "I think I cant",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.8854312896728516
+    }
+  },
+  {
+    "text": "The 18th will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.80320805311203
+    }
+  },
+  {
+    "text": "The Friday will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.972424328327179
+    }
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, the day after can",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9920593500137329
+    }
+  },
+  {
+    "text": "amazing",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.49980926513671875
+    }
+  },
+  {
+    "text": "nice",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.553281307220459
+    }
+  },
+  {
+    "text": "I have some insomnia recently",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.37390732765197754
+    }
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "text": "Yeah. I have to work tomorrow, the day after tomorrow can",
+    "entities": [
+      {
+        "start": 35,
+        "end": 53,
+        "value": "day after tomorrow",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 21,
+        "end": 29,
+        "confidence_entity": 0.4355399012565613,
+        "value": "tomorrow",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "day",
+        "start": 45,
+        "end": 53,
+        "confidence_entity": 0.5228434801101685,
+        "value": "tomorrow",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, the day after can",
+    "entities": [
+      {
+        "start": 35,
+        "end": 44,
+        "value": "day after",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 21,
+        "end": 29,
+        "confidence_entity": 0.43369027972221375,
+        "value": "tomorrow",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

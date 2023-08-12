@@ -1,0 +1,30 @@
+[
+  {
+    "text": "have a nice day",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 12,
+        "end": 15,
+        "confidence_entity": 0.700340986251831,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "What day will the event be held",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.5889885425567627,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

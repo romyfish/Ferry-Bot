@@ -1,0 +1,186 @@
+[
+  {
+    "text": "approve",
+    "intent": "approve_notify",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.6274130344390869
+    }
+  },
+  {
+    "text": "What is pantone",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.6161434054374695
+    }
+  },
+  {
+    "text": "give me money",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.49994003772735596
+    }
+  },
+  {
+    "text": "cu",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.21719147264957428
+    }
+  },
+  {
+    "text": "see you around",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.8366151452064514
+    }
+  },
+  {
+    "text": "result",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.2788706123828888
+    }
+  },
+  {
+    "text": "sure",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8498317003250122
+    }
+  },
+  {
+    "text": "thank you very much",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.8897125124931335
+    }
+  },
+  {
+    "text": "thanks a lot",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.35142040252685547
+    }
+  },
+  {
+    "text": "good evening",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.3928857147693634
+    }
+  },
+  {
+    "text": "I think I cant",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.9822773337364197
+    }
+  },
+  {
+    "text": "I feel bad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.459089994430542
+    }
+  },
+  {
+    "text": "too bad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8956393003463745
+    }
+  },
+  {
+    "text": "Yes, 21st is better for me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9407624006271362
+    }
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, the day after tomorrow can",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9983179569244385
+    }
+  },
+  {
+    "text": "Saturday is better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9965420365333557
+    }
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, the day after can",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9977565407752991
+    }
+  },
+  {
+    "text": "After 7th will be better",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.8717567324638367
+    }
+  },
+  {
+    "text": "I am amazing",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.2968534529209137
+    }
+  },
+  {
+    "text": "Good",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.9195660352706909
+    }
+  },
+  {
+    "text": "I'm fine",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.7893173098564148
+    }
+  },
+  {
+    "text": "My breath came in short pants",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.3686702847480774
+    }
+  },
+  {
+    "text": "I could hardly breathe",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.14464809000492096
+    }
+  }
+]

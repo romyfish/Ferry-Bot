@@ -1,0 +1,62 @@
+[
+  {
+    "text": "The 18th will be fine with me",
+    "entities": [
+      {
+        "start": 4,
+        "end": 8,
+        "value": "18th",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, the day after can",
+    "entities": [
+      {
+        "start": 35,
+        "end": 44,
+        "value": "day after",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 21,
+        "end": 29,
+        "confidence_entity": 0.7253014445304871,
+        "value": "tomorrow",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "After 7th will be better",
+    "entities": [
+      {
+        "start": 6,
+        "end": 9,
+        "value": "7th",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I have some insomnia recently",
+    "entities": [
+      {
+        "start": 12,
+        "end": 20,
+        "value": "insomnia",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "text": "What is 2 + 2",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.9873944520950317
+    }
+  },
+  {
+    "text": "bye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5901065468788147
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9821163415908813
+    }
+  },
+  {
+    "text": "will everyone come",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "get_event_time",
+      "confidence": 0.3168855607509613
+    }
+  },
+  {
+    "text": "yeah",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.8128215670585632
+    }
+  },
+  {
+    "text": "that sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.6250614523887634
+    }
+  },
+  {
+    "text": "good afternoon",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.878713071346283
+    }
+  },
+  {
+    "text": "hey",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.37275516986846924
+    }
+  },
+  {
+    "text": "sorry, I think I cannot",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.8217993378639221
+    }
+  },
+  {
+    "text": "don't like that",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.6154501438140869
+    }
+  },
+  {
+    "text": "awful",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.40997689962387085
+    }
+  },
+  {
+    "text": "not good",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.4399959444999695
+    }
+  },
+  {
+    "text": "The 18th will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9916600584983826
+    }
+  },
+  {
+    "text": "1st is better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.7256994843482971
+    }
+  },
+  {
+    "text": "The Friday will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.8329007029533386
+    }
+  },
+  {
+    "text": "nice",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.958305835723877
+    }
+  },
+  {
+    "text": "not bad",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.4690914750099182
+    }
+  },
+  {
+    "text": "I have some insomnia recently",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.28507623076438904
+    }
+  }
+]

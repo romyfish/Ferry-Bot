@@ -1,0 +1,162 @@
+[
+  {
+    "text": "What is 2 + 2",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.9936070442199707
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9944861531257629
+    }
+  },
+  {
+    "text": "tell me the result",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.2972395718097687
+    }
+  },
+  {
+    "text": "of course",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.9821049571037292
+    }
+  },
+  {
+    "text": "yeah",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9348637461662292
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.3723597824573517
+    }
+  },
+  {
+    "text": "good morning",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.6946277022361755
+    }
+  },
+  {
+    "text": "prefer not to say",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.8342283964157104
+    }
+  },
+  {
+    "text": "sorry, I think I cannot",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.30351024866104126
+    }
+  },
+  {
+    "text": "awful",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.36269569396972656
+    }
+  },
+  {
+    "text": "I want to change the event time",
+    "intent": "reschedule_event",
+    "intent_prediction": {
+      "name": "get_event_time",
+      "confidence": 0.41219621896743774
+    }
+  },
+  {
+    "text": "1st is better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.6928400993347168
+    }
+  },
+  {
+    "text": "I will go on Thursday",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.4158343970775604
+    }
+  },
+  {
+    "text": "After tomorrow will be better for me",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.966331422328949
+    }
+  },
+  {
+    "text": "I will be free after Thursday",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.4312291741371155
+    }
+  },
+  {
+    "text": "so so perfect",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.6623017191886902
+    }
+  },
+  {
+    "text": "super stoked",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9763392210006714
+    }
+  },
+  {
+    "text": "I am great",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.48372912406921387
+    }
+  },
+  {
+    "text": "fine",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.19498252868652344
+    }
+  },
+  {
+    "text": "I have some insomnia recently",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.23848791420459747
+    }
+  }
+]

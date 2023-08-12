@@ -1,0 +1,82 @@
+[
+  {
+    "text": "Can you rule the world",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.3336550295352936
+    }
+  },
+  {
+    "text": "have a nice day",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.2144465148448944
+    }
+  },
+  {
+    "text": "how is the checking",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.24268345534801483
+    }
+  },
+  {
+    "text": "that sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.34277746081352234
+    }
+  },
+  {
+    "text": "thx",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6469804644584656
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.4451892673969269
+    }
+  },
+  {
+    "text": "I just don't wanna socialize",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.4158412218093872
+    }
+  },
+  {
+    "text": "I don't feel very well",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.20666280388832092
+    }
+  },
+  {
+    "text": "not good",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8715780377388
+    }
+  },
+  {
+    "text": "Yes, Saturday would be better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.6971546411514282
+    }
+  }
+]

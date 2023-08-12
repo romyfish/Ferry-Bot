@@ -1,0 +1,50 @@
+[
+  {
+    "text": "The Friday will be fine with me",
+    "entities": [
+      {
+        "start": 4,
+        "end": 10,
+        "value": "Friday",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "After Friday works better for me",
+    "entities": [
+      {
+        "start": 6,
+        "end": 12,
+        "value": "Friday",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I have trouble breathing sometimes",
+    "entities": [
+      {
+        "start": 15,
+        "end": 24,
+        "value": "breathing",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I have some insomnia recently",
+    "entities": [
+      {
+        "start": 12,
+        "end": 20,
+        "value": "insomnia",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

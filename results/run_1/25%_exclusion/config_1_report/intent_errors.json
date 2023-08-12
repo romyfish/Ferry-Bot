@@ -1,0 +1,106 @@
+[
+  {
+    "text": "Can you rule the world",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.3543805480003357
+    }
+  },
+  {
+    "text": "have a nice day",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.637751042842865
+    }
+  },
+  {
+    "text": "cee you later",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.6201779842376709
+    }
+  },
+  {
+    "text": "that sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.5892885327339172
+    }
+  },
+  {
+    "text": "thx",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9463840126991272
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.3974514901638031
+    }
+  },
+  {
+    "text": "not much",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.9481499791145325
+    }
+  },
+  {
+    "text": "I can't",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.25945454835891724
+    }
+  },
+  {
+    "text": "not good",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8935668468475342
+    }
+  },
+  {
+    "text": "Yes, Saturday would be better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.4842834174633026
+    }
+  },
+  {
+    "text": "The Friday will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9464640021324158
+    }
+  },
+  {
+    "text": "nice",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.2729102671146393
+    }
+  },
+  {
+    "text": "I have some insomnia recently",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5562445521354675
+    }
+  }
+]

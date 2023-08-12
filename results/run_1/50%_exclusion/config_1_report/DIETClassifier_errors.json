@@ -1,0 +1,66 @@
+[
+  {
+    "text": "have a nice day",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 12,
+        "end": 15,
+        "confidence_entity": 0.8474740982055664,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "What day will the event be held",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.5866425633430481,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "The 18th will be fine with me",
+    "entities": [
+      {
+        "start": 4,
+        "end": 8,
+        "value": "18th",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "After the 18th will be fine with me",
+    "entities": [
+      {
+        "start": 10,
+        "end": 14,
+        "value": "18th",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I have some insomnia recently",
+    "entities": [
+      {
+        "start": 12,
+        "end": 20,
+        "value": "insomnia",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

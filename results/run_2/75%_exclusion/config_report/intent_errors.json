@@ -1,0 +1,202 @@
+[
+  {
+    "text": "notification",
+    "intent": "approve_notify",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5191920399665833
+    }
+  },
+  {
+    "text": "What is 2 + 2",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.5646361112594604
+    }
+  },
+  {
+    "text": "cee you later",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.8355989456176758
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9271520972251892
+    }
+  },
+  {
+    "text": "how is the checking",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "get_event_time",
+      "confidence": 0.3927404284477234
+    }
+  },
+  {
+    "text": "okay",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.9220432043075562
+    }
+  },
+  {
+    "text": "indeed",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.47020184993743896
+    }
+  },
+  {
+    "text": "you are really nice",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.6820076107978821
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.9461556077003479
+    }
+  },
+  {
+    "text": "hello there",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.7185296416282654
+    }
+  },
+  {
+    "text": "That's no good for me",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.720575213432312
+    }
+  },
+  {
+    "text": "don't like that",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.8068294525146484
+    }
+  },
+  {
+    "text": "very sad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8659452199935913
+    }
+  },
+  {
+    "text": "my day was horrible",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.5902662873268127
+    }
+  },
+  {
+    "text": "7th will be better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9637235403060913
+    }
+  },
+  {
+    "text": "I will pick 2023-08-14",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.2709414064884186
+    }
+  },
+  {
+    "text": "Yes, 21st is better for me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.988899827003479
+    }
+  },
+  {
+    "text": "Yes, Saturday would be better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9991160035133362
+    }
+  },
+  {
+    "text": "I can go after Tuesday",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.9927983283996582
+    }
+  },
+  {
+    "text": "I will go after Monday",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.9974181652069092
+    }
+  },
+  {
+    "text": "After the 18th will be fine with me",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.6598121523857117
+    }
+  },
+  {
+    "text": "I am going to save the world",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.5959944128990173
+    }
+  },
+  {
+    "text": "not bad",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9961308240890503
+    }
+  },
+  {
+    "text": "feel good",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9815576076507568
+    }
+  },
+  {
+    "text": "I always feel frustrated",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.6326560974121094
+    }
+  }
+]

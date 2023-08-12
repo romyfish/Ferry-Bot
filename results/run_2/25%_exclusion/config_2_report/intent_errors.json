@@ -1,0 +1,106 @@
+[
+  {
+    "text": "I want to order food",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.619297981262207
+    }
+  },
+  {
+    "text": "see you around",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.3418641984462738
+    }
+  },
+  {
+    "text": "result",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.529650092124939
+    }
+  },
+  {
+    "text": "will everyone come",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.2619623839855194
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.4268333911895752
+    }
+  },
+  {
+    "text": "I don't think so",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.31512880325317383
+    }
+  },
+  {
+    "text": "I think I cant",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.4065423309803009
+    }
+  },
+  {
+    "text": "I can't",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.46328306198120117
+    }
+  },
+  {
+    "text": "so saad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.3065375089645386
+    }
+  },
+  {
+    "text": "The 18th will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.7998847365379333
+    }
+  },
+  {
+    "text": "The Friday will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.8051557540893555
+    }
+  },
+  {
+    "text": "Yes, after Saturday would be better",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.6422206163406372
+    }
+  },
+  {
+    "text": "I'm fine",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.3752380907535553
+    }
+  }
+]

@@ -1,0 +1,434 @@
+[
+  {
+    "text": "hi",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5131185054779053
+    }
+  },
+  {
+    "text": "moin",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.8472228050231934
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.24026581645011902
+    }
+  },
+  {
+    "text": "cu",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.4187360107898712
+    }
+  },
+  {
+    "text": "you are really nice",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.7841598987579346
+    }
+  },
+  {
+    "text": "indeed",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8837321400642395
+    }
+  },
+  {
+    "text": "correct",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8424571752548218
+    }
+  },
+  {
+    "text": "never",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.27769553661346436
+    }
+  },
+  {
+    "text": "feel good",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9541746973991394
+    }
+  },
+  {
+    "text": "my day was horrible",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.622962474822998
+    }
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, after tomorrow I can",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.5003266334533691
+    }
+  },
+  {
+    "text": "I want to order food",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.9010524153709412
+    }
+  },
+  {
+    "text": "of course",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.9680166840553284
+    }
+  },
+  {
+    "text": "sure",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.3511451780796051
+    }
+  },
+  {
+    "text": "not much",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.7445758581161499
+    }
+  },
+  {
+    "text": "I don't think so",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.7359761595726013
+    }
+  },
+  {
+    "text": "I couldn't",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.4250018298625946
+    }
+  },
+  {
+    "text": "extremely good",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.5961343050003052
+    }
+  },
+  {
+    "text": "awful",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.86011803150177
+    }
+  },
+  {
+    "text": "I want some money",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.47633039951324463
+    }
+  },
+  {
+    "text": "see you around",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.3361453115940094
+    }
+  },
+  {
+    "text": "yeah",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.693722128868103
+    }
+  },
+  {
+    "text": "I think I can",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9970153570175171
+    }
+  },
+  {
+    "text": "no thanks",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.9155781865119934
+    }
+  },
+  {
+    "text": "wonderful",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.19938971102237701
+    }
+  },
+  {
+    "text": "I am going to save the world",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.5658900141716003
+    }
+  },
+  {
+    "text": "I am disappointed",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.4571729600429535
+    }
+  },
+  {
+    "text": "I have some insomnia recently",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5845703482627869
+    }
+  },
+  {
+    "text": "The Friday will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.8341327905654907
+    }
+  },
+  {
+    "text": "Can I eat glass",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.4636305868625641
+    }
+  },
+  {
+    "text": "What is pantone",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "get_event_time",
+      "confidence": 0.858639121055603
+    }
+  },
+  {
+    "text": "good afternoon",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9743813872337341
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9107784032821655
+    }
+  },
+  {
+    "text": "good night",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8217537999153137
+    }
+  },
+  {
+    "text": "thx",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5697193145751953
+    }
+  },
+  {
+    "text": "u r so sweet",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.19778500497341156
+    }
+  },
+  {
+    "text": "that sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.5413761734962463
+    }
+  },
+  {
+    "text": "don't like that",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.8815039992332458
+    }
+  },
+  {
+    "text": "I can't",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.6323912739753723
+    }
+  },
+  {
+    "text": "super stoked",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.28832781314849854
+    }
+  },
+  {
+    "text": "not bad",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9149743914604187
+    }
+  },
+  {
+    "text": "unhappy",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.7094749808311462
+    }
+  },
+  {
+    "text": "not good",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.4530206024646759
+    }
+  },
+  {
+    "text": "are they going this time",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.5203520655632019
+    }
+  },
+  {
+    "text": "What is 2 + 2",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.9966453909873962
+    }
+  },
+  {
+    "text": "Can you rule the world",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.3445839583873749
+    }
+  },
+  {
+    "text": "have a nice day",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.48322030901908875
+    }
+  },
+  {
+    "text": "I think I cant",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.9279174208641052
+    }
+  },
+  {
+    "text": "nice",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.9789143800735474
+    }
+  },
+  {
+    "text": "I feel bad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9987057447433472
+    }
+  },
+  {
+    "text": "too bad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9947701096534729
+    }
+  },
+  {
+    "text": "That's no good for me",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.8183074593544006
+    }
+  },
+  {
+    "text": "The day after tomorrow will be better for me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9747715592384338
+    }
+  },
+  {
+    "text": "Who's the US President",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.44776153564453125
+    }
+  }
+]

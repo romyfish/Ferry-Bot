@@ -1,0 +1,122 @@
+[
+  {
+    "text": "I want to order food",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.3523308038711548
+    }
+  },
+  {
+    "text": "bye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.375375896692276
+    }
+  },
+  {
+    "text": "see you around",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.17711789906024933
+    }
+  },
+  {
+    "text": "When is the event",
+    "intent": "get_event_time",
+    "intent_prediction": {
+      "name": "cancel_event",
+      "confidence": 0.3131413757801056
+    }
+  },
+  {
+    "text": "result",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.23720355331897736
+    }
+  },
+  {
+    "text": "yes",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.2990706264972687
+    }
+  },
+  {
+    "text": "okay I think so",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.31160733103752136
+    }
+  },
+  {
+    "text": "thx",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.24128679931163788
+    }
+  },
+  {
+    "text": "I appreciate it.",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.2087084949016571
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.5379306674003601
+    }
+  },
+  {
+    "text": "so saad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8068061470985413
+    }
+  },
+  {
+    "text": "Saturday is better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.787280261516571
+    }
+  },
+  {
+    "text": "The Friday will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.299774706363678
+    }
+  },
+  {
+    "text": "After 7th will be better",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.9503878951072693
+    }
+  },
+  {
+    "text": "I'm fine",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.5343518853187561
+    }
+  }
+]

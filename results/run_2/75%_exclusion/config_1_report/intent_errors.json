@@ -1,0 +1,130 @@
+[
+  {
+    "text": "I want to order food",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.4565984308719635
+    }
+  },
+  {
+    "text": "are you a bot?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.3828771710395813
+    }
+  },
+  {
+    "text": "see you around",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5782539248466492
+    }
+  },
+  {
+    "text": "are they going this time",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.8071833848953247
+    }
+  },
+  {
+    "text": "yes",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.85847407579422
+    }
+  },
+  {
+    "text": "okay I think so",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9744765758514404
+    }
+  },
+  {
+    "text": "thx",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.32892218232154846
+    }
+  },
+  {
+    "text": "u r so sweet",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.44144317507743835
+    }
+  },
+  {
+    "text": "I appreciate it.",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.23830634355545044
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.2874628007411957
+    }
+  },
+  {
+    "text": "good afternoon",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.6732019782066345
+    }
+  },
+  {
+    "text": "Saturday is better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.995225191116333
+    }
+  },
+  {
+    "text": "After 7th will be better",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.9893571734428406
+    }
+  },
+  {
+    "text": "After Friday works better for me",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.93313068151474
+    }
+  },
+  {
+    "text": "I can go after 22nd",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.927772581577301
+    }
+  },
+  {
+    "text": "nice",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "cancel_event",
+      "confidence": 0.23390604555606842
+    }
+  }
+]

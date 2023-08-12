@@ -1,0 +1,138 @@
+[
+  {
+    "text": "What is pantone",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "get_event_time",
+      "confidence": 0.6962319016456604
+    }
+  },
+  {
+    "text": "cu",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.4529353380203247
+    }
+  },
+  {
+    "text": "are they going this time",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.7107465863227844
+    }
+  },
+  {
+    "text": "okay I think so",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.7364236116409302
+    }
+  },
+  {
+    "text": "sure",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.5037835240364075
+    }
+  },
+  {
+    "text": "I really appreciate it",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.6693827509880066
+    }
+  },
+  {
+    "text": "prefer not to say",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.3051370084285736
+    }
+  },
+  {
+    "text": "prefer to stay at hoem",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.42391425371170044
+    }
+  },
+  {
+    "text": "no thanks",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.8273054361343384
+    }
+  },
+  {
+    "text": "I think I cant",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5667999386787415
+    }
+  },
+  {
+    "text": "I can't",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5383470058441162
+    }
+  },
+  {
+    "text": "I feel bad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8961052298545837
+    }
+  },
+  {
+    "text": "too bad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9873658418655396
+    }
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, the day after tomorrow can",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9955109357833862
+    }
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, the day after can",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9966160655021667
+    }
+  },
+  {
+    "text": "After the Monday will be better for me",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.8313392400741577
+    }
+  },
+  {
+    "text": "After 7th will be better",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.6628108024597168
+    }
+  }
+]

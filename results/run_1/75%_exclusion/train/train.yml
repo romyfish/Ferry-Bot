@@ -1,0 +1,143 @@
+version: "3.1"
+nlu:
+- intent: approve_notify
+  examples: |
+    - approve
+- intent: out_of_scope
+  examples: |
+    - I want some money
+    - What is pantone
+- intent: bot_challenge
+  examples: |
+    - are you a human?
+    - what are you?
+- intent: goodbye
+  examples: |
+    - goodbye
+    - bye
+- intent: get_event_time
+  examples: |
+    - What time is the event
+    - What day is the next event held
+- intent: ask_result
+  examples: |
+    - hey, tell me about the checking results
+    - will they all come tomorrow
+- intent: thanks
+  examples: |
+    - thank you
+    - thanks so much
+    - u r so sweet
+- intent: affirm
+  examples: |
+    - okay I think so
+    - yes
+- intent: cancel_event
+  examples: |
+    - okay, let's cancel event
+    - cancel the next event
+    - just cancel it
+- intent: greet
+  examples: |
+    - hi
+    - hey dude
+    - good evening
+- intent: state_unwilling
+  examples: |
+    - I prefer to stay alone
+    - Just don't want to go
+    - 
+- intent: deny
+  examples: |
+    - I don't think so
+    - not really
+    - I think I cant
+    - no way
+- intent: reschedule_event
+  examples: |
+    - let's reschedule it
+    - I want to change the time
+    - okay, let's reschedule the event
+- intent: mood_unhappy
+  examples: |
+    - I am sad
+    - very sad
+    - super sad
+    - too bad
+- intent: state_available_time
+  examples: |
+    - I will go on [Thursday](day)
+    - I will pick [2023-08-14](day)
+    - I can go on [Tuesday](day)
+    - The [day after tomorrow](day) will be better for me
+- intent: state_available_time_after
+  examples: |
+    - Yeah. I have too many work tomorrow,  I can make it after [tomorrow](day)
+    - Yeah. I have to work tomorrow, after [tomorrow](day) I can
+    - After [tomorrow](day) will be better for me
+    - After [7th](day) will be better
+- intent: mood_great
+  examples: |
+    - I am feeling very good
+    - perfect
+    - so good
+    - so perfect
+- intent: state_problem
+  examples: |
+    - I've been having trouble [sleeping](problem) lately
+    - I sometimes find it hard to [breathe](problem)
+    - I have had a terrible [headache](problem) for the last two days
+    - I feel out of [energy](problem) these days
+    - I could hardly [breathe](problem)
+- synonym: sleep
+  examples: |
+    - insomnia
+    - asleep
+    - sleeping
+    - slept
+- synonym: breath
+  examples: |
+    - breathing
+    - breathe
+- lookup: day
+  examples: |
+    - day after
+    - day after tomorrow
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    - Sunday
+    - 1st
+    - 2nd
+    - 3rd
+    - 4th
+    - 5th
+    - 6th
+    - 7th
+    - 8th
+    - 9th
+    - 10th
+    - 11th
+    - 12th
+    - 13th
+    - 14th
+    - 15th
+    - 16th
+    - 17th
+    - 18th
+    - 19th
+    - 20th
+    - 21st
+    - 22nd
+    - 23rd
+    - 24th
+    - 25th
+    - 26th
+    - 27th
+    - 28th
+    - 29th
+    - 30th
+    - 31st

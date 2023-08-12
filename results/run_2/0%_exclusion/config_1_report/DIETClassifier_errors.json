@@ -1,0 +1,46 @@
+[
+  {
+    "text": "Yeah. I have to work tomorrow, the day after can",
+    "entities": [
+      {
+        "start": 35,
+        "end": 44,
+        "value": "day after",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 21,
+        "end": 29,
+        "confidence_entity": 0.6001797318458557,
+        "value": "tomorrow",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "day",
+        "start": 35,
+        "end": 38,
+        "confidence_entity": 0.5986342430114746,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I have some insomnia recently",
+    "entities": [
+      {
+        "start": 12,
+        "end": 20,
+        "value": "insomnia",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

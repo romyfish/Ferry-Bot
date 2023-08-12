@@ -1,0 +1,143 @@
+version: "3.1"
+nlu:
+- intent: approve_notify
+  examples: |
+    - notify
+    - 
+- intent: out_of_scope
+  examples: |
+    - Can you rule the world
+- intent: bot_challenge
+  examples: |
+    - who are you?
+    - am I talking to a human?
+- intent: goodbye
+  examples: |
+    - have a nice day
+    - cee you later
+- intent: get_event_time
+  examples: |
+    - What day will the event be held
+    - What time is the next event
+- intent: ask_result
+  examples: |
+    - 
+    - how is the checking
+    - will they come to the event
+- intent: affirm
+  examples: |
+    - that sounds good
+    - 
+- intent: thanks
+  examples: |
+    - thank u
+    - thx
+    - thanks a lot
+- intent: greet
+  examples: |
+    - let's go
+    - hello
+- intent: cancel_event
+  examples: |
+    - I want to cancel the event
+    - the event should be canceled
+    - okay, cancel this week event
+- intent: state_unwilling
+  examples: |
+    - I just don't wanna socialize
+    - Staying alone is better for me
+    - I don't want to meet anyone
+- intent: deny
+  examples: |
+    - sorry, I think I cannot
+    - not much
+    - I can't
+    - never
+- intent: mood_unhappy
+  examples: |
+    - sad
+    - I don't feel very well
+    - not good
+- intent: reschedule_event
+  examples: |
+    - just reschedule the event
+    - just reschedule it
+    - I want to change the event time
+    - I want to reschedule the event
+- intent: state_available_time
+  examples: |
+    - Yes, [Saturday](day) would be better
+    - The [Friday](day) will be fine with me
+    - The [18th](day) will be fine with me
+    - This [Sunday](day) works better for me
+- intent: state_available_time_after
+  examples: |
+    - I will be free after [Thursday](day)
+    - I can make it after [Wednesday](day)
+    - I can go after [22nd](day)
+    - After the [18th](day) will be fine with me
+- intent: mood_great
+  examples: |
+    - I am amazing
+    - nice
+    - I'm fine
+    - Good
+- intent: state_problem
+  examples: |
+    - I was out of [breath](problem)
+    - I have some [insomnia](problem) recently
+    - I feel a [headache](problem)
+    - I cannot fall [asleep](problem)
+    - I couldn't [breathe](problem)
+- synonym: sleep
+  examples: |
+    - insomnia
+    - asleep
+    - sleeping
+    - slept
+- synonym: breath
+  examples: |
+    - breathing
+    - breathe
+- lookup: day
+  examples: |
+    - day after
+    - day after tomorrow
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    - Sunday
+    - 1st
+    - 2nd
+    - 3rd
+    - 4th
+    - 5th
+    - 6th
+    - 7th
+    - 8th
+    - 9th
+    - 10th
+    - 11th
+    - 12th
+    - 13th
+    - 14th
+    - 15th
+    - 16th
+    - 17th
+    - 18th
+    - 19th
+    - 20th
+    - 21st
+    - 22nd
+    - 23rd
+    - 24th
+    - 25th
+    - 26th
+    - 27th
+    - 28th
+    - 29th
+    - 30th
+    - 31st

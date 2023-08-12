@@ -1,0 +1,48 @@
+[
+  {
+    "text": "What is 2 + 2",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 8,
+        "end": 9,
+        "confidence_entity": 0.9965965151786804,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "day",
+        "start": 12,
+        "end": 13,
+        "confidence_entity": 0.9991029500961304,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "7th will be better",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "7th",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I have some insomnia recently",
+    "entities": [
+      {
+        "start": 12,
+        "end": 20,
+        "value": "insomnia",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

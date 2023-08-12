@@ -1,0 +1,74 @@
+[
+  {
+    "text": "Can you rule the world",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.58980393409729
+    }
+  },
+  {
+    "text": "have a nice day",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.3220198452472687
+    }
+  },
+  {
+    "text": "cee you later",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.3023821711540222
+    }
+  },
+  {
+    "text": "how is the checking",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "get_event_time",
+      "confidence": 0.22332845628261566
+    }
+  },
+  {
+    "text": "that sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.2641281187534332
+    }
+  },
+  {
+    "text": "thx",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.2499200999736786
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.14944808185100555
+    }
+  },
+  {
+    "text": "not good",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.6326910257339478
+    }
+  },
+  {
+    "text": "The Friday will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.7489537596702576
+    }
+  }
+]

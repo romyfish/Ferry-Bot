@@ -1,0 +1,130 @@
+[
+  {
+    "text": "I had a headache",
+    "entities": [
+      {
+        "start": 8,
+        "end": 16,
+        "value": "headache",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "problem",
+        "start": 8,
+        "end": 16,
+        "confidence_entity": 0.9991905093193054,
+        "value": "headache",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I have trouble breathing sometimes",
+    "entities": [
+      {
+        "start": 15,
+        "end": 24,
+        "value": "breathing",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "problem",
+        "start": 15,
+        "end": 24,
+        "confidence_entity": 0.9861370325088501,
+        "value": "breath",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I was out of breath",
+    "entities": [
+      {
+        "start": 13,
+        "end": 19,
+        "value": "breath",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "problem",
+        "start": 13,
+        "end": 19,
+        "confidence_entity": 0.9902724623680115,
+        "value": "breath",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I have some insomnia recently",
+    "entities": [
+      {
+        "start": 12,
+        "end": 20,
+        "value": "insomnia",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "problem",
+        "start": 12,
+        "end": 20,
+        "confidence_entity": 0.9787189364433289,
+        "value": "sleep",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I woke up with a slight headache",
+    "entities": [
+      {
+        "start": 24,
+        "end": 32,
+        "value": "headache",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "problem",
+        "start": 2,
+        "end": 6,
+        "confidence_entity": 0.49297550320625305,
+        "value": "woke",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "problem",
+        "start": 24,
+        "end": 32,
+        "confidence_entity": 0.999180018901825,
+        "value": "headache",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

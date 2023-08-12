@@ -1,0 +1,74 @@
+[
+  {
+    "text": "What is pantone",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.2917056679725647
+    }
+  },
+  {
+    "text": "cu",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.18752452731132507
+    }
+  },
+  {
+    "text": "okay I think so",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9910796284675598
+    }
+  },
+  {
+    "text": "sure",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.5227594971656799
+    }
+  },
+  {
+    "text": "no thanks",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.9278351664543152
+    }
+  },
+  {
+    "text": "I feel bad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9963839054107666
+    }
+  },
+  {
+    "text": "too bad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9954108595848083
+    }
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, the day after tomorrow can",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9979488253593445
+    }
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, the day after can",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.99854576587677
+    }
+  }
+]

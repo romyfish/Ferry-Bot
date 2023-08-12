@@ -1,0 +1,72 @@
+[
+  {
+    "text": "What is 2 + 2",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 8,
+        "end": 9,
+        "confidence_entity": 0.9947707056999207,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "day",
+        "start": 12,
+        "end": 13,
+        "confidence_entity": 0.9982225298881531,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "1st is better",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "1st",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "7th will be better",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "7th",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "After 7th will be better",
+    "entities": [
+      {
+        "start": 6,
+        "end": 9,
+        "value": "7th",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I have some insomnia recently",
+    "entities": [
+      {
+        "start": 12,
+        "end": 20,
+        "value": "insomnia",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

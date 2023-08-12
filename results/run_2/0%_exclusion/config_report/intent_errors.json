@@ -1,0 +1,106 @@
+[
+  {
+    "text": "What is 2 + 2",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.9896059036254883
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9503211975097656
+    }
+  },
+  {
+    "text": "indeed",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.4259219169616699
+    }
+  },
+  {
+    "text": "you are really nice",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5025389194488525
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.28416872024536133
+    }
+  },
+  {
+    "text": "That's no good for me",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.49807748198509216
+    }
+  },
+  {
+    "text": "I couldn't",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.7133121490478516
+    }
+  },
+  {
+    "text": "my day was horrible",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.7170785665512085
+    }
+  },
+  {
+    "text": "7th will be better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.6658371090888977
+    }
+  },
+  {
+    "text": "Yes, 21st is better for me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.8404474854469299
+    }
+  },
+  {
+    "text": "After the 18th will be fine with me",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.5144697427749634
+    }
+  },
+  {
+    "text": "I am going to save the world",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.30522429943084717
+    }
+  },
+  {
+    "text": "not bad",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9813569784164429
+    }
+  }
+]

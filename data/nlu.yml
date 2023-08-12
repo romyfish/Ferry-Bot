@@ -71,6 +71,7 @@ nlu:
     - no way
     - not really
     - no I can't
+    - I can't
     - I couldn't
     - no I think
     - sorry, I think I cannot
@@ -84,11 +85,14 @@ nlu:
     - perfect
     - great
     - Good
+    - nice
     - amazing
     - feeling like a king
     - wonderful
+    - feel good
     - I am feeling very good
     - I am great
+    - I'm fine
     - I am amazing
     - I am going to save the world
     - super stoked
@@ -164,6 +168,7 @@ nlu:
     - I just don't want to go
     - I just wouldn't want to go out
     - Just don't want to attend
+    - Just don't want to go
     - I just don't wanna socialize
     - I prefer to stay alone
     - prefer to stay at hoem
@@ -228,6 +233,7 @@ nlu:
     - are they going this time
     - will everyone come
     - hey, tell me about the checking results
+    - tell me the result
     - result
 
 - intent: confrim_result
@@ -240,10 +246,15 @@ nlu:
 - intent: reschedule_event
   examples: |
     - okay, let's change the time
+    - okay, let's reschedule the event
     - let's do the reschedule
     - let's reschedule it
     - reschedule the event
     - reschedule it
+    - I want to reschedule it
+    - I want to reschedule the event
+    - I want to change the time
+    - I want to change the event time
     - just reschedule the event
     - just reschedule it
     - sure, just do the reschedule
@@ -265,6 +276,8 @@ nlu:
     - it has to be canceled
     - I have to cancel it
     - cancel the event
+    - I want to cancel it
+    - I want to cancel the event
 
 - intent: bot_challenge
   examples: |
@@ -272,6 +285,10 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - what are you?
+    - who are you?
+    - can you give me money
+    - give me money
 
 - intent: out_of_scope
   examples: |
@@ -281,6 +298,7 @@ nlu:
     - Can I eat glass
     - What is pantone
     - Can you rule the world
+    - I want some money
 
 - intent: approve_notify
   examples: |

@@ -1,0 +1,90 @@
+[
+  {
+    "text": "What is 2 + 2",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 8,
+        "end": 9,
+        "confidence_entity": 0.9938656687736511,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "day",
+        "start": 12,
+        "end": 13,
+        "confidence_entity": 0.9973661303520203,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "What day is the event held",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.5853264927864075,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "What day is the next event held",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.6006474494934082,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my day was horrible",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 3,
+        "end": 6,
+        "confidence_entity": 0.8804498314857483,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "After the 18th will be fine with me",
+    "entities": [
+      {
+        "start": 10,
+        "end": 14,
+        "value": "18th",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I always feel frustrated",
+    "entities": [
+      {
+        "start": 14,
+        "end": 24,
+        "value": "frustrated",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "text": "Yes, Saturday would be better",
+    "entities": [
+      {
+        "start": 5,
+        "end": 13,
+        "value": "Saturday",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "The 18th will be fine with me",
+    "entities": [
+      {
+        "start": 4,
+        "end": 8,
+        "value": "18th",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "This Sunday works better for me",
+    "entities": [
+      {
+        "start": 5,
+        "end": 11,
+        "value": "Sunday",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I can go after 22nd",
+    "entities": [
+      {
+        "start": 15,
+        "end": 19,
+        "value": "22nd",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "After the 18th will be fine with me",
+    "entities": [
+      {
+        "start": 10,
+        "end": 14,
+        "value": "18th",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I have some insomnia recently",
+    "entities": [
+      {
+        "start": 12,
+        "end": 20,
+        "value": "insomnia",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I cannot fall asleep",
+    "entities": [
+      {
+        "start": 14,
+        "end": 20,
+        "value": "asleep",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

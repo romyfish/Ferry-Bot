@@ -1,0 +1,77 @@
+[
+  {
+    "text": "Yeah. I have to work tomorrow, the day after tomorrow can",
+    "entities": [
+      {
+        "start": 35,
+        "end": 53,
+        "value": "day after tomorrow",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 21,
+        "end": 29,
+        "confidence_entity": 0.5832581520080566,
+        "value": "tomorrow",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "day",
+        "start": 35,
+        "end": 38,
+        "confidence_entity": 0.6419402956962585,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "day",
+        "start": 45,
+        "end": 53,
+        "confidence_entity": 0.6382946372032166,
+        "value": "tomorrow",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, the day after can",
+    "entities": [
+      {
+        "start": 35,
+        "end": 44,
+        "value": "day after",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 21,
+        "end": 29,
+        "confidence_entity": 0.5758939385414124,
+        "value": "tomorrow",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "day",
+        "start": 35,
+        "end": 38,
+        "confidence_entity": 0.6061161756515503,
+        "value": "day",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

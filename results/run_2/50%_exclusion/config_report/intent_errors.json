@@ -1,0 +1,146 @@
+[
+  {
+    "text": "notification",
+    "intent": "approve_notify",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.4105280935764313
+    }
+  },
+  {
+    "text": "What is 2 + 2",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.9946743249893188
+    }
+  },
+  {
+    "text": "am I talking to a bot?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.5304956436157227
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8904491662979126
+    }
+  },
+  {
+    "text": "indeed",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.23066802322864532
+    }
+  },
+  {
+    "text": "thanks",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.8060327768325806
+    }
+  },
+  {
+    "text": "you are really nice",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.5070021748542786
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.22723060846328735
+    }
+  },
+  {
+    "text": "That's no good for me",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5475167632102966
+    }
+  },
+  {
+    "text": "don't like that",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.8184376955032349
+    }
+  },
+  {
+    "text": "I couldn't",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.9244081974029541
+    }
+  },
+  {
+    "text": "my day was horrible",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.982255220413208
+    }
+  },
+  {
+    "text": "7th will be better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9812375903129578
+    }
+  },
+  {
+    "text": "Yes, Saturday would be better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9075217843055725
+    }
+  },
+  {
+    "text": "After 1st is better",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.8678318858146667
+    }
+  },
+  {
+    "text": "I am going to save the world",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.4672781825065613
+    }
+  },
+  {
+    "text": "not bad",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.937247097492218
+    }
+  },
+  {
+    "text": "I always feel frustrated",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.7189067006111145
+    }
+  }
+]

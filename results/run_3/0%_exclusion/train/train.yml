@@ -1,0 +1,281 @@
+version: "3.1"
+nlu:
+- intent: approve_notify
+  examples: |
+    - notify
+    - approve
+    - approve notify
+- intent: out_of_scope
+  examples: |
+    - What is pantone
+    - Can I eat glass
+    - 
+    - I want some money
+    - I want to order food
+    - Can you rule the world
+- intent: bot_challenge
+  examples: |
+    - am I talking to a bot?
+    - give me money
+    - who are you?
+    - are you a human?
+    - can you give me money
+    - 
+- intent: ask_result
+  examples: |
+    - how is the checking
+    - hey, tell me about the checking results
+    - will they all come tomorrow
+    - will they come to the event
+    - tell me the result
+    - are they all coming
+    - 
+- intent: goodbye
+  examples: |
+    - good night
+    - goodbye
+    - bye bye
+    - 
+    - have a nice day
+    - see you around
+    - cee you later
+    - cu
+- intent: get_event_time
+  examples: |
+    - What time is the next event
+    - What day is the event held
+    - What time will the event be held
+    - What day is the next event held
+    - 
+    - When is the next event
+    - When is the event
+    - What time is the event
+- intent: affirm
+  examples: |
+    - sure
+    - 
+    - indeed
+    - okay I think so
+    - of course
+    - correct
+    - I think I can
+    - yes
+    - y
+- intent: thanks
+  examples: |
+    - 
+    - u r so sweet
+    - thx
+    - thank you
+    - Thank you so much
+    - thanks a lot
+    - thank you very much
+    - you are really nice
+    - I appreciate it.
+- intent: cancel_event
+  examples: |
+    - just cancel the event this week
+    - I want to cancel it
+    - just cancel it
+    - it has to be canceled
+    - 
+    - okay, let's cancel event
+    - let's cancel event
+    - cancel the event
+    - I want to cancel the event
+    - the event should be canceled
+- intent: greet
+  examples: |
+    - 
+    - good evening
+    - good morning
+    - hey there
+    - hey dude
+    - goodmorning
+    - hello
+    - let's go
+    - hello there
+    - moin
+    - hi
+- intent: state_unwilling
+  examples: |
+    - Just don't want to go
+    - I prefer to stay alone
+    - Just want to stay at home
+    - Staying at home is better for me
+    - Just not interested
+    - prefer to stay at hoem
+    - I don't want to meet anyone
+    - 
+    - That's no good for me
+    - I just don't want to go
+    - Staying alone is better for me
+- intent: deny
+  examples: |
+    - never
+    - no
+    - sry no
+    - I think I cant
+    - I can't
+    - 
+    - not much
+    - not really
+    - no thanks
+    - I couldn't
+    - no thx
+    - no I can't
+    - I don't think so
+- intent: mood_unhappy
+  examples: |
+    - unhappy
+    - I am disappointed
+    - 
+    - not very good
+    - I'm so sad
+    - super sad
+    - extremly sad
+    - so saad
+    - my day was horrible
+    - too bad
+    - sad
+    - I feel bad
+    - I am sad
+    - I don't feel very well
+- intent: reschedule_event
+  examples: |
+    - sure, just do the reschedule
+    - reschedule it
+    - okay, let's change the time
+    - let's reschedule it
+    - I want to change the event time
+    - okay, let's reschedule the event
+    - I want to change the time
+    - just reschedule it
+    - reschedule the event
+    - do reschedule
+    - just reschedule the event
+    - let's do the reschedule
+    - just change the time
+- intent: state_available_time
+  examples: |
+    - I will go on [Thursday](day)
+    - Yeah. I have to work tomorrow, the [day after tomorrow](day) can
+    - The [Monday](day) will be better for me
+    - [Saturday](day) is better
+    - This [Sunday](day) works better for me
+    - I will pick [2023-08-14](day)
+    - 
+    - I choose [09-14](day)
+    - Yeah. I have to work tomorrow, the [day after](day) can
+    - I can go on [Tuesday](day)
+    - I can make it on [Wednesday](day)
+    - The [day after tomorrow](day) will be better for me
+    - Yes, [21st](day) is better for me
+    - I can go on [22nd](day)
+- intent: state_available_time_after
+  examples: |
+    - I will be free after [Thursday](day)
+    - Yeah. I have too many things to do tomorrow,  I can make it after [tomorrow](day)
+    - After [Saturday](day) is better
+    - After [tomorrow](day) will be better for me
+    - Yeah. I have to work tomorrow, after [tomorrow](day) I can
+    - 
+    - After the [Monday](day) will be better for me
+    - After [1st](day) is better
+    - Yes, After [21st](day) is better for me
+    - I am free after [Tuesday](day)
+    - I can go after [Tuesday](day)
+    - Yeah. I have too many work tomorrow,  I can make it after [tomorrow](day)
+    - After the [18th](day) will be fine with me
+    - I can go after [22nd](day)
+    - After [Friday](day) works better for me
+- intent: mood_great
+  examples: |
+    - I am amazing
+    - so so perfect
+    - feel good
+    - so perfect
+    - 
+    - I'm fine
+    - great
+    - I am going to save the world
+    - I am great
+    - amazing
+    - I am feeling very good
+    - so good
+    - super stoked
+    - fine
+    - Good
+    - feeling like a king
+- intent: state_problem
+  examples: |
+    - I couldn't [breathe](problem)
+    - I sometimes find it hard to [breathe](problem)
+    - I woke up with a slight [headache](problem)
+    - I feel a [headache](problem)
+    - I have trouble [breathing](problem) sometimes
+    - I always feel a [headache](problem) these days
+    - I couldn't fall [asleep](problem) last night
+    - My [breath](problem) came in short pants
+    - I was out of [breath](problem)
+    - I'm out of [breath](problem)
+    - I have had a terrible [headache](problem) for the last two days
+    - I've been having trouble [sleeping](problem) lately
+    - I feel out of [energy](problem) these days
+    - I always feel [frustrated](problem)
+    - I cannot fall [asleep](problem)
+    - 
+    - I can't [breathe](problem)
+    - I could hardly [breathe](problem)
+- synonym: sleep
+  examples: |
+    - insomnia
+    - asleep
+    - sleeping
+    - slept
+- synonym: breath
+  examples: |
+    - breathing
+    - breathe
+- lookup: day
+  examples: |
+    - day after
+    - day after tomorrow
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    - Sunday
+    - 1st
+    - 2nd
+    - 3rd
+    - 4th
+    - 5th
+    - 6th
+    - 7th
+    - 8th
+    - 9th
+    - 10th
+    - 11th
+    - 12th
+    - 13th
+    - 14th
+    - 15th
+    - 16th
+    - 17th
+    - 18th
+    - 19th
+    - 20th
+    - 21st
+    - 22nd
+    - 23rd
+    - 24th
+    - 25th
+    - 26th
+    - 27th
+    - 28th
+    - 29th
+    - 30th
+    - 31st

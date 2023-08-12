@@ -1,0 +1,35 @@
+{
+  "day": {
+    "precision": 0.7777777777777778,
+    "recall": 0.875,
+    "f1-score": 0.823529411764706,
+    "support": 8,
+    "confused_with": {}
+  },
+  "problem": {
+    "precision": 1.0,
+    "recall": 0.8,
+    "f1-score": 0.888888888888889,
+    "support": 5,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.8461538461538461,
+    "recall": 0.8461538461538461,
+    "f1-score": 0.8461538461538461,
+    "support": 13
+  },
+  "macro avg": {
+    "precision": 0.8888888888888888,
+    "recall": 0.8375,
+    "f1-score": 0.8562091503267975,
+    "support": 13
+  },
+  "weighted avg": {
+    "precision": 0.8632478632478632,
+    "recall": 0.8461538461538461,
+    "f1-score": 0.8486676721970839,
+    "support": 13
+  },
+  "accuracy": 0.9796954314720813
+}

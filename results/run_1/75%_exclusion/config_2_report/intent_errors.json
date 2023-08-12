@@ -1,0 +1,194 @@
+[
+  {
+    "text": "notify",
+    "intent": "approve_notify",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.3073346018791199
+    }
+  },
+  {
+    "text": "Can you rule the world",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.2502301037311554
+    }
+  },
+  {
+    "text": "have a nice day",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.2022746056318283
+    }
+  },
+  {
+    "text": "cee you later",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.2779233157634735
+    }
+  },
+  {
+    "text": "how is the checking",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "get_event_time",
+      "confidence": 0.47099506855010986
+    }
+  },
+  {
+    "text": "will they come to the event",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.4678485691547394
+    }
+  },
+  {
+    "text": "that sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.3325212299823761
+    }
+  },
+  {
+    "text": "thx",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.1854206770658493
+    }
+  },
+  {
+    "text": "thanks a lot",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.28924816846847534
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.29142695665359497
+    }
+  },
+  {
+    "text": "hello",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.44388628005981445
+    }
+  },
+  {
+    "text": "I want to cancel the event",
+    "intent": "cancel_event",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.6330788135528564
+    }
+  },
+  {
+    "text": "I just don't wanna socialize",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.8279277086257935
+    }
+  },
+  {
+    "text": "I don't feel very well",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.900608479976654
+    }
+  },
+  {
+    "text": "not good",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.8917779922485352
+    }
+  },
+  {
+    "text": "Yes, Saturday would be better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.7434346675872803
+    }
+  },
+  {
+    "text": "The 18th will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.49961572885513306
+    }
+  },
+  {
+    "text": "I will be free after Thursday",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.642849862575531
+    }
+  },
+  {
+    "text": "I can go after 22nd",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.6611047387123108
+    }
+  },
+  {
+    "text": "I am amazing",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.6676550507545471
+    }
+  },
+  {
+    "text": "nice",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.6429910659790039
+    }
+  },
+  {
+    "text": "I'm fine",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.4584426283836365
+    }
+  },
+  {
+    "text": "Good",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6015862226486206
+    }
+  },
+  {
+    "text": "I cannot fall asleep",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5124714374542236
+    }
+  }
+]

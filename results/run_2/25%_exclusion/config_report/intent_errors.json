@@ -1,0 +1,114 @@
+[
+  {
+    "text": "What is 2 + 2",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.9851690530776978
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.690278172492981
+    }
+  },
+  {
+    "text": "indeed",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.2185872197151184
+    }
+  },
+  {
+    "text": "you are really nice",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.6859978437423706
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.33754342794418335
+    }
+  },
+  {
+    "text": "That's no good for me",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.2664419710636139
+    }
+  },
+  {
+    "text": "don't like that",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.405113160610199
+    }
+  },
+  {
+    "text": "I couldn't",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.9700741767883301
+    }
+  },
+  {
+    "text": "my day was horrible",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.6436640620231628
+    }
+  },
+  {
+    "text": "Yes, 21st is better for me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.8830356001853943
+    }
+  },
+  {
+    "text": "Yes, Saturday would be better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.5631807446479797
+    }
+  },
+  {
+    "text": "I am going to save the world",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.1862834244966507
+    }
+  },
+  {
+    "text": "not bad",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9927252531051636
+    }
+  },
+  {
+    "text": "I always feel frustrated",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.7786276340484619
+    }
+  }
+]

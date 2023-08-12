@@ -1,0 +1,195 @@
+version: "3.1"
+nlu:
+- intent: approve_notify
+  examples: |
+    - notify
+    - approve
+- intent: out_of_scope
+  examples: |
+    - What is pantone
+    - Can you rule the world
+    - Who's the US President
+    - I want to order food
+- intent: bot_challenge
+  examples: |
+    - can you give me money
+    - are you a human?
+    - give me money
+- intent: ask_result
+  examples: |
+    - 
+    - hey, tell me about the checking results
+    - are they going this time
+    - how is the checking
+- intent: goodbye
+  examples: |
+    - 
+    - have a nice day
+    - cee you later
+    - cu
+    - see you later
+- intent: get_event_time
+  examples: |
+    - What time is the next event
+    - When is the next event
+    - What day is the event held
+    - When will the event be held
+- intent: affirm
+  examples: |
+    - sure
+    - y
+    - of course
+    - okay
+    - I think I can
+- intent: thanks
+  examples: |
+    - thank you very much
+    - u r so sweet
+    - thanks so much
+    - I appreciate it.
+    - thx
+- intent: cancel_event
+  examples: |
+    - let's cancel event
+    - cancel the event
+    - the event should be canceled
+    - just cancel it
+    - okay, cancel this week event
+    - I want to cancel the event
+- intent: greet
+  examples: |
+    - 
+    - hello there
+    - goodmorning
+    - let's go
+    - good evening
+    - hello
+- intent: state_unwilling
+  examples: |
+    - Just not interested
+    - I prefer to stay alone
+    - That's no good for me
+    - Just don't want to attend
+    - Staying at home is better for me
+    - Just don't want to go
+- intent: deny
+  examples: |
+    - I don't think so
+    - no thx
+    - not much
+    - no thanks
+    - I can't
+    - not really
+    - I couldn't
+- intent: mood_unhappy
+  examples: |
+    - I am sad
+    - I feel bad
+    - too bad
+    - 
+    - I'm so sad
+    - I don't feel very well
+    - super sad
+- intent: reschedule_event
+  examples: |
+    - just reschedule it
+    - okay, let's reschedule the event
+    - just reschedule the event
+    - just change the time
+    - reschedule it
+    - let's do the reschedule
+    - do reschedule
+- intent: state_available_time
+  examples: |
+    - Yes, [Saturday](day) would be better
+    - I will pick [2023-08-14](day)
+    - I can go on [Tuesday](day)
+    - I will go on [Thursday](day)
+    - I choose [09-14](day)
+    - 
+    - [Saturday](day) is better
+    - The [Monday](day) will be better for me
+- intent: state_available_time_after
+  examples: |
+    - After the [Monday](day) will be better for me
+    - After [tomorrow](day) will be better for me
+    - Yeah. I have too many things to do tomorrow,  I can make it after [tomorrow](day)
+    - I can go after [22nd](day)
+    - After the [18th](day) will be fine with me
+    - Yeah. I have to work tomorrow, after [tomorrow](day) I can
+    - After [Saturday](day) is better
+    - Yes, After [21st](day) is better for me
+- intent: mood_great
+  examples: |
+    - Good
+    - great
+    - I am feeling very good
+    - 
+    - so so perfect
+    - super stoked
+    - I am going to save the world
+    - feel good
+- intent: state_problem
+  examples: |
+    - I woke up with a slight [headache](problem)
+    - I can't [breathe](problem)
+    - I couldn't fall [asleep](problem) last night
+    - I'm out of [breath](problem)
+    - I always feel [frustrated](problem)
+    - I've been having trouble [sleeping](problem) lately
+    - I had a [headache](problem)
+    - I could hardly [breathe](problem)
+    - I was out of [breath](problem)
+    - 
+- synonym: sleep
+  examples: |
+    - insomnia
+    - asleep
+    - sleeping
+    - slept
+- synonym: breath
+  examples: |
+    - breathing
+    - breathe
+- lookup: day
+  examples: |
+    - day after
+    - day after tomorrow
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    - Sunday
+    - 1st
+    - 2nd
+    - 3rd
+    - 4th
+    - 5th
+    - 6th
+    - 7th
+    - 8th
+    - 9th
+    - 10th
+    - 11th
+    - 12th
+    - 13th
+    - 14th
+    - 15th
+    - 16th
+    - 17th
+    - 18th
+    - 19th
+    - 20th
+    - 21st
+    - 22nd
+    - 23rd
+    - 24th
+    - 25th
+    - 26th
+    - 27th
+    - 28th
+    - 29th
+    - 30th
+    - 31st

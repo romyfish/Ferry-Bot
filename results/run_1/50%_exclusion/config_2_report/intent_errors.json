@@ -1,0 +1,146 @@
+[
+  {
+    "text": "Can you rule the world",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.6312685012817383
+    }
+  },
+  {
+    "text": "who are you?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "thanks",
+      "confidence": 0.5544983744621277
+    }
+  },
+  {
+    "text": "have a nice day",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.3665800988674164
+    }
+  },
+  {
+    "text": "how is the checking",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "get_event_time",
+      "confidence": 0.690590500831604
+    }
+  },
+  {
+    "text": "that sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.49659594893455505
+    }
+  },
+  {
+    "text": "thx",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.13686774671077728
+    }
+  },
+  {
+    "text": "thanks a lot",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.21076446771621704
+    }
+  },
+  {
+    "text": "let's go",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.2978399395942688
+    }
+  },
+  {
+    "text": "never",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.28730466961860657
+    }
+  },
+  {
+    "text": "I don't feel very well",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.15871278941631317
+    }
+  },
+  {
+    "text": "not good",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.4928378164768219
+    }
+  },
+  {
+    "text": "Yes, Saturday would be better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.8532711267471313
+    }
+  },
+  {
+    "text": "The Friday will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_problem",
+      "confidence": 0.3040282130241394
+    }
+  },
+  {
+    "text": "The 18th will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.2877684533596039
+    }
+  },
+  {
+    "text": "After the 18th will be fine with me",
+    "intent": "state_available_time_after",
+    "intent_prediction": {
+      "name": "ask_result",
+      "confidence": 0.28884419798851013
+    }
+  },
+  {
+    "text": "I am amazing",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.30943435430526733
+    }
+  },
+  {
+    "text": "nice",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.21634404361248016
+    }
+  },
+  {
+    "text": "I'm fine",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.47165289521217346
+    }
+  }
+]

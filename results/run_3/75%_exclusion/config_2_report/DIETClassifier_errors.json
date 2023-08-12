@@ -1,0 +1,76 @@
+[
+  {
+    "text": "What is 2 + 2",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 8,
+        "end": 13,
+        "confidence_entity": 0.3573993742465973,
+        "value": "2 + 2",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I can't get rid of my headache",
+    "entities": [
+      {
+        "start": 22,
+        "end": 30,
+        "value": "headache",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I can't sleep lately",
+    "entities": [
+      {
+        "start": 8,
+        "end": 13,
+        "value": "sleep",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I've got a headache",
+    "entities": [
+      {
+        "start": 11,
+        "end": 19,
+        "value": "headache",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I have some insomnia recently",
+    "entities": [
+      {
+        "start": 12,
+        "end": 20,
+        "value": "insomnia",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I have trouble sleeping",
+    "entities": [
+      {
+        "start": 15,
+        "end": 23,
+        "value": "sleeping",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "text": "Yeah. I have to work tomorrow, the day after can",
+    "entities": [
+      {
+        "start": 35,
+        "end": 44,
+        "value": "day after",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 35,
+        "end": 44,
+        "value": "day after",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  }
+]

@@ -9,8 +9,8 @@
             "participants": {
                 "611": "affirm",
                 "649": "affirm",
-                "534": "refuse",
-                "768": "2023-07-15"
+                "100": "refuse",
+                "716": "2023-07-15"
             },
             "status": "finish"
         },
@@ -22,13 +22,14 @@
             "content": "session",
             "participants": {
                 "611": "approve_change",
-                "649": "2023-08-12 or 2023-08-13"
+                "649": "approve_change",
+                "100": "approve_change",
+                "716": "2023-08-11"
             },
             "potential_date": {
-                "2023-08-12": 2,
-                "2023-08-13": 1
+                "2023-08-11": 3
             },
-            "status": "pending"
+            "status": "unknown"
         }
     ],
     "users": [
@@ -55,25 +56,25 @@
             "condition": "headache"
         },
         {
-            "id": "534",
-            "name": "AAA",
-            "surname": "S",
+            "id": "100",
+            "name": "Frank",
+            "surname": "Wang",
             "birthdate": "1955-01-18",
             "gender": "M",
-            "email": "AAA@163.com",
+            "email": "10066509036700410@facebook.com",
             "groupID": "1",
-            "chatID": "None",
+            "chatID": "10066509036700410",
             "condition": "None"
         },
         {
-            "id": "768",
-            "name": "BBB",
-            "surname": "S",
+            "id": "716",
+            "name": "Lisa",
+            "surname": "Liu",
             "birthdate": "1973-08-13",
-            "gender": "M",
-            "email": "BBB@163.com",
+            "gender": "F",
+            "email": "7168041819877235@facebook.com",
             "groupID": "1",
-            "chatID": "None",
+            "chatID": "7168041819877235",
             "condition": "None"
         }
     ],

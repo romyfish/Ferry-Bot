@@ -1,0 +1,247 @@
+version: "3.1"
+nlu:
+- intent: approve_notify
+  examples: |
+    - approve notify
+    - notify
+    - notification
+- intent: out_of_scope
+  examples: |
+    - Who's the US President
+    - What is pantone
+    - I want some money
+    - Can you rule the world
+    - What is 2 + 2
+    - Can I eat glass
+- intent: bot_challenge
+  examples: |
+    - can you give me money
+    - am I talking to a human?
+    - give me money
+    - are you a human?
+    - what are you?
+- intent: ask_result
+  examples: |
+    - 
+    - hey, tell me about the checking results
+    - how is the checking
+    - Hi, How is the result
+    - tell me the result
+    - are they all coming
+- intent: goodbye
+  examples: |
+    - have a nice day
+    - 
+    - bye bye
+    - cu
+    - cee you later
+    - good night
+    - good by
+- intent: get_event_time
+  examples: |
+    - What time is the event
+    - When will the event be held
+    - What day is the event held
+    - What time will the event be held
+    - What day is the next event held
+    - 
+- intent: affirm
+  examples: |
+    - okay
+    - that sounds good
+    - yeah
+    - of course
+    - 
+    - indeed
+    - sure
+    - correct
+- intent: thanks
+  examples: |
+    - I really appreciate it
+    - thank u
+    - you are really nice
+    - thanks a lot
+    - thanks so much
+    - thank you
+    - Thank you so much
+- intent: cancel_event
+  examples: |
+    - let's cancel it
+    - just cancel it
+    - okay, let's cancel event
+    - cancel the event
+    - 
+    - the event should be canceled
+    - I want to cancel it
+    - just cancel the event this week
+    - I have to cancel it
+- intent: greet
+  examples: |
+    - hello there
+    - goodmorning
+    - good evening
+    - hey dude
+    - hi
+    - hey
+    - moin
+    - good morning
+    - hello
+- intent: state_unwilling
+  examples: |
+    - Just want to stay at home
+    - 
+    - prefer not to say
+    - That's no good for me
+    - Just don't want to go
+    - I just don't wanna socialize
+    - Staying alone is better for me
+    - I prefer to stay alone
+    - Staying at home is better for me
+- intent: deny
+  examples: |
+    - no way
+    - no I can't
+    - never
+    - no thanks
+    - sorry, I think I cannot
+    - not really
+    - 
+    - no I think
+    - I couldn't
+    - not much
+- intent: reschedule_event
+  examples: |
+    - okay, let's reschedule the event
+    - agree reschedule
+    - change the time
+    - reschedule it
+    - just reschedule the event
+    - 
+    - I want to change the time
+    - I want to reschedule the event
+    - just reschedule it
+    - sure, just do the reschedule
+    - I want to change the event time
+- intent: state_available_time
+  examples: |
+    - I choose [09-14](day)
+    - Yes, [Saturday](day) would be better
+    - I can go on [22nd](day)
+    - Yes, [21st](day) is better for me
+    - I can make it on [Wednesday](day)
+    - The [day after tomorrow](day) will be better for me
+    - The [Monday](day) will be better for me
+    - Yeah. I have to work tomorrow, the [day after tomorrow](day) can
+    - I will go on [Thursday](day)
+    - [1st](day) is better
+    - [7th](day) will be better
+- intent: mood_unhappy
+  examples: |
+    - I am disappointed
+    - awful
+    - super sad
+    - not very good
+    - I'm so sad
+    - very sad
+    - not good
+    - I am sad
+    - I feel bad
+    - my day was horrible
+    - too bad
+- intent: state_available_time_after
+  examples: |
+    - Yeah. I have too many things to do tomorrow,  I can make it after [tomorrow](day)
+    - I can make it after [Wednesday](day)
+    - After the [18th](day) will be fine with me
+    - I am free after [Tuesday](day)
+    - Yeah. I have to work tomorrow, after [tomorrow](day) I can
+    - I can go after [Tuesday](day)
+    - I will be free after [Thursday](day)
+    - After the [Friday](day) will be fine with me
+    - After [Saturday](day) is better
+    - Yeah. I have too many work tomorrow,  I can make it after [tomorrow](day)
+    - 
+    - After [1st](day) is better
+- intent: mood_great
+  examples: |
+    - great
+    - I am amazing
+    - so perfect
+    - I am feeling very good
+    - Good
+    - feeling like a king
+    - so so perfect
+    - fine
+    - extremely good
+    - I am great
+    - perfect
+    - wonderful
+    - super stoked
+- intent: state_problem
+  examples: |
+    - I can't [breathe](problem)
+    - I have trouble [sleeping](problem)
+    - I feel a [headache](problem)
+    - I can't [sleep](problem) lately
+    - I always feel [frustrated](problem)
+    - 
+    - I've got a [headache](problem)
+    - I sometimes find it hard to [breathe](problem)
+    - I feel out of [energy](problem) these days
+    - I have had a terrible [headache](problem) for the last two days
+    - I've been having trouble [sleeping](problem) lately
+    - I couldn't [breathe](problem)
+    - I can't get rid of my [headache](problem)
+    - My [breath](problem) came in short pants
+- synonym: sleep
+  examples: |
+    - insomnia
+    - asleep
+    - sleeping
+    - slept
+- synonym: breath
+  examples: |
+    - breathing
+    - breathe
+- lookup: day
+  examples: |
+    - day after
+    - day after tomorrow
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    - Sunday
+    - 1st
+    - 2nd
+    - 3rd
+    - 4th
+    - 5th
+    - 6th
+    - 7th
+    - 8th
+    - 9th
+    - 10th
+    - 11th
+    - 12th
+    - 13th
+    - 14th
+    - 15th
+    - 16th
+    - 17th
+    - 18th
+    - 19th
+    - 20th
+    - 21st
+    - 22nd
+    - 23rd
+    - 24th
+    - 25th
+    - 26th
+    - 27th
+    - 28th
+    - 29th
+    - 30th
+    - 31st

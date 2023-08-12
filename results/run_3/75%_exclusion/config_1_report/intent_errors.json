@@ -1,0 +1,194 @@
+[
+  {
+    "text": "What is 2 + 2",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "state_available_time",
+      "confidence": 0.995747983455658
+    }
+  },
+  {
+    "text": "am I talking to a human?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "state_unwilling",
+      "confidence": 0.3372190296649933
+    }
+  },
+  {
+    "text": "bye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.7480708956718445
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9868996143341064
+    }
+  },
+  {
+    "text": "Hi, How is the result",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.3926311731338501
+    }
+  },
+  {
+    "text": "result",
+    "intent": "ask_result",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.5097276568412781
+    }
+  },
+  {
+    "text": "yeah",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.5908182859420776
+    }
+  },
+  {
+    "text": "that sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.948291540145874
+    }
+  },
+  {
+    "text": "I really appreciate it",
+    "intent": "thanks",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9402638077735901
+    }
+  },
+  {
+    "text": "good afternoon",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.6188284158706665
+    }
+  },
+  {
+    "text": "hey",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.8472906351089478
+    }
+  },
+  {
+    "text": "I just don't wanna socialize",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9117761850357056
+    }
+  },
+  {
+    "text": "I just wouldn't want to go out",
+    "intent": "state_unwilling",
+    "intent_prediction": {
+      "name": "reschedule_event",
+      "confidence": 0.5020109415054321
+    }
+  },
+  {
+    "text": "n",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.4378041625022888
+    }
+  },
+  {
+    "text": "awful",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.6479541659355164
+    }
+  },
+  {
+    "text": "not good",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.6411741971969604
+    }
+  },
+  {
+    "text": "so sad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9440612196922302
+    }
+  },
+  {
+    "text": "The 18th will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "get_event_time",
+      "confidence": 0.4364567995071411
+    }
+  },
+  {
+    "text": "The Friday will be fine with me",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "get_event_time",
+      "confidence": 0.25501084327697754
+    }
+  },
+  {
+    "text": "7th will be better",
+    "intent": "state_available_time",
+    "intent_prediction": {
+      "name": "state_available_time_after",
+      "confidence": 0.9652984738349915
+    }
+  },
+  {
+    "text": "nice",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.24727150797843933
+    }
+  },
+  {
+    "text": "not bad",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.45098772644996643
+    }
+  },
+  {
+    "text": "I can't sleep lately",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.37114226818084717
+    }
+  },
+  {
+    "text": "I've got a headache",
+    "intent": "state_problem",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.2468804270029068
+    }
+  }
+]

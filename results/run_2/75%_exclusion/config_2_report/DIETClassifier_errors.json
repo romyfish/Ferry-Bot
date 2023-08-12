@@ -1,0 +1,66 @@
+[
+  {
+    "text": "Yeah. I have to work tomorrow, the day after can",
+    "entities": [
+      {
+        "start": 35,
+        "end": 44,
+        "value": "day after",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 35,
+        "end": 44,
+        "value": "day after",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "I have trouble breathing sometimes",
+    "entities": [
+      {
+        "start": 15,
+        "end": 24,
+        "value": "breathing",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I woke up with a slight headache",
+    "entities": [
+      {
+        "start": 24,
+        "end": 32,
+        "value": "headache",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "problem",
+        "start": 2,
+        "end": 6,
+        "confidence_entity": 0.5195193886756897,
+        "value": "woke",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "problem",
+        "start": 24,
+        "end": 32,
+        "confidence_entity": 0.9982670545578003,
+        "value": "headache",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

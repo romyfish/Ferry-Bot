@@ -1,0 +1,133 @@
+[
+  {
+    "text": "Yeah. I have to work tomorrow, the day after tomorrow can",
+    "entities": [
+      {
+        "start": 35,
+        "end": 53,
+        "value": "day after tomorrow",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 21,
+        "end": 29,
+        "confidence_entity": 0.8009694218635559,
+        "value": "tomorrow",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "day",
+        "start": 45,
+        "end": 53,
+        "confidence_entity": 0.780962347984314,
+        "value": "tomorrow",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Yeah. I have to work tomorrow, the day after can",
+    "entities": [
+      {
+        "start": 35,
+        "end": 44,
+        "value": "day after",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 21,
+        "end": 29,
+        "confidence_entity": 0.7970940470695496,
+        "value": "tomorrow",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "After Friday works better for me",
+    "entities": [
+      {
+        "start": 6,
+        "end": 12,
+        "value": "Friday",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "After the Monday will be better for me",
+    "entities": [
+      {
+        "start": 10,
+        "end": 16,
+        "value": "Monday",
+        "entity": "day"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "My breath came in short pants",
+    "entities": [
+      {
+        "start": 3,
+        "end": 9,
+        "value": "breath",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I was out of breath",
+    "entities": [
+      {
+        "start": 13,
+        "end": 19,
+        "value": "breath",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I have trouble breathing sometimes",
+    "entities": [
+      {
+        "start": 15,
+        "end": 24,
+        "value": "breathing",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I could hardly breathe",
+    "entities": [
+      {
+        "start": 15,
+        "end": 22,
+        "value": "breathe",
+        "entity": "problem"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

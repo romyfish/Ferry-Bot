@@ -1,0 +1,24 @@
+[
+  {
+    "text": "What is 2 + 2",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "day",
+        "start": 8,
+        "end": 9,
+        "confidence_entity": 0.8438775539398193,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "day",
+        "start": 12,
+        "end": 13,
+        "confidence_entity": 0.7536142468452454,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]
