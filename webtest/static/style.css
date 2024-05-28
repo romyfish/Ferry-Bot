@@ -2,70 +2,42 @@ body {
 	font-family: Sans-serif;
 }
 
-h2 {
-	text-align: center;
-	margin-top: 15px;
-	margin-bottom: 5px;
+#myBanner {
+	background-color:#d3edff;
 }
 
-.headline {
-	border: 1.5px solid black;
+#chatbody {
+	margin-top: 180px;
 }
 
-.chatbody {
-	margin-left: auto;
-	margin-right: auto;
-	width: 80%;
-}
+/* #chatbox {
+	margin-bottom: 50px;
+} */
 
-#chatbox {
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 60px;
-	margin-bottom: 80px;
-	width: 90%;
-}
-
-#userInput {
-	position: fixed;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 20px;
-	width: 75%;
-	margin-top: 60px;
-	bottom: 0;
-}
-
-#textInput {
-	width: 100%;
-	border: 1px solid black;
-	font-size: 17px;
-	padding: 10px;
-	border-radius: 15px;
+#inputbox {
+	background-color: white;
+	padding-top: 1rem;
 }
 
 .userText {
 	color: white;
-	font-size: 17px;
-	text-align: right;
-	line-height: 30px;
-}
-
-.userText span {
 	background-color: #c9b55b;
 	padding: 10px;
 	border-radius: 15px;
+	max-width: 70%;
+}
+
+.botIcon {
+	width: 40px;
+	height: 40px;
+	margin: 10px;
+	margin-top: 0;
 }
 
 .botText {
 	color: white;
-	font-size: 17px;
-	text-align: left;
-	line-height: 30px;
-}
-
-.botText span {
 	background-color: #3170d7;
 	padding: 10px;
 	border-radius: 15px;
+	max-width: 70%;
 }

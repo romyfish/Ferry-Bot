@@ -4,7 +4,7 @@ from langchain_community.llms.ollama import Ollama
 
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
-mode_num = 3
+mode_num = 2
 sp_name = "system_prompt_" + str(mode_num) + ".txt"
 # --- multiple round chat ---
 with open(sp_name, "r") as p_file:

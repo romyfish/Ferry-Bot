@@ -4,55 +4,126 @@
 
 <head>
   <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='robot.png')}}" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-  <h2>
-    <img src="{{ url_for('static', filename='robot.png')}}" alt="ferrybot" style="width:50px;height:50px;" />
-    <p>
-      Ferrybot: A Conversational AI Agent for wellbeing
-    </p>
-  </h2>
-  <div class="headline"></div>
-  <div class="chatbody">
-    <div>
-      <div id="chatbox">
-        <img src="{{ url_for('static', filename='robot.png')}}" alt="ferrybot" style="width:40px;height:40px;" />
-        <p class="botText">
-          <span>{{ start_bot_text }}</span>
-        </p>
-      </div>
-      <div id="userInput">
-        <input id="textInput" type="text" name="input_text" placeholder="Message Ferrybot" />
-        <!-- <button type="submit" id="send" class="btn btn-send">Send</button> -->
+  <div id="topBanner" class="fixed-top">
+    <div id="myBanner" class="d-flex justify-content-center">
+      <div class="d-flex align-items-center">
+        <div class="flex-shrink-0">
+          <img src="{{ url_for('static', filename='robot.png')}}" alt="ferrybot"
+            style="width:60px;height:60px;margin-top:20px;margin-bottom:20px;">
+        </div>
+        <h3 class="flex-grow-1 ms-3" style="margin-bottom:0;">
+          Ferrybot: A Conversational AI Agent for wellbeing
+        </h3>
       </div>
     </div>
-    <script>
-      function getBotResponse() {
-        var rawText = $("#textInput").val();
-        var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
-        $("#textInput").val("");
-        $("#chatbox").append(userHtml);
+    <nav class="navbar bg-primary navbar-expand-lg" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Link1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="https://v5.bootcss.com/docs/components/dropdowns/">Link2</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                Switch modes
+              </a>
+              <ul class="dropdown-menu" data-bs-theme="light">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-md-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact us</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div id="chatbody" class="row">
+    <div class="col" class="text-center">
+      <p class="text-center">chatlist</p>
+    </div>
+    <div class="col-6">
+      <div id="chatbox">
+        <div class="d-flex">
+          <img class="botIcon" src="{{ url_for('static', filename='robot.png')}}" alt="ferrybot" />
+          <p class="botText">
+            <span>{{ start_bot_text }}</span>
+          </p>
+        </div>
+      </div>
+      <div id="inputbox" class="d-flex align-items-center sticky-bottom">
+        <button class="btn btn-success" type="button" onclick="refreshPage()" style="margin-bottom:1rem;margin-right:1rem;"><i
+            class="bi bi-arrow-clockwise"></i></button>
+
+        <div id="userInput" class="input-group mb-3">
+          <input id="textInput" type="text" name="input_text" class="form-control" placeholder="Message Ferrybot">
+          <button id="btn-send" class="btn btn-primary" type="button" onclick="getBotResponse()"><i
+              class="bi bi-send-fill"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="col" class="text-center">
+      <p class="text-center">null</p>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js"></script>
+  <script>
+    function getBotResponse() {
+      var rawText = $("#textInput").val();
+      var userHtml = '<div class="d-flex justify-content-end"><p class="userText"><span>' + rawText + "</span></p></div>";
+      $("#textInput").val("");
+      $("#chatbox").append(userHtml);
+      document
+        .getElementById("userInput")
+        .scrollIntoView({ block: "start", behavior: "smooth" });
+      $.get("/get", { input_text: rawText }).done(function (data) {
+        var botHtml = '<div class="d-flex"><img class="botIcon" src="https://raw.githubusercontent.com/romyfish/Ferry-Bot/main/src/bot2.png" alt="ferrybot" /><p class="botText"><span>' + data + "</span></p></div>";
+        $("#chatbox").append(botHtml);
         document
           .getElementById("userInput")
           .scrollIntoView({ block: "start", behavior: "smooth" });
-        $.get("/get", { input_text: rawText }).done(function (data) {
-          var botHtml = '<p class="botText"><span>' + data + "</span></p>";
-          $("#chatbox").append(botHtml);
-          document
-            .getElementById("userInput")
-            .scrollIntoView({ block: "start", behavior: "smooth" });
-        });
-      }
-      $("#textInput").keypress(function (e) {
-        if (e.which == 13) {
-          getBotResponse();
-        }
       });
-    </script>
-  </div>
+    }
+    $("#textInput").keypress(function (e) {
+      if (e.which == 13) {
+        getBotResponse();
+      }
+    });
+    function refreshPage() {
+      location.reload();
+    }
+  </script>
 </body>
 
 </html>
