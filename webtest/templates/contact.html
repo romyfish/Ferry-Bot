@@ -36,12 +36,13 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
-                Chat Mode: <span>{{ mode_description }}</span>
+                Chat Modes
               </a>
               <ul class="dropdown-menu" data-bs-theme="light">
                 <li><a class="dropdown-item" href="{{ url_for('home') }}">Check the user's status</a></li>
                 <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Training to be supportive</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Advice for group selection</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Advice for group selection</a>
+                </li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
@@ -67,27 +68,20 @@
       <p class="text-center"></p>
     </div>
     <div class="col-6">
-      <div id="chatbox">
-        <div class="d-flex">
-          <img class="botIcon" src="{{ url_for('static', filename='robot.png')}}" alt="ferrybot" />
-          <p class="botText">
-            <span>{{ start_bot_text }}</span>
-          </p>
+      <form>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
         </div>
-      </div>
-      <div id="inputbox" class="d-flex align-items-center sticky-bottom">
-        <button class="btn btn-success" type="button" onclick="refreshPage()" style="margin-bottom:1rem;margin-right:1rem;"><i
-            class="bi bi-arrow-clockwise"></i></button>
-
-        <div id="userInput" class="input-group mb-3">
-          <input id="textInput" type="text" name="input_text" class="form-control" placeholder="Message Ferrybot">
-          <button id="btn-send" class="btn btn-primary" type="button" onclick="getBotResponse()"><i
-              class="bi bi-send-fill"></i></button>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Leave your comments</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-      </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+    </form>
     <div class="col">
-      <p class="text-center">chat hint</p>
+      <p class="text-center"></p>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -105,7 +99,7 @@
         .getElementById("userInput")
         .scrollIntoView({ block: "start", behavior: "smooth" });
       $.get("/get", { input_text: rawText }).done(function (data) {
-        var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='robot.png')}}' alt='ferrybot' /><p class='botText'><span>" + data + "</span></p></div>";
+        var botHtml = '<div class="d-flex"><img class="botIcon" src="https://raw.githubusercontent.com/romyfish/Ferry-Bot/main/src/bot2.png" alt="ferrybot" /><p class="botText"><span>' + data + "</span></p></div>";
         $("#chatbox").append(botHtml);
         document
           .getElementById("userInput")

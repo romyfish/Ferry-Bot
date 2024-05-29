@@ -41,11 +41,13 @@
               <ul class="dropdown-menu" data-bs-theme="light">
                 <li><a class="dropdown-item" href="{{ url_for('home') }}">Check the user's status</a></li>
                 <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Training to be supportive</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Advice for group selection</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Advice for group selection</a>
+                </li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Group scenario: Schedule a meeting</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Group scenario: Schedule a meeting</a>
+                </li>
                 <li><a class="dropdown-item" href="#">Group scenario: Caution on inappropriate behaviour</a></li>
                 <li><a class="dropdown-item" href="#">Group → one-to-one: Check the user's status</a></li>
               </ul>
@@ -63,8 +65,8 @@
   </div>
 
   <div id="chatbody" class="row">
-    <div class="col">
-      <p class="text-center"></p>
+    <div class="col" class="text-center">
+      <p class="text-center">chat list</p>
     </div>
     <div class="col-6">
       <div id="chatbox">
@@ -74,10 +76,28 @@
             <span>{{ start_bot_text }}</span>
           </p>
         </div>
+        <div id="userAreply" class="d-flex" style="visibility: hidden;">
+          <img class="ouserIcon" src="{{ url_for('static', filename='userA.png')}}" alt="userA" />
+          <p class="otherText">
+            I'm okay with that
+          </p>
+        </div>
+        <div id="userBreply" class="d-flex" style="visibility: hidden;">
+          <img class="ouserIcon" src="{{ url_for('static', filename='userB.png')}}" alt="userB" />
+          <p class="otherText">
+            Oh but Thursday gonna be better for me
+          </p>
+        </div>
+        <div id="userCreply" class="d-flex" style="visibility: hidden;">
+          <img class="ouserIcon" src="{{ url_for('static', filename='userC.png')}}" alt="userB" />
+          <p class="otherText">
+            I'll be free after 2pm
+          </p>
+        </div>
       </div>
       <div id="inputbox" class="d-flex align-items-center sticky-bottom">
-        <button class="btn btn-success" type="button" onclick="refreshPage()" style="margin-bottom:1rem;margin-right:1rem;"><i
-            class="bi bi-arrow-clockwise"></i></button>
+        <button class="btn btn-success" type="button" onclick="refreshPage()"
+          style="margin-bottom:1rem;margin-right:1rem;"><i class="bi bi-arrow-clockwise"></i></button>
 
         <div id="userInput" class="input-group mb-3">
           <input id="textInput" type="text" name="input_text" class="form-control" placeholder="Message Ferrybot">
@@ -86,7 +106,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col" class="text-center">
       <p class="text-center">chat hint</p>
     </div>
   </div>
@@ -96,6 +116,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js"></script>
   <script>
+    var c_flag = 1
+    setTimeout(() => {
+      document.getElementById('userAreply').style.visibility = "visible";
+    }, 2000);
+    setTimeout(() => {
+      document.getElementById('userBreply').style.visibility = "visible";
+    }, 3000);
+    setTimeout(() => {
+      document.getElementById('userCreply').style.visibility = "visible";
+    }, 4000);
     function getBotResponse() {
       var rawText = $("#textInput").val();
       var userHtml = '<div class="d-flex justify-content-end"><p class="userText"><span>' + rawText + "</span></p></div>";
@@ -104,12 +134,22 @@
       document
         .getElementById("userInput")
         .scrollIntoView({ block: "start", behavior: "smooth" });
-      $.get("/get", { input_text: rawText }).done(function (data) {
+      $.get("/get_in_group", { input_text: rawText }).done(function (data) {
         var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='robot.png')}}' alt='ferrybot' /><p class='botText'><span>" + data + "</span></p></div>";
         $("#chatbox").append(botHtml);
         document
           .getElementById("userInput")
           .scrollIntoView({ block: "start", behavior: "smooth" });
+        if (c_flag == 1) {
+          setTimeout(() => {
+            var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='userB.png')}}' alt='userB' /><p class='otherText'>" + "Okay" + "</p></div>";
+            $("#chatbox").append(userBHtml);
+            document
+              .getElementById("userInput")
+              .scrollIntoView({ block: "start", behavior: "smooth" });
+          }, 1000);
+          c_flag = 0;
+        }
       });
     }
     $("#textInput").keypress(function (e) {
