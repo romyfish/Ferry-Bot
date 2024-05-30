@@ -79,19 +79,19 @@
         <div id="userAreply" class="d-flex" style="visibility: hidden;">
           <img class="ouserIcon" src="{{ url_for('static', filename='userA.png')}}" alt="userA" />
           <p class="otherText">
-            I'm okay with that
+            <span>{{ start_userA_text }}</span>
           </p>
         </div>
         <div id="userBreply" class="d-flex" style="visibility: hidden;">
           <img class="ouserIcon" src="{{ url_for('static', filename='userB.png')}}" alt="userB" />
           <p class="otherText">
-            Oh but Thursday gonna be better for me
+            <span>{{ start_userB_text }}</span>
           </p>
         </div>
         <div id="userCreply" class="d-flex" style="visibility: hidden;">
           <img class="ouserIcon" src="{{ url_for('static', filename='userC.png')}}" alt="userB" />
           <p class="otherText">
-            I'll be free after 2pm
+            <span>{{ start_userC_text }}</span>
           </p>
         </div>
       </div>
@@ -147,7 +147,7 @@
             document
               .getElementById("userInput")
               .scrollIntoView({ block: "start", behavior: "smooth" });
-          }, 1000);
+          }, 3000);
           c_flag = 0;
         }
       });

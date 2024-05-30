@@ -34,9 +34,24 @@ body {
 	margin-top: 0;
 }
 
+.ouserIcon {
+	width: 40px;
+	height: 40px;
+	margin: 10px;
+	margin-top: 0;
+}
+
 .botText {
 	color: white;
 	background-color: #3170d7;
+	padding: 10px;
+	border-radius: 15px;
+	max-width: 70%;
+}
+
+.otherText {
+	color: white;
+	background-color: #59b42e;
 	padding: 10px;
 	border-radius: 15px;
 	max-width: 70%;
