@@ -36,7 +36,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
-                Chat Modes
+                Chat Mode: <span>{{ mode_description }}</span>
               </a>
               <ul class="dropdown-menu" data-bs-theme="light">
                 <li><a class="dropdown-item" href="{{ url_for('check_status') }}">Check the user's status</a></li>
@@ -46,7 +46,8 @@
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Group scenario: Schedule a meeting</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Group scenario: Schedule a meeting</a>
+                </li>
                 <li><a class="dropdown-item" href="#">Group scenario: Caution on inappropriate behaviour</a></li>
                 <li><a class="dropdown-item" href="#">Group → one-to-one: Check the user's status</a></li>
               </ul>
@@ -62,43 +63,50 @@
       </div>
     </nav>
   </div>
-  <div id="pagebody" class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-      <div class="jumbotron">
-        <h2>
-          Hello, world!
-        </h2>
-        <p>
-          This is a template for a simple marketing or informational website. It includes a large callout called the
-          hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-        </p>
-        <p>
-          click <a href="#">here</a> to learn more about us.
-        </p>
-      </div>
-    </div>
-    <div class="col-2"></div>
-  </div>
-  <div id="contactForm" class="row">
+
+  <div id="chatbody" class="row">
     <div class="col">
       <p class="text-center"></p>
     </div>
     <div class="col-6">
-      <form>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      <div id="chatHistory"></div>
+      <div id="divideLine">
+        <p class="text-center" style="color:#aaa; margin-bottom:0;">Chat history</p>
+        <hr style="margin-top: 0;">
+      </div>
+      <div id="chatbox">
+        <div class="d-flex">
+          <img class="botIcon" src="{{ url_for('static', filename='robot.png')}}" alt="ferrybot" />
+          <p class="botText">
+            <span>{{ start_bot_text }}</span>
+          </p>
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Leave your comments</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <div id="inputbox" class="d-flex align-items-center sticky-bottom">
+        <button class="btn btn-success" type="button" onclick="refreshPage()"
+          style="margin-bottom:1rem;margin-right:1rem;"><i class="bi bi-arrow-clockwise"></i></button>
+
+        <div id="userInput" class="input-group mb-3">
+          <input id="textInput" type="text" name="input_text" class="form-control" placeholder="Message Ferrybot">
+          <button id="btn-send" class="btn btn-primary" type="button" onclick="getBotResponse()"><i
+              class="bi bi-send-fill"></i></button>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     </div>
-    </form>
     <div class="col">
-      <p class="text-center"></p>
+      <div id="hintcard" class="card" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">Hints</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Next...</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="card-link" class="text-end">Try it »</a>
+        </div>
+      </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -107,6 +115,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js"></script>
   <script>
+    (function getChatHistory() {
+      $.get("/get_chat_history", {}).done(function (data) {
+        var i;
+        for (i = 0; i < data.length; i++) {
+          // console.log(data[i]);
+          if (i % 2 == 0) {
+            var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='robot.png')}}' alt='ferrybot' /><p class='botText'><span>" + data[i] + "</span></p></div>";
+            $("#chatHistory").append(botHtml);
+          }
+          else {
+            var userHtml = '<div class="d-flex justify-content-end"><p class="userText"><span>' + data[i] + "</span></p></div>";
+            $("#chatHistory").append(userHtml);
+          }
+        }
+      });
+    }());
     function getBotResponse() {
       var rawText = $("#textInput").val();
       var userHtml = '<div class="d-flex justify-content-end"><p class="userText"><span>' + rawText + "</span></p></div>";
@@ -115,8 +139,15 @@
       document
         .getElementById("userInput")
         .scrollIntoView({ block: "start", behavior: "smooth" });
+      var loadHtml = "<div id='tempdiv' class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='robot.png')}}' alt='ferrybot' /><div id='loadBot'><span class='spinner-border spinner-border-sm text-primary' role='status'></span></div></div>";
+      $("#chatbox").append(loadHtml);
+      document
+        .getElementById("userInput")
+        .scrollIntoView({ block: "start", behavior: "smooth" });
       $.get("/get", { input_text: rawText }).done(function (data) {
-        var botHtml = '<div class="d-flex"><img class="botIcon" src="https://raw.githubusercontent.com/romyfish/Ferry-Bot/main/src/bot2.png" alt="ferrybot" /><p class="botText"><span>' + data + "</span></p></div>";
+        var loadDiv = $("#tempdiv");
+        loadDiv.remove();
+        var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='robot.png')}}' alt='ferrybot' /><p class='botText'><span>" + data + "</span></p></div>";
         $("#chatbox").append(botHtml);
         document
           .getElementById("userInput")

@@ -41,20 +41,24 @@ app.secret_key = 'a_secret_key'
 
 @app.route('/')
 def home():
+    return render_template("index.html")
+
+@app.route('/check_status')
+def check_status():
     session['modeNum'] = 1
-    return render_template("index.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1])
+    return render_template("private.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1])
 
 @app.route('/ask_group_advice')
 def ask_group_advice():
     session['modeNum'] = 2
     mode_num = session.get('modeNum', 1)
-    return render_template("index.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1])
+    return render_template("private.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1])
 
 @app.route('/support_train')
 def support_train():
     session['modeNum'] = 3
     mode_num = session.get('modeNum', 1)
-    return render_template("index.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1])
+    return render_template("private.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1])
 
 @app.route('/schedule')
 def schedule():
@@ -65,6 +69,14 @@ def schedule():
 @app.route('/contact')
 def contact():
     return render_template("contact.html")
+
+@app.route('/get_chat_history')
+def get_chat_history():
+    chat_history = list()
+    with open("chat_history.txt", "r") as h_file:
+        for line in h_file:
+            chat_history.append(line.strip())
+    return chat_history
 
 @app.route('/get')
 def get_bot_response():

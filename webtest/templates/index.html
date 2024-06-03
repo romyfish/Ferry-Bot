@@ -36,16 +36,18 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
-                Chat Mode: <span>{{ mode_description }}</span>
+                Chat Modes
               </a>
               <ul class="dropdown-menu" data-bs-theme="light">
-                <li><a class="dropdown-item" href="{{ url_for('home') }}">Check the user's status</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('check_status') }}">Check the user's status</a></li>
                 <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Training to be supportive</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Advice for group selection</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Advice for group selection</a>
+                </li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Group scenario: Schedule a meeting</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Group scenario: Schedule a meeting</a>
+                </li>
                 <li><a class="dropdown-item" href="#">Group scenario: Caution on inappropriate behaviour</a></li>
                 <li><a class="dropdown-item" href="#">Group → one-to-one: Check the user's status</a></li>
               </ul>
@@ -62,33 +64,96 @@
     </nav>
   </div>
 
-  <div id="chatbody" class="row">
-    <div class="col">
-      <p class="text-center"></p>
-    </div>
-    <div class="col-6">
-      <div id="chatbox">
-        <div class="d-flex">
-          <img class="botIcon" src="{{ url_for('static', filename='robot.png')}}" alt="ferrybot" />
-          <p class="botText">
-            <span>{{ start_bot_text }}</span>
-          </p>
+  <div id="pagebody" class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="page-header">
+        <h1>
+          Wellcome!
+        </h1>
+      </div>
+      <div class="jumbotron">
+        <h2>
+          Hello, world!
+        </h2>
+        <p>
+          This is a template for a simple marketing or informational website. It includes a large callout called the
+          hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+        </p>
+        <p>
+          click <a href="#">here</a> to learn more about us.
+        </p>
+      </div>
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseOne">
+              Accordion Item #1
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body">
+              <p>
+                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+                within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+              <a class="btn-link" href="#">Try it out »</a>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseTwo">
+              Accordion Item #2
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingTwo">
+            <div class="accordion-body">
+              <p>
+                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+                within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+              <a class="btn-link" href="#">Try it out »</a>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseThree">
+              Accordion Item #3
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingThree">
+            <div class="accordion-body">
+              <p>
+                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
+                plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+                within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </p>
+              <a class="btn-link" href="#">Try it out »</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="inputbox" class="d-flex align-items-center sticky-bottom">
-        <button class="btn btn-success" type="button" onclick="refreshPage()" style="margin-bottom:1rem;margin-right:1rem;"><i
-            class="bi bi-arrow-clockwise"></i></button>
-
-        <div id="userInput" class="input-group mb-3">
-          <input id="textInput" type="text" name="input_text" class="form-control" placeholder="Message Ferrybot">
-          <button id="btn-send" class="btn btn-primary" type="button" onclick="getBotResponse()"><i
-              class="bi bi-send-fill"></i></button>
-        </div>
-      </div>
     </div>
-    <div class="col">
-      <p class="text-center">chat hint</p>
-    </div>
+    <div class="col-2"></div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -96,30 +161,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js"></script>
   <script>
-    function getBotResponse() {
-      var rawText = $("#textInput").val();
-      var userHtml = '<div class="d-flex justify-content-end"><p class="userText"><span>' + rawText + "</span></p></div>";
-      $("#textInput").val("");
-      $("#chatbox").append(userHtml);
-      document
-        .getElementById("userInput")
-        .scrollIntoView({ block: "start", behavior: "smooth" });
-      $.get("/get", { input_text: rawText }).done(function (data) {
-        var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='robot.png')}}' alt='ferrybot' /><p class='botText'><span>" + data + "</span></p></div>";
-        $("#chatbox").append(botHtml);
-        document
-          .getElementById("userInput")
-          .scrollIntoView({ block: "start", behavior: "smooth" });
-      });
-    }
-    $("#textInput").keypress(function (e) {
-      if (e.which == 13) {
-        getBotResponse();
-      }
-    });
-    function refreshPage() {
-      location.reload();
-    }
+    
   </script>
 </body>
 
