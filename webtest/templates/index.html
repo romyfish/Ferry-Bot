@@ -39,17 +39,19 @@
                 Chat Modes
               </a>
               <ul class="dropdown-menu" data-bs-theme="light">
-                <li><a class="dropdown-item" href="{{ url_for('check_status') }}">Check the user's status</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Training to be supportive</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Advice for group selection</a>
-                </li>
+                <li><a class="dropdown-item" href="{{ url_for('check_status') }}">Check in with Inactive Users on Their
+                    Wellbeing</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Train Peer Supporters on Active
+                    Member Engagement</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Match Newcomers with Suitable Peer
+                    Support Groups</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Group scenario: Schedule a meeting</a>
-                </li>
-                <li><a class="dropdown-item" href="#">Group scenario: Caution on inappropriate behaviour</a></li>
-                <li><a class="dropdown-item" href="#">Group → one-to-one: Check the user's status</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Coordinate Group Availability and
+                    Preferences for Upcoming Events</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Appropriate Language and Behaviour in
+                    Group Chats</a></li>
               </ul>
             </li>
           </ul>
@@ -73,15 +75,33 @@
         </h1>
       </div>
       <div class="jumbotron">
-        <h2>
-          Hello, world!
-        </h2>
         <p>
-          This is a template for a simple marketing or informational website. It includes a large callout called the
-          hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+          This is a demonstration application showing the functioning of Ferrybot, a prototype of an intelligent
+          conversational agent that works in the context of peer support. In our conception, it can communicate with
+          peer support participants and administrators in instant messaging software, acting as a facilitator to help
+          administrators do their jobs better and as a listener and advisor to address the communication needs of
+          members online at any time. The technology behind it is based on state-of-the-art Large Language Models
+          (LLMs), enabling it to understand specific application scenarios, comprehend user text input and respond
+          naturally.
         </p>
         <p>
-          click <a href="#">here</a> to learn more about us.
+          In the context of peer support, we envisioned five specific scenarios involving Ferrybot. In the demo page for
+          each scenario, you can try to have a dynamic conversation with Ferrybot. These interactions typically require
+          you to take on the role of a participant or supporter in peer support. We'd like you to experience each
+          scenario in turn and give us your feedback on the concept. Further, if you are interested or can even provide
+          us with opportunities for collaboration, that's what we want!
+        </p>
+        <p>
+          click <a href="{{ url_for('contact') }}">here</a> to learn more about us.
+        </p>
+        <h2>
+          Try it out!
+        </h2>
+        <p>
+          Note that this is just a rough and basic prototype of a chatbot based on LLMs, the core of which is to convey
+          the concept of Ferrybot in the peer support scenario. It is not perfect, and we cannot guarantee that it will
+          deliver all answers appropriately. To respect your privacy, we declare that we will not record any of your
+          actions and inputs during interactions. Thank you for your understanding!
         </p>
       </div>
       <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -90,20 +110,20 @@
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
               data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
               aria-controls="panelsStayOpen-collapseOne">
-              Accordion Item #1
+              Check in with Inactive Users on Their Wellbeing
             </button>
           </h2>
           <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
             aria-labelledby="panelsStayOpen-headingOne">
             <div class="accordion-body">
               <p>
-                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
-                plugin adds the appropriate classes that we use to style each element. These classes control the overall
-                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-                within the <code>.accordion-body</code>, though the transition does limit overflow.
+                In this scenario, Ferrybot acts as a caring intermediary, reaching out to members of the peer support
+                group who have been less active recently. The aim is to proactively and privately check on their overall
+                mental and physical wellbeing, including aspects such as mood, sleep, diet, and exercise. This proactive
+                approach helps ensure that all members feel supported and engaged, even when they are not actively
+                participating in group activities.
               </p>
-              <a class="btn-link" href="#">Try it out »</a>
+              <a class="btn-link" href="{{ url_for('check_status') }}">Try it out »</a>
             </div>
           </div>
         </div>
@@ -112,20 +132,19 @@
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
               aria-controls="panelsStayOpen-collapseTwo">
-              Accordion Item #2
+              Train Peer Supporters on Active Member Engagement
             </button>
           </h2>
           <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
             aria-labelledby="panelsStayOpen-headingTwo">
             <div class="accordion-body">
               <p>
-                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
-                plugin adds the appropriate classes that we use to style each element. These classes control the overall
-                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-                within the <code>.accordion-body</code>, though the transition does limit overflow.
+                In this scenario, Ferrybot takes on the role of a mentor for peer supporters, providing them with the
+                necessary skills and strategies to effectively engage with other group members. The training focuses on
+                how to sensitively inquire about members' feelings, health, and personal interests, and how to encourage
+                participation in group activities.
               </p>
-              <a class="btn-link" href="#">Try it out »</a>
+              <a class="btn-link" href="{{ url_for('support_train') }}">Try it out »</a>
             </div>
           </div>
         </div>
@@ -134,20 +153,58 @@
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
               aria-controls="panelsStayOpen-collapseThree">
-              Accordion Item #3
+              Match Newcomers with Suitable Peer Support Groups
             </button>
           </h2>
           <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
             aria-labelledby="panelsStayOpen-headingThree">
             <div class="accordion-body">
               <p>
-                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
-                plugin adds the appropriate classes that we use to style each element. These classes control the overall
-                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-                within the <code>.accordion-body</code>, though the transition does limit overflow.
+                For new members of the Glasgow-based peer support organization, Ferrybot serves as a guide to help them
+                find the most appropriate subgroup that matches their specific needs. By gathering information about the
+                members' age, gender, interests, and preferred locations, Ferrybot can accurately recommend the best-fit
+                group.
               </p>
-              <a class="btn-link" href="#">Try it out »</a>
+              <a class="btn-link" href="{{ url_for('ask_group_advice') }}">Try it out »</a>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseFour">
+              Coordinate Group Availability and Preferences for Upcoming Events
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingFour">
+            <div class="accordion-body">
+              <p>
+                This scenario involves Ferrybot organizing and coordinating group activities by collecting and analysing
+                members' availability and preferences. Ferrybot facilitates discussions within the group to determine
+                the best time and type of activity that suits the majority. This coordination helps in planning events
+                that are enjoyable and accessible to all, enhancing the group's cohesion and social interaction.
+              </p>
+              <a class="btn-link" href="{{ url_for('schedule') }}">Try it out »</a>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseFive">
+              Train Peer Supporters on Appropriate Language and Behaviour in Group Chats
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingFive">
+            <div class="accordion-body">
+              <p>
+                <strong>In this scenario,</strong> It is .
+              </p>
+              <a class="btn-link" href="{{ url_for('train_in_group') }}">Try it out »</a>
             </div>
           </div>
         </div>
@@ -155,13 +212,14 @@
     </div>
     <div class="col-2"></div>
   </div>
+  <footer></footer>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
     crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js"></script>
   <script>
-    
+
   </script>
 </body>
 

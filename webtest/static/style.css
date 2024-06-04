@@ -10,9 +10,9 @@ body {
 	margin-top: 180px;
 }
 
-/* #chatbox {
-	margin-bottom: 50px;
-} */
+#pagebody {
+	margin-top: 180px;
+}
 
 #inputbox {
 	background-color: white;
@@ -49,10 +49,23 @@ body {
 	max-width: 70%;
 }
 
+#loadBot {
+	padding: 10px;
+}
+
 .otherText {
 	color: white;
 	background-color: #59b42e;
 	padding: 10px;
 	border-radius: 15px;
 	max-width: 70%;
+}
+
+#hintcard {
+	margin: 10px;
+	position: fixed;
+}
+
+footer {
+	margin: 80px;
 }

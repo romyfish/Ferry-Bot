@@ -39,16 +39,19 @@
                 Chat Modes
               </a>
               <ul class="dropdown-menu" data-bs-theme="light">
-                <li><a class="dropdown-item" href="{{ url_for('check_status') }}">Check the user's status</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Training to be supportive</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Advice for group selection</a>
-                </li>
+                <li><a class="dropdown-item" href="{{ url_for('check_status') }}">Check in with Inactive Users on Their
+                    Wellbeing</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Train Peer Supporters on Active
+                    Member Engagement</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Match Newcomers with Suitable Peer
+                    Support Groups</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Group scenario: Schedule a meeting</a></li>
-                <li><a class="dropdown-item" href="#">Group scenario: Caution on inappropriate behaviour</a></li>
-                <li><a class="dropdown-item" href="#">Group → one-to-one: Check the user's status</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Coordinate Group Availability and
+                    Preferences for Upcoming Events</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Appropriate Language and Behaviour in
+                    Group Chats</a></li>
               </ul>
             </li>
           </ul>
@@ -67,14 +70,19 @@
     <div class="col-8">
       <div class="jumbotron">
         <h2>
-          Hello, world!
+          Hi, there!
         </h2>
         <p>
-          This is a template for a simple marketing or informational website. It includes a large callout called the
-          hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+          I'm <a href="https://www.gla.ac.uk/pgrs/wanshuyu/">Wanshu Yu</a>. I am a PhD student in HCI at the University
+          of Glasgow, supervised by Dr. ____. Our project aims to design a conversational intelligent agent for peer
+          support contexts to facilitate participant experience and access to information, and to assist organisers with
+          their work.
         </p>
         <p>
-          click <a href="#">here</a> to learn more about us.
+          We are keen to collaborate with actual peer support organisations to develop a smart chatbot for them through
+          participatory design methodology and explore its role in practice together. If you are interested in our
+          project, please leave your information and comments below or contact us directly! We very much look forward to
+          hearing from you!
         </p>
       </div>
     </div>
@@ -91,7 +99,7 @@
           <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Leave your comments</label>
+          <label for="exampleFormControlTextarea1" class="form-label">Your comments</label>
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
