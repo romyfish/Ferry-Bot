@@ -41,16 +41,18 @@
               <ul class="dropdown-menu" data-bs-theme="light">
                 <li><a class="dropdown-item" href="{{ url_for('check_status') }}">Check in with Inactive Users on Their
                     Wellbeing</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Train Peer Supporters on Active
-                    Member Engagement</a></li>
+
                 <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Match Newcomers with Suitable Peer
                     Support Groups</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Coordinate Group Availability and
+                    Preferences for Upcoming Events</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Coordinate Group Availability and
-                    Preferences for Upcoming Events</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Appropriate Language and Behaviour in
+                <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Train Peer Supporters on Active
+                    Member Engagement</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Appropriate
+                    Language and Behaviour in
                     Group Chats</a></li>
               </ul>
             </li>
@@ -128,27 +130,6 @@
           </div>
         </div>
         <div class="accordion-item">
-          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
-              aria-controls="panelsStayOpen-collapseTwo">
-              Train Peer Supporters on Active Member Engagement
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-            aria-labelledby="panelsStayOpen-headingTwo">
-            <div class="accordion-body">
-              <p>
-                In this scenario, Ferrybot takes on the role of a mentor for peer supporters, providing them with the
-                necessary skills and strategies to effectively engage with other group members. The training focuses on
-                how to sensitively inquire about members' feelings, health, and personal interests, and how to encourage
-                participation in group activities.
-              </p>
-              <a class="btn-link" href="{{ url_for('support_train') }}">Try it out »</a>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
           <h2 class="accordion-header" id="panelsStayOpen-headingThree">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
@@ -187,6 +168,27 @@
                 that are enjoyable and accessible to all, enhancing the group's cohesion and social interaction.
               </p>
               <a class="btn-link" href="{{ url_for('schedule') }}">Try it out »</a>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseTwo">
+              Train Peer Supporters on Active Member Engagement
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingTwo">
+            <div class="accordion-body">
+              <p>
+                In this scenario, Ferrybot takes on the role of a mentor for peer supporters, providing them with the
+                necessary skills and strategies to effectively engage with other group members. The training focuses on
+                how to sensitively inquire about members' feelings, health, and personal interests, and how to encourage
+                participation in group activities.
+              </p>
+              <a class="btn-link" href="{{ url_for('support_train') }}">Try it out »</a>
             </div>
           </div>
         </div>

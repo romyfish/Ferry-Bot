@@ -13,6 +13,23 @@
 </head>
 
 <body>
+  <div class="modal fade" id="enterModal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Interaction hints</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p><span>{{ hint_text }}</span></p>
+          <p class="card-text" style="color: #0a58ca;"><strong>Check out the sample messages, then try it out!</strong></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+				</div>
+			</div>
+		</div>
+	</div>
   <div id="topBanner" class="fixed-top">
     <div id="myBanner" class="d-flex justify-content-center">
       <div class="d-flex align-items-center">
@@ -39,12 +56,21 @@
                 Chat Mode: <span>{{ mode_description }}</span>
               </a>
               <ul class="dropdown-menu" data-bs-theme="light">
-                <li><a class="dropdown-item" href="{{ url_for('check_status') }}">Check in with Inactive Users on Their Wellbeing</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Train Peer Supporters on Active Member Engagement</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Match Newcomers with Suitable Peer Support Groups</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Coordinate Group Availability and Preferences for Upcoming Events</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Appropriate Language and Behaviour in Group Chats</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('check_status') }}">Check in with Inactive Users on Their
+                    Wellbeing</a></li>
+
+                <li><a class="dropdown-item" href="{{ url_for('ask_group_advice') }}">Match Newcomers with Suitable Peer
+                    Support Groups</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('schedule') }}">Coordinate Group Availability and
+                    Preferences for Upcoming Events</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Train Peer Supporters on Active
+                    Member Engagement</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Appropriate
+                    Language and Behaviour in
+                    Group Chats</a></li>
               </ul>
             </li>
           </ul>
@@ -68,6 +94,7 @@
       <div id="divideLine">
         <p class="text-center" style="color:#aaa; margin-bottom:0;">Above are sample messages</p>
         <hr style="margin-top: 0;">
+        <p class="text-center" style="color:#656565;"><strong>Type at the bottom to start</strong></p>
       </div>
       <div id="chatbox">
         <div class="d-flex">
@@ -109,17 +136,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js"></script>
   <script>
+    $(window).on('load', function () {
+			$('#enterModal').modal('show');
+		});
     (function getChatHistory() {
       $.get("/get_chat_history", {}).done(function (data) {
         var i;
         for (i = 0; i < data.length; i++) {
           // console.log(data[i]);
           if (i % 2 == 0) {
-            var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='robot.png')}}' alt='ferrybot' /><p class='botText'><span>" + data[i] + "</span></p></div>";
+            var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='robot.png')}}' alt='ferrybot' /><p class='botTextH'><span>" + data[i] + "</span></p></div>";
             $("#chatHistory").append(botHtml);
           }
           else {
-            var userHtml = '<div class="d-flex justify-content-end"><p class="userText"><span>' + data[i] + "</span></p></div>";
+            var userHtml = '<div class="d-flex justify-content-end"><p class="userTextH"><span>' + data[i] + "</span></p></div>";
             $("#chatHistory").append(userHtml);
           }
         }

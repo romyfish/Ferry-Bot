@@ -27,6 +27,14 @@ body {
 	max-width: 70%;
 }
 
+.userTextH {
+	color: white;
+	background-color: #bd8b50;
+	padding: 10px;
+	border-radius: 15px;
+	max-width: 70%;
+}
+
 .botIcon {
 	width: 40px;
 	height: 40px;
@@ -44,6 +52,14 @@ body {
 .botText {
 	color: white;
 	background-color: #3170d7;
+	padding: 10px;
+	border-radius: 15px;
+	max-width: 70%;
+}
+
+.botTextH {
+	color: white;
+	background-color: #3562ad;
 	padding: 10px;
 	border-radius: 15px;
 	max-width: 70%;
