@@ -3,7 +3,7 @@
 <title>Ferrybot web demo</title>
 
 <head>
-  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='robot.png')}}" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/robot.png')}}" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
     <div id="myBanner" class="d-flex justify-content-center">
       <div class="d-flex align-items-center">
         <div class="flex-shrink-0">
-          <img src="{{ url_for('static', filename='robot.png')}}" alt="ferrybot"
+          <img src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot"
             style="width:60px;height:60px;margin-top:20px;margin-bottom:20px;">
         </div>
         <h3 class="flex-grow-1 ms-3" style="margin-bottom:0;">
@@ -51,9 +51,10 @@
                 </li>
                 <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Train Peer Supporters on Active
                     Member Engagement</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('simulate_train') }}">Train Peer Supporters on Empathic
+                    Care by Simulation Exercise</a></li>
                 <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Appropriate
-                    Language and Behaviour in
-                    Group Chats</a></li>
+                    Language and Behaviour in Group Chats</a></li>
               </ul>
             </li>
           </ul>
@@ -78,20 +79,17 @@
       </div>
       <div class="jumbotron">
         <p>
-          This is a demonstration application showing the functioning of Ferrybot, a prototype of an intelligent
-          conversational agent that works in the context of peer support. In our conception, it can communicate with
-          peer support participants and administrators in instant messaging software, acting as a facilitator to help
-          administrators do their jobs better and as a listener and advisor to address the communication needs of
-          members online at any time. The technology behind it is based on state-of-the-art Large Language Models
-          (LLMs), enabling it to understand specific application scenarios, comprehend user text input and respond
-          naturally.
+          This demonstration showcases Ferrybot, a prototype intelligent conversational agent designed for peer support
+          contexts. In our conception, it interacts with both participants and administrators via instant messaging,
+          facilitating administrative tasks and providing real-time, on-demand support and advice to members. Ferrybot
+          is powered by state-of-the-art Large Language Models (LLMs), which allow it to understand specific scenarios,
+          interpret user input, and respond naturally.
         </p>
         <p>
-          In the context of peer support, we envisioned five specific scenarios involving Ferrybot. In the demo page for
-          each scenario, you can try to have a dynamic conversation with Ferrybot. These interactions typically require
-          you to take on the role of a participant or supporter in peer support. We'd like you to experience each
-          scenario in turn and give us your feedback on the concept. Further, if you are interested or can even provide
-          us with opportunities for collaboration, that's what we want!
+          In the peer support context, we've designed five scenarios for interacting with Ferrybot. On the demo page,
+          you can engage in dynamic conversations with Ferrybot, taking on roles such as a participant or supporter. We
+          invite you to explore each scenario and share your feedback. Additionally, if you're interested in
+          collaboration opportunities, we'd love to hear from you!
         </p>
         <p>
           click <a href="{{ url_for('contact') }}">here</a> to learn more about us.
@@ -99,11 +97,16 @@
         <h2>
           Try it out!
         </h2>
+        <div class="alert alert-info" role="alert" style="margin: 20px;margin-left: 50px;margin-right: 50px;">
+          <strong>FerryBot's name is inspired by the concept of a “ferry boat”, symbolizing its role in bridging
+            connections between individuals, likened to isolated islands in the ocean, helping them to stay warm
+            connected and supported.</strong>
+        </div>
         <p>
-          Note that this is just a rough and basic prototype of a chatbot based on LLMs, the core of which is to convey
-          the concept of Ferrybot in the peer support scenario. It is not perfect, and we cannot guarantee that it will
-          deliver all answers appropriately. To respect your privacy, we declare that we will not record any of your
-          actions and inputs during interactions. Thank you for your understanding!
+          Please note that this is a basic prototype of a chatbot powered by LLMs, designed to demonstrate the Ferrybot
+          concept in peer support scenarios. It is not flawless, and we cannot guarantee fully appropriate responses. To
+          protect your privacy, we do not record any actions or inputs during interactions. Thank you for your
+          understanding!
         </p>
       </div>
       <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -197,11 +200,32 @@
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true"
               aria-controls="panelsStayOpen-collapseFive">
-              Train Peer Supporters on Appropriate Language and Behaviour in Group Chats
+              Train Peer Supporters on Empathic Care by Simulation Exercise
             </button>
           </h2>
           <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
             aria-labelledby="panelsStayOpen-headingFive">
+            <div class="accordion-body">
+              <p>
+                In this conversation, you need to pretend that you are in the role of a supporter of a peer support
+                group and have some confusion about how to do a good job. Ferrybot will help you practice to care
+                someone by pretending it is the one who is feeling extremely upset and needs comfort. After the
+                simulation practice, Ferrybot will provide feedback on your performance.
+              </p>
+              <a class="btn-link" href="{{ url_for('simulate_train') }}">Try it out »</a>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseSix">
+              Train Peer Supporters on Appropriate Language and Behaviour in Group Chats
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingSix">
             <div class="accordion-body">
               <p>
                 <strong>In this scenario,</strong> It is .

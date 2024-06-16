@@ -17,7 +17,7 @@
     <div id="myBanner" class="d-flex justify-content-center">
       <div class="d-flex align-items-center">
         <div class="flex-shrink-0">
-          <img src="{{ url_for('static', filename='robot.png')}}" alt="ferrybot"
+          <img src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot"
             style="width:60px;height:60px;margin-top:20px;margin-bottom:20px;">
         </div>
         <h3 class="flex-grow-1 ms-3" style="margin-bottom:0;">
@@ -51,6 +51,8 @@
                 </li>
                 <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Train Peer Supporters on Active
                     Member Engagement</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('simulate_train') }}">Train Peer Supporters on Empathic
+                    Care by Simulation Exercise</a></li>
                 <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Appropriate
                     Language and Behaviour in
                     Group Chats</a></li>
@@ -74,73 +76,95 @@
         <h2>
           Hi, there!
         </h2>
-        <p>
-          I'm <a href="https://www.gla.ac.uk/pgrs/wanshuyu/">Wanshu Yu</a>. I am a PhD student in HCI at the University
-          of Glasgow, supervised by Dr. ____. Our project aims to design a conversational intelligent agent for peer
-          support contexts to facilitate participant experience and access to information, and to assist organisers with
-          their work.
-        </p>
-        <p>
-          We are keen to collaborate with actual peer support organisations to develop a smart chatbot for them through
-          participatory design methodology and explore its role in practice together. If you are interested in our
-          project, please leave your information and comments below or contact us directly! We very much look forward to
-          hearing from you!
-        </p>
+        <div class="d-flex align-items-center">
+          <div>
+            <p>
+              I'm <a href="https://www.gla.ac.uk/pgrs/wanshuyu/">Wanshu Yu</a>, a PhD student in HCI at the University
+              of Glasgow, supervised by Dr. Stephen Lindsay and Dr. Xianghua (Sharon) Ding. Our project aims to design a
+              conversational intelligent agent for peer
+              support contexts to facilitate participant experience and access to information, and to assist organisers
+              with
+              their work.
+            </p>
+            <p>
+              We are keen to collaborate with actual peer support organisations to develop a smart chatbot for them
+              through
+              participatory design methodology and explore its role in practice together. If you are interested in our
+              project, please leave your information and comments below or contact us directly! We very much look
+              forward to
+              hearing from you!
+            </p>
+          </div>
+          <div>
+            <img src="{{ url_for('static', filename='img/myphoto.jpg')}}" alt="ferrybot"
+              style="width:220px;height:220px;margin-left:20px;">
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-2"></div>
   </div>
-  <div id="contactForm" class="row">
+  <div id="contactForm" class="row" style="margin-top: 20px;">
     <div class="col">
       <p class="text-center"></p>
     </div>
     <div class="col-6">
-      <form>
+      <form action="/submit" method="post">
         <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          <label for="titleInput" class="form-label">Title</label>
+          <input type="text" class="form-control" id="titleInput" name="titleInput" required>
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Your comments</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <label for="nameInput" class="form-label">Name</label>
+          <input type="text" class="form-control" id="nameInput" name="nameInput" required>
         </div>
+        <div class="mb-3">
+          <label for="emailInput" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="emailInput" placeholder="name@example.com"
+            aria-describedby="emailHelp" name="emailInput" required>
+        </div>
+        <div class="mb-3">
+          <label for="typeInput" class="form-label">How would you describe yourself?</label>
+          <select class="form-select" id="typeInput" aria-label="Default select example" name="typeInput">
+            <option selected>Open to select</option>
+            <option value="Peer support practitioner">Peer support practitioner</option>
+            <option value="Peer support participant">Peer support participant</option>
+            <option value="Charity or/and medical institution stakeholder">Charity or/and medical institution
+              stakeholder</option>
+            <option value="Researcher in relevant areas">Researcher in relevant areas</option>
+            <option value="Other">Other (please tell us in your comments)</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="commentInput" class="form-label">Comments</label>
+          <textarea class="form-control" id="commentInput" name="commentInput" rows="3" required></textarea>
+          <div class="form-text">We'll never share your personal information with anyone else.</div>
+        </div>
+        {% if success_flag %}
+        <div class="alert alert-success" role="alert" style="width: auto; margin-top: 10px; margin-bottom: 15px;">
+          Submission successful!
+        </div>
+        {% endif %}
         <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-    </form>
     <div class="col">
       <p class="text-center"></p>
     </div>
   </div>
+  <footer></footer>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
     crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js"></script>
   <script>
-    function getBotResponse() {
-      var rawText = $("#textInput").val();
-      var userHtml = '<div class="d-flex justify-content-end"><p class="userText"><span>' + rawText + "</span></p></div>";
-      $("#textInput").val("");
-      $("#chatbox").append(userHtml);
-      document
-        .getElementById("userInput")
-        .scrollIntoView({ block: "start", behavior: "smooth" });
-      $.get("/get", { input_text: rawText }).done(function (data) {
-        var botHtml = '<div class="d-flex"><img class="botIcon" src="https://raw.githubusercontent.com/romyfish/Ferry-Bot/main/src/bot2.png" alt="ferrybot" /><p class="botText"><span>' + data + "</span></p></div>";
-        $("#chatbox").append(botHtml);
-        document
-          .getElementById("userInput")
-          .scrollIntoView({ block: "start", behavior: "smooth" });
+    $(document).ready(function () {
+      $('#commentInput').on('input', function () {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
       });
-    }
-    $("#textInput").keypress(function (e) {
-      if (e.which == 13) {
-        getBotResponse();
-      }
     });
-    function refreshPage() {
-      location.reload();
-    }
   </script>
 </body>
 

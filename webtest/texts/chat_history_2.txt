@@ -1,0 +1,11 @@
+Hi newcomer! I'm Ferrybot, an intelligent chatbot for you to find a suitable peer support group in Glasgow!
+Hi, how do you work?
+Hi! I'm here to assist you in finding a peer support group in Glasgow that best suits your needs. By sharing your age, gender, interests, preferred meeting locations in Glasgow, occupation, and any specific mental health needs, I can recommend the most suitable group for you. Feel free to provide me with this information so I can help you better.
+35, female, a school teacher with a new baby, walk lover
+Based on your information, I recommend the Stress Management and Self-care Group. It focuses on stress reduction, meditation, and mindfulness, meeting in the north side and online, which might be suitable for your age, occupation, and life stage.
+tell me more about it
+The Stress Management and Self-care Group is open to all ages and focuses on techniques to reduce stress, promote self-care, and enhance overall well-being. The group meets in the north side of Glasgow as well as online, providing flexibility for members to participate. It could be a great fit for you as a school teacher with a new baby who enjoys walking, offering support in managing stress and finding balance in your busy life.
+Do you have some groups better for women?
+Yes, the Professional Women's Support Group is specifically tailored for female professionals facing workplace challenges and gender-related issues. It meets in the west end of Glasgow and provides a supportive environment for women to connect, share experiences, and receive guidance on navigating their careers.
+Cool I'll consider about this one
+That sounds like a good choice! If you have any more questions or need further assistance in the future, feel free to reach out. Good luck with finding the right support group for you!

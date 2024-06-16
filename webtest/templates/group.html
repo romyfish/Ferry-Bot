@@ -3,7 +3,7 @@
 <title>Ferrybot web demo</title>
 
 <head>
-  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='robot.png')}}" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/robot.png')}}" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
@@ -14,27 +14,28 @@
 
 <body>
   <div class="modal fade" id="enterModal" tabindex="-1">
-		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">Interaction hints</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<p><span>{{ hint_text }}</span></p>
-          <p class="card-text" style="color: #0a58ca;"><strong>Check out the sample message history, then try it out!</strong></p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Interaction hints</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><span>{{ hint_text }}</span></p>
+          <p class="card-text" style="color: #0a58ca;"><strong>Check out the sample message history, then try it
+              out!</strong></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="topBanner" class="fixed-top">
     <div id="myBanner" class="d-flex justify-content-center">
       <div class="d-flex align-items-center">
         <div class="flex-shrink-0">
-          <img src="{{ url_for('static', filename='robot.png')}}" alt="ferrybot"
+          <img src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot"
             style="width:60px;height:60px;margin-top:20px;margin-bottom:20px;">
         </div>
         <h3 class="flex-grow-1 ms-3" style="margin-bottom:0;">
@@ -68,6 +69,8 @@
                 </li>
                 <li><a class="dropdown-item" href="{{ url_for('support_train') }}">Train Peer Supporters on Active
                     Member Engagement</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('simulate_train') }}">Train Peer Supporters on Empathic
+                    Care by Simulation Exercise</a></li>
                 <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Appropriate
                     Language and Behaviour in
                     Group Chats</a></li>
@@ -98,25 +101,25 @@
       </div>
       <div id="chatbox">
         <div class="d-flex">
-          <img class="botIcon" src="{{ url_for('static', filename='robot.png')}}" alt="ferrybot" />
+          <img class="botIcon" src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot" />
           <p class="botText">
             <span>{{ start_bot_text }}</span>
           </p>
         </div>
         <div id="userAreply" class="d-flex" style="visibility: hidden;">
-          <img class="ouserIcon" src="{{ url_for('static', filename='userA.png')}}" alt="userA" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/userA.png')}}" alt="userA" />
           <p class="otherText">
             <span>{{ start_userA_text }}</span>
           </p>
         </div>
         <div id="userBreply" class="d-flex" style="visibility: hidden;">
-          <img class="ouserIcon" src="{{ url_for('static', filename='userB.png')}}" alt="userB" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/userB.png')}}" alt="userB" />
           <p class="otherText">
             <span>{{ start_userB_text }}</span>
           </p>
         </div>
         <div id="userCreply" class="d-flex" style="visibility: hidden;">
-          <img class="ouserIcon" src="{{ url_for('static', filename='userC.png')}}" alt="userB" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/userC.png')}}" alt="userB" />
           <p class="otherText">
             <span>{{ start_userC_text }}</span>
           </p>
@@ -127,18 +130,19 @@
           style="margin-bottom:1rem;margin-right:1rem;"><i class="bi bi-arrow-clockwise"></i></button>
 
         <div id="userInput" class="input-group mb-3">
-          <input id="textInput" type="text" name="input_text" class="form-control" placeholder="Message Ferrybot">
+          <textarea id="textInput" type="text" name="input_text" class="form-control" placeholder="Message Ferrybot" rows="1"></textarea>
           <button id="btn-send" class="btn btn-primary" type="button" onclick="getBotResponse()"><i
               class="bi bi-send-fill"></i></button>
         </div>
       </div>
     </div>
     <div class="col">
-      <div id="hintcard" class="card" style="width: 20rem;">
+      <div id="hintcard" class="card">
         <div class="card-body">
           <h5 class="card-title">Hints</h5>
           <p class="card-text"><span>{{ hint_text }}</span></p>
-          <p class="card-text" style="color: #0a58ca;"><strong>Scroll over the window to see sample message history, then try it out!</strong></p>
+          <p class="card-text" style="color: #0a58ca;"><strong>Scroll over the window to see sample message history,
+              then try it out!</strong></p>
         </div>
         <div class="card-body">
           <h5 class="card-title">Next...</h5>
@@ -155,8 +159,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js"></script>
   <script>
     $(window).on('load', function () {
-			$('#enterModal').modal('show');
-		});
+      $('#enterModal').modal('show');
+    });
+    $(document).ready(function () {
+      $('#textInput').on('input', function () {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+      });
+    });
     var c_flag = 1;
     setTimeout(() => {
       document.getElementById('userAreply').style.visibility = "visible";
@@ -173,7 +183,7 @@
         for (i = 0; i < data.length; i++) {
           // console.log(data[i]);
           if (i % 2 == 0) {
-            var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='robot.png')}}' alt='ferrybot' /><p class='botTextH'><span>" + data[i] + "</span></p></div>";
+            var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='img/robot.png')}}' alt='ferrybot' /><p class='botTextH'><span>" + data[i] + "</span></p></div>";
             $("#chatHistory").append(botHtml);
           }
           else {
@@ -192,14 +202,14 @@
         .getElementById("userInput")
         .scrollIntoView({ block: "start", behavior: "smooth" });
       $.get("/get_in_group", { input_text: rawText }).done(function (data) {
-        var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='robot.png')}}' alt='ferrybot' /><p class='botText'><span>" + data + "</span></p></div>";
+        var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='img/robot.png')}}' alt='ferrybot' /><p class='botText'><span>" + data + "</span></p></div>";
         $("#chatbox").append(botHtml);
         document
           .getElementById("userInput")
           .scrollIntoView({ block: "start", behavior: "smooth" });
         if (c_flag == 1) {
           setTimeout(() => {
-            var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='userB.png')}}' alt='userB' /><p class='otherText'>" + "Okay" + "</p></div>";
+            var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userB.png')}}' alt='userB' /><p class='otherText'>" + "Okay" + "</p></div>";
             $("#chatbox").append(userBHtml);
             document
               .getElementById("userInput")

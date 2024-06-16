@@ -6,11 +6,18 @@ from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
 from langchain_openai import ChatOpenAI
 
+import os
+api_key = os.getenv('OPENAI_API_KEY')
+# print("API Key:", api_key)
+
+import csv
+from datetime import datetime
+
 mode_num = 1
-mode_count = 4
+mode_count = 5
 chat_prompts = []
 for i in range(mode_count):
-    sp_name = "system_prompt_" + str(i+1) + ".txt"
+    sp_name = "texts/system_prompt_" + str(i+1) + ".txt"
     with open(sp_name, "r") as p_file:
         sys_prompt = p_file.read()
     chat_prompts.append([SystemMessage(content = sys_prompt)])
@@ -21,13 +28,15 @@ mode_descriptions.append("Check in with Inactive Users on Their Wellbeing")
 mode_descriptions.append("Match Newcomers with Suitable Peer Support Groups")
 mode_descriptions.append("Coordinate Group Availability and Preferences for Upcoming Events")
 mode_descriptions.append("Train Peer Supporters on Active Member Engagement")
+mode_descriptions.append("Train Peer Supporters on Empathic Care by Simulation Exercise")
 mode_descriptions.append("Train Peer Supporters on Appropriate Language and Behaviour in Group Chats")
 
 mode_hints = []
 mode_hints.append("In this conversation, you need to pretend that you are a member of a peer support group and for some reason haven't responded to Ferrybot and bubbled in the group chat for a while. You may not want to talk to real people about your troubles but may be willing to open up when a chatbot reaches out to ask.")
 mode_hints.append("In this conversation, you need to pretend that you are a new member of a peer support organisation in Glasgow that has various groups affiliate. You would like to join a group that is most suitable for you based on your personal characteristics (e.g. demographics and interests).")
 mode_hints.append("In this group chat conversation, you need to pretend that you are one of the members of a peer support group. This group usually arranges a weekly offline or online activity such as coffee chat, hiking, sports, picnic, crafting and gardening. You can talk freely about your availability and wanted activities for the next week, providing the conditions for Ferrybot to help determine the activities.")
-mode_hints.append("In this conversation, you need to pretend that you are in the role of a supporter of a peer support group and have some confusion about how to do a good job. Through the communication with Ferrybot, you will get guidance be well-equipped to provide valuable support and foster a welcoming community atmosphere.")
+mode_hints.append("In this conversation, you need to pretend that you are in the role of a supporter of a peer support group. Through the communication with Ferrybot, you will get guidance be well-equipped to provide valuable support and foster a welcoming community atmosphere.")
+mode_hints.append("In this conversation, you need to pretend that you are in the role of a supporter of a peer support group and have some confusion about how to do a good job. Ferrybot will help you practice to care someone by pretending it is the one who is feeling extremely upset and needs comfort. After the simulation practice, Ferrybot will provide feedback on your performance.")
 mode_hints.append("In this group chat conversation, you need to pretend that you are one of the members of a peer support group.")
 
 start_bot_texts = []
@@ -35,6 +44,7 @@ start_bot_texts.append("Hi! I notice you haven't been active lately and want to 
 start_bot_texts.append("Hi newcomer! I'm Ferrybot, an intelligent chatbot for you to find a suitable peer support group in Glasgow!")
 start_bot_texts.append("Hello everyone! We're planning a fun offline event for our group and would love to find a time that works for everyone. Could you please share when you are generally free over the next week?")
 start_bot_texts.append("Hi! I'm Ferrybot, an intelligent chatbot for you to better cope with others in a peer support group. Ask me anything or simply prompt me to give some guidance for you!")
+start_bot_texts.append("Hello! Today, we're going to practice a very important skill — comforting someone who is feeling extremely upset. It's crucial for a peer supporter to offer empathy, listen actively, and respond thoughtfully. I'll simulate a scenario where I am a support seeker going through a tough time. Your task is to respond in a way that shows care and support. Are you ready to start?")
 
 other_user_texts = []
 other_user_texts.append("I'm okay with Wednesday and Thursday")
@@ -72,11 +82,17 @@ def schedule():
 def support_train():
     session['modeNum'] = 4
     mode_num = session.get('modeNum', 1)
+    return render_template("private.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='simulate_train')
+
+@app.route('/simulate_train')
+def simulate_train():
+    session['modeNum'] = 5
+    mode_num = session.get('modeNum', 1)
     return render_template("private.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='train_in_group')
 
 @app.route('/train_in_group')
 def train_in_group():
-    session['modeNum'] = 5
+    session['modeNum'] = 6
     mode_num = session.get('modeNum', 1)
     return render_template("group.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], start_userA_text=other_user_texts[0], start_userB_text=other_user_texts[1], start_userC_text=other_user_texts[2], hint_text=mode_hints[mode_num-1])
 
@@ -87,7 +103,7 @@ def contact():
 @app.route('/get_chat_history')
 def get_chat_history():
     mode_num = session.get('modeNum', 1)
-    ch_name = "chat_history_" + str(mode_num) + ".txt"
+    ch_name = "texts/chat_history_" + str(mode_num) + ".txt"
     chat_history = list()
     with open(ch_name, "r") as h_file:
         for line in h_file:
@@ -100,11 +116,13 @@ def get_bot_response():
     mode_num = session.get('modeNum', 1)
     chat_prompts[mode_num-1].append(HumanMessage(content = user_input))
     # llm = Ollama(model="dolphin-phi")
-    llm = ChatOpenAI(temperature=0.1, openai_api_key=OPENAI_API_KEY)
+    llm = ChatOpenAI(temperature=0.1, openai_api_key=api_key)
     response = llm.invoke(chat_prompts[mode_num-1])
     chat_prompts[mode_num-1].append(AIMessage(content = response.content))
     # print(chat_prompts[mode_num-1])
-    with open("chatlog.txt","a") as l_file:
+    now = datetime.now()
+    cl_name = "data/chatlog_" + str(now.strftime("%Y%m%d%H%M")) + ".txt"
+    with open(cl_name,"w") as l_file:
         l_file.write(str(chat_prompts[mode_num-1]))
     # if response.startswith("AI: "):
     #     response = response[4:]
@@ -121,13 +139,33 @@ def get_bot_response_in_group():
     response = llm.invoke(chat_prompts[mode_num-1])
     chat_prompts[mode_num-1].append(AIMessage(content = response))
     # print(chat_prompt)
-    with open("chatlog0.txt","w") as l_file:
+    with open("data/chatlog0.txt","w") as l_file:
         l_file.write(str(chat_prompts[mode_num-1]))
     if response.startswith("AI: "):
         response = response[4:]
     return response
     # response = "Roger that! I'll message the manager for the final decision."
     # return response
+
+@app.route('/submit', methods=['GET', 'POST'])
+def submit():
+    if request.method == 'POST':
+        title = request.form.get('titleInput')
+        name = request.form.get('nameInput')
+        email = request.form.get('emailInput')
+        type = request.form.get('typeInput')
+        comment = request.form.get('commentInput')
+        now = datetime.now()
+        submit_time = now.strftime("%Y-%m-%d %H:%M:%S")
+
+        with open('data/submissions.csv', mode='a', newline='') as file:
+            writer = csv.writer(file)
+            # Add head for the first writing
+            if file.tell() == 0:
+                writer.writerow(['Submit Time', 'Title', 'Name', 'Email', 'Type note', 'Comments'])
+            writer.writerow([submit_time, title, name, email, type, comment])
+    
+    return render_template('contact.html', success_flag=1)
 
 if __name__ == '__main__':
     app.run()
