@@ -10,6 +10,7 @@ import os
 api_key = os.getenv('OPENAI_API_KEY')
 # print("API Key:", api_key)
 
+import re
 import csv
 from datetime import datetime
 
@@ -46,14 +47,6 @@ start_bot_texts.append("Hello everyone! We're planning a fun offline event for o
 start_bot_texts.append("Hi! I'm Ferrybot, an intelligent chatbot for you to better cope with others in a peer support group. Ask me anything or simply prompt me to give some guidance for you!")
 start_bot_texts.append("Hello! Today, we're going to practice a very important skill — comforting someone who is feeling extremely upset. It's crucial for a peer supporter to offer empathy, listen actively, and respond thoughtfully. I'll simulate a scenario where I am a support seeker going through a tough time. Your task is to respond in a way that shows care and support. Are you ready to start?")
 
-other_user_texts = []
-other_user_texts.append("I'm okay with Wednesday and Thursday")
-other_user_texts.append("Oh but Thursday gonna be better for me")
-other_user_texts.append("I'll be free after 2pm on Thursday")
-chat_prompts[3].append(HumanMessage(content = "UserA: " + other_user_texts[0]))
-chat_prompts[3].append(HumanMessage(content = "UserB: " + other_user_texts[1]))
-chat_prompts[3].append(HumanMessage(content = "UserC: " + other_user_texts[2]))
-
 app = Flask(__name__)
 app.secret_key = 'a_secret_key'
 
@@ -76,7 +69,7 @@ def ask_group_advice():
 def schedule():
     session['modeNum'] = 3
     mode_num = session.get('modeNum', 1)
-    return render_template("group.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], start_userA_text=other_user_texts[0], start_userB_text=other_user_texts[1], start_userC_text=other_user_texts[2], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='support_train')
+    return render_template("group.html", mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='support_train')
 
 @app.route('/support_train')
 def support_train():
@@ -94,7 +87,7 @@ def simulate_train():
 def train_in_group():
     session['modeNum'] = 6
     mode_num = session.get('modeNum', 1)
-    return render_template("group.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], start_userA_text=other_user_texts[0], start_userB_text=other_user_texts[1], start_userC_text=other_user_texts[2], hint_text=mode_hints[mode_num-1])
+    return render_template("group.html", mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='support_train')
 
 @app.route('/contact')
 def contact():
@@ -109,6 +102,20 @@ def get_chat_history():
         for line in h_file:
             chat_history.append(line.strip())
     return chat_history
+
+@app.route('/initial_group_chat')
+def initial_group_chat():
+    mode_num = session.get('modeNum', 1)
+    llm = ChatOpenAI(temperature=0.1, openai_api_key=api_key)
+    response = llm.invoke(chat_prompts[mode_num-1])
+    raw_text = response.content
+    chat_prompts[mode_num-1].append(AIMessage(content = raw_text))
+    text_parts = re.split(r"Ferrybot:|UserB:|UserC:", re.sub(r'\([^)]*\)', '', raw_text))
+    responses = list()
+    for statement in text_parts[1:]:
+        clean_statement = statement.strip().strip("'")
+        responses.append(clean_statement)
+    return responses
 
 @app.route('/get')
 def get_bot_response():
@@ -132,20 +139,25 @@ def get_bot_response():
 @app.route('/get_in_group')
 def get_bot_response_in_group():
     user_input = request.args.get("input_text")
-    cur_user_input = "The active user: " + user_input
+    cur_user_input = "UserA: " + user_input
     mode_num = session.get('modeNum', 1)
     chat_prompts[mode_num-1].append(HumanMessage(content = user_input))
-    llm = Ollama(model="dolphin-phi")   # llm = ChatOpenAI(temperature=0.1, openai_api_key=OPENAI_API_KEY)
+    # llm = Ollama(model="dolphin-phi")
+    llm = ChatOpenAI(temperature=0.1, openai_api_key=api_key)
     response = llm.invoke(chat_prompts[mode_num-1])
-    chat_prompts[mode_num-1].append(AIMessage(content = response))
+    raw_text = response.content
+    chat_prompts[mode_num-1].append(AIMessage(content = raw_text))
     # print(chat_prompt)
-    with open("data/chatlog0.txt","w") as l_file:
+    now = datetime.now()
+    cl_name = "data/chatlog_" + str(now.strftime("%Y%m%d%H%M")) + ".txt"
+    with open(cl_name,"w") as l_file:
         l_file.write(str(chat_prompts[mode_num-1]))
-    if response.startswith("AI: "):
-        response = response[4:]
-    return response
-    # response = "Roger that! I'll message the manager for the final decision."
-    # return response
+    text_parts = re.split(r"Ferrybot:|UserB:|UserC:", re.sub(r'\([^)]*\)', '', raw_text))
+    responses = list()
+    for statement in text_parts[1:]:
+        clean_statement = statement.strip().strip("'")
+        responses.append(clean_statement)
+    return responses
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():

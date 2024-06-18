@@ -3,7 +3,7 @@ body {
 }
 
 #myBanner {
-	background-color:#d3edff;
+	background-color: #d3edff;
 }
 
 #chatbody {
@@ -35,6 +35,22 @@ body {
 	max-width: 70%;
 }
 
+.userTextG {
+	color: white;
+	background-color: #c9b55b;
+	padding: 10px;
+	border-radius: 15px;
+	margin-bottom: 20px;
+}
+
+.userTextGH {
+	color: white;
+	background-color: #bd8b50;
+	padding: 10px;
+	border-radius: 15px;
+	margin-bottom: 20px;
+}
+
 .botIcon {
 	width: 40px;
 	height: 40px;
@@ -42,11 +58,25 @@ body {
 	margin-top: 0;
 }
 
+.ouserName {
+	color: #7b7b7b;
+	font-size: small;
+	margin-left: 5px;
+	margin-bottom: 2px;
+}
+
+.userName {
+	color: #7b7b7b;
+	font-size: small;
+	margin-right: 5px;
+	margin-bottom: 2px;
+}
+
 .ouserIcon {
 	width: 40px;
 	height: 40px;
 	margin: 10px;
-	margin-top: 0;
+	margin-top: 25px;
 }
 
 .botText {
@@ -74,6 +104,16 @@ body {
 	background-color: #59b42e;
 	padding: 10px;
 	border-radius: 15px;
+}
+
+.otherTextH {
+	color: white;
+	background-color: #509530;
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.otherPart {
 	max-width: 70%;
 }
 

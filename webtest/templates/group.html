@@ -89,48 +89,113 @@
   </div>
 
   <div id="chatbody" class="row">
-    <div class="col" class="text-center">
-      <p class="text-center">chat list</p>
+    <div class="col">
+      <p class="text-center"></p>
     </div>
     <div class="col-6">
-      <div id="chatHistory"></div>
+      <div id="chatHistory">
+        <div class="d-flex">
+          <img class="botIcon" src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot" />
+            <p class="botTextH">
+              Hello everyone! We're planning a fun offline event for our group and would love to find a time that works for everyone. Could you please share when you are generally free over the next week?
+            </p>
+        </div>
+        <div class="d-flex">
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/userD.png')}}" alt="userD" />
+          <div class="otherPart">
+            <p class="ouserName">userD</p>
+            <p class="otherTextH">
+              I'll follow whatever your final decision
+            </p>
+          </div>
+        </div>
+        <div class="d-flex">
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/userB.png')}}" alt="userB" />
+          <div class="otherPart">
+            <p class="ouserName">userB</p>
+            <p class="otherTextH">
+              Hi, I would really enjoy a coffee chat. Thursday works best for me. How does that sound to you?
+            </p>
+          </div>
+        </div>
+        <div class="d-flex">
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/userC.png')}}" alt="userC" />
+          <div class="otherPart">
+            <p class="ouserName">userC</p>
+            <p class="otherTextH">
+              I'm pretty flexible with my schedule. I'm open to any day and almost any activity, especially if it's a casual meet-up.
+            </p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <div class="otherPart">
+            <p class="userName d-flex justify-content-end">UserA</p>
+            <p class="userTextGH">
+              I'm okay with Wednesday and Thursday
+            </p>
+          </div>
+        </div>
+        <div class="d-flex">
+          <img class="botIcon" src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot" />
+            <p class="botTextH">
+              Thanks for sharing! It looks like Thursday could be a good option since it works for everyone. And let's talk about the activity. UserB suggested a coffee chat. How does everyone feel about that for our Thursday meet-up?
+            </p>
+        </div>
+        <div class="d-flex">
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/userC.png')}}" alt="userC" />
+          <div class="otherPart">
+            <p class="ouserName">userC</p>
+            <p class="otherTextH">
+              Sounds good to me! A coffee chat is always nice for catching up and relaxing a bit.
+            </p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <div class="otherPart">
+            <p class="userName d-flex justify-content-end">UserA</p>
+            <p class="userTextGH">
+              I'm okay with that. but it's better after 2pm
+            </p>
+          </div>
+        </div>
+        <div class="d-flex">
+          <img class="botIcon" src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot" />
+            <p class="botTextH">
+              Perfect! We'll schedule our coffee chat for Thursday after 2pm then. This time should allow everyone to join comfortably. I'll send out a reminder and location details as we get closer to the date. If anyone has any specific coffee shops in mind or other preferences, feel free to let me know!
+            </p>
+        </div>
+        <div class="d-flex">
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/userB.png')}}" alt="userB" />
+          <div class="otherPart">
+            <p class="ouserName">userB</p>
+            <p class="otherTextH">
+              That sounds great! Looking forward to it.
+            </p>
+          </div>
+        </div>
+        <div class="d-flex">
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/userC.png')}}" alt="userC" />
+          <div class="otherPart">
+            <p class="ouserName">userC</p>
+            <p class="otherTextH">
+              Me too! It'll be nice to meet everyone and have a good chat.
+            </p>
+          </div>
+        </div>
+      </div>
       <div id="divideLine">
         <p class="text-center" style="color:#aaa; margin-bottom:0;">Above are sample message history</p>
         <hr style="margin-top: 0;">
         <p class="text-center" style="color:#656565;"><strong>Type at the bottom to start</strong></p>
       </div>
-      <div id="chatbox">
-        <div class="d-flex">
-          <img class="botIcon" src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot" />
-          <p class="botText">
-            <span>{{ start_bot_text }}</span>
-          </p>
-        </div>
-        <div id="userAreply" class="d-flex" style="visibility: hidden;">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userA.png')}}" alt="userA" />
-          <p class="otherText">
-            <span>{{ start_userA_text }}</span>
-          </p>
-        </div>
-        <div id="userBreply" class="d-flex" style="visibility: hidden;">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userB.png')}}" alt="userB" />
-          <p class="otherText">
-            <span>{{ start_userB_text }}</span>
-          </p>
-        </div>
-        <div id="userCreply" class="d-flex" style="visibility: hidden;">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userC.png')}}" alt="userB" />
-          <p class="otherText">
-            <span>{{ start_userC_text }}</span>
-          </p>
-        </div>
-      </div>
+      <div id="chatbox"></div>
       <div id="inputbox" class="d-flex align-items-center sticky-bottom">
         <button class="btn btn-success" type="button" onclick="refreshPage()"
           style="margin-bottom:1rem;margin-right:1rem;"><i class="bi bi-arrow-clockwise"></i></button>
 
         <div id="userInput" class="input-group mb-3">
-          <textarea id="textInput" type="text" name="input_text" class="form-control" placeholder="Message Ferrybot" rows="1"></textarea>
+          <textarea id="textInput" type="text" name="input_text" class="form-control" placeholder="Message Ferrybot"
+            rows="1"></textarea>
           <button id="btn-send" class="btn btn-primary" type="button" onclick="getBotResponse()"><i
               class="bi bi-send-fill"></i></button>
         </div>
@@ -167,60 +232,71 @@
         this.style.height = (this.scrollHeight) + 'px';
       });
     });
-    var c_flag = 1;
-    setTimeout(() => {
-      document.getElementById('userAreply').style.visibility = "visible";
-    }, 2000);
-    setTimeout(() => {
-      document.getElementById('userBreply').style.visibility = "visible";
-    }, 3000);
-    setTimeout(() => {
-      document.getElementById('userCreply').style.visibility = "visible";
-    }, 4000);
-    (function getChatHistory() {
-      $.get("/get_chat_history", {}).done(function (data) {
-        var i;
-        for (i = 0; i < data.length; i++) {
-          // console.log(data[i]);
-          if (i % 2 == 0) {
-            var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='img/robot.png')}}' alt='ferrybot' /><p class='botTextH'><span>" + data[i] + "</span></p></div>";
-            $("#chatHistory").append(botHtml);
-          }
-          else {
-            var userHtml = '<div class="d-flex justify-content-end"><p class="userTextH"><span>' + data[i] + "</span></p></div>";
-            $("#chatHistory").append(userHtml);
-          }
-        }
+    (function initialGroupChat() {
+      $.get("/initial_group_chat", {}).done(function (data) {
+        var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='img/robot.png')}}' alt='ferrybot' /><p class='botText'><span>" + data[0] + "</span></p></div>";
+        $("#chatbox").append(botHtml);
+        document
+          .getElementById("userInput")
+          .scrollIntoView({ block: "start", behavior: "smooth" });
+        setTimeout(() => {
+          var userDHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userD.png')}}' alt='userD' /><div class='otherPart'><p class='ouserName'>UserD</p><p class='otherText'>" + "I'll follow whatever your final decision" + "</p></div></div>";
+          $("#chatbox").append(userDHtml);
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+        }, 2000);
+        setTimeout(() => {
+          var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userB.png')}}' alt='userB' /><div class='otherPart'><p class='ouserName'>UserB</p><p class='otherText'>" + data[1] + "</p></div></div>";
+          $("#chatbox").append(userBHtml);
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+        }, 3000);
+        setTimeout(() => {
+          var userCHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userC.png')}}' alt='userC' /><div class='otherPart'><p class='ouserName'>UserC</p><p class='otherText'>" + data[2] + "</p></div></div>";
+          $("#chatbox").append(userCHtml);
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+        }, 4000);
       });
     }());
     function getBotResponse() {
+      document.getElementById('textInput').disabled = true;
       var rawText = $("#textInput").val();
-      var userHtml = '<div class="d-flex justify-content-end"><p class="userText"><span>' + rawText + "</span></p></div>";
+      var userHtml = '<div class="d-flex justify-content-end"><div class="otherPart"><p class="userName d-flex justify-content-end">UserA</p><p class="userTextG"><span>' + rawText + "</span></p></div></div>";
       $("#textInput").val("");
       $("#chatbox").append(userHtml);
       document
         .getElementById("userInput")
         .scrollIntoView({ block: "start", behavior: "smooth" });
       $.get("/get_in_group", { input_text: rawText }).done(function (data) {
-        var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='img/robot.png')}}' alt='ferrybot' /><p class='botText'><span>" + data + "</span></p></div>";
+        var botHtml = "<div class='d-flex'><img class='botIcon' src='{{ url_for('static', filename='img/robot.png')}}' alt='ferrybot' /><p class='botText'><span>" + data[0] + "</span></p></div>";
         $("#chatbox").append(botHtml);
         document
           .getElementById("userInput")
           .scrollIntoView({ block: "start", behavior: "smooth" });
-        if (c_flag == 1) {
-          setTimeout(() => {
-            var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userB.png')}}' alt='userB' /><p class='otherText'>" + "Okay" + "</p></div>";
-            $("#chatbox").append(userBHtml);
-            document
-              .getElementById("userInput")
-              .scrollIntoView({ block: "start", behavior: "smooth" });
-          }, 3000);
-          c_flag = 0;
-        }
+        document.getElementById('textInput').disabled = false;
+        setTimeout(() => {
+          var userCHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userC.png')}}' alt='userC' /><div class='otherPart'><p class='ouserName'>UserC</p><p class='otherText'>" + data[2] + "</p></div></div>";
+          $("#chatbox").append(userCHtml);
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+        }, 2000);
+        setTimeout(() => {
+          var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userB.png')}}' alt='userB' /><div class='otherPart'><p class='ouserName'>UserB</p><p class='otherText'>" + data[1] + "</p></div>";
+          $("#chatbox").append(userBHtml);
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+        }, 4000);
       });
     }
     $("#textInput").keypress(function (e) {
       if (e.which == 13) {
+        e.preventDefault();
         getBotResponse();
       }
     });

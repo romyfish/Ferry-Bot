@@ -167,6 +167,7 @@
       });
     }());
     function getBotResponse() {
+      document.getElementById('textInput').disabled = true;
       var rawText = $("#textInput").val();
       var userHtml = '<div class="d-flex justify-content-end"><p class="userText"><span>' + rawText + "</span></p></div>";
       $("#textInput").val("");
@@ -187,10 +188,12 @@
         document
           .getElementById("userInput")
           .scrollIntoView({ block: "start", behavior: "smooth" });
+        document.getElementById('textInput').disabled = false;
       });
     }
     $("#textInput").keypress(function (e) {
       if (e.which == 13) {
+        e.preventDefault();
         getBotResponse();
       }
     });

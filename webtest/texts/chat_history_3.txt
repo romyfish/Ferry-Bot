@@ -1,11 +1,11 @@
-bot message 1
-user message 1
-bot message 2
-user message 2
-bot message 3
-user message 3
-bot message 4
-user message 4
-bot message 5
-user message 5
-bot message 6
+Ferrybot: Hello everyone! We're planning a fun offline event for our group and would love to find a time that works for everyone. Could you please share when you are generally free over the next week?
+UserD: I'll follow whatever your final decision
+UserB: Hi, I would really enjoy a coffee chat. Thursday works best for me. How does that sound to you?
+UserC: I'm pretty flexible with my schedule. I'm open to any day and almost any activity, especially if it's a casual meet-up.
+UserA: I'm okay with Wednesday and Thursday
+Ferrybot: Thanks for sharing! It looks like Thursday could be a good option since it works for everyone. And let's talk about the activity. UserB suggested a coffee chat. How does everyone feel about that for our Thursday meet-up?
+UserC: Sounds good to me! A coffee chat is always nice for catching up and relaxing a bit.
+UserA: I'm okay with that. but it's better after 2pm
+Ferrybot: Perfect! We'll schedule our coffee chat for Thursday after 2pm then. This time should allow everyone to join comfortably. I'll send out a reminder and location details as we get closer to the date. If anyone has any specific coffee shops in mind or other preferences, feel free to let me know!
+UserB: That sounds great! Looking forward to it.
+UserC: Me too! It'll be nice to meet everyone and have a good chat.
