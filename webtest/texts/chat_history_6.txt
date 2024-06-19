@@ -1,0 +1,9 @@
+UserC: "I really think that last game was unfair, the referee clearly favored the other team."
+UserD: "That’s just stupid, how can you not see it was fair? You always find something to complain about!"
+UserB: That's so rude man
+Ferrybot: "Let’s keep our discussion friendly, everyone. It’s important to respect different viewpoints without personal attacks. UserD, I understand your point, but let's express our opinions respectfully. What are some positive aspects we can discuss about the game?"
+UserA: Yeah it's hard to say fair or not, but we can be open to discuss
+UserB: "Both teams played well despite some controversial calls. It was a tough match for sure."
+UserC: "True, it was intense. Maybe I’m a bit biased towards my favorite team."
+UserD: "Sorry, I got carried away. Yeah, it was a good game overall."
+Ferrybot: "Great! Thank you everyone for sharing your thoughts and handling the discussion with openness after the tense moment. It’s important that we all feel heard and respected here. Let’s continue the discussion and keep our group a safe space for everyone."

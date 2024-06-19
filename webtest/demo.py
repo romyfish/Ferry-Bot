@@ -15,7 +15,7 @@ import csv
 from datetime import datetime
 
 mode_num = 1
-mode_count = 5
+mode_count = 6
 chat_prompts = []
 for i in range(mode_count):
     sp_name = "texts/system_prompt_" + str(i+1) + ".txt"
@@ -87,7 +87,7 @@ def simulate_train():
 def train_in_group():
     session['modeNum'] = 6
     mode_num = session.get('modeNum', 1)
-    return render_template("group.html", mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='support_train')
+    return render_template("group_chat.html", mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1])
 
 @app.route('/contact')
 def contact():
@@ -101,20 +101,40 @@ def get_chat_history():
     with open(ch_name, "r") as h_file:
         for line in h_file:
             chat_history.append(line.strip())
+    # reset the prompt
+    sp_name = "texts/system_prompt_" + str(mode_num) + ".txt"
+    with open(sp_name, "r") as p_file:
+        sys_prompt = p_file.read()
+    chat_prompts[mode_num-1] = [SystemMessage(content = sys_prompt)]
     return chat_history
 
 @app.route('/initial_group_chat')
 def initial_group_chat():
     mode_num = session.get('modeNum', 1)
+    sp_name = "texts/system_prompt_3.txt"   # reset the prompt
+    with open(sp_name, "r") as p_file:
+        sys_prompt = p_file.read()
+    chat_prompts[mode_num-1] = [SystemMessage(content = sys_prompt)]
+    # print(chat_prompts[mode_num-1])
     llm = ChatOpenAI(temperature=0.1, openai_api_key=api_key)
     response = llm.invoke(chat_prompts[mode_num-1])
     raw_text = response.content
     chat_prompts[mode_num-1].append(AIMessage(content = raw_text))
+    print("then,")
+    print(chat_prompts[mode_num-1])
     text_parts = re.split(r"Ferrybot:|UserB:|UserC:", re.sub(r'\([^)]*\)', '', raw_text))
     responses = list()
     for statement in text_parts[1:]:
         clean_statement = statement.strip().strip("'")
         responses.append(clean_statement)
+    return responses
+
+@app.route('/set_group_chat')
+def set_group_chat():
+    responses = list()
+    responses.append("I really think that last game was unfair, the referee clearly favored the other team.")
+    responses.append("That's just stupid, how can you not see it was fair? You always find something to complain about!")
+    responses.append("That's so rude man")
     return responses
 
 @app.route('/get')
@@ -139,11 +159,35 @@ def get_bot_response():
 @app.route('/get_in_group')
 def get_bot_response_in_group():
     user_input = request.args.get("input_text")
-    cur_user_input = "UserA: " + user_input
+    # cur_user_input = "UserA: " + user_input
     mode_num = session.get('modeNum', 1)
     chat_prompts[mode_num-1].append(HumanMessage(content = user_input))
     # llm = Ollama(model="dolphin-phi")
     llm = ChatOpenAI(temperature=0.1, openai_api_key=api_key)
+    response = llm.invoke(chat_prompts[mode_num-1])
+    raw_text = response.content
+    chat_prompts[mode_num-1].append(AIMessage(content = raw_text))
+    # print(chat_prompts[mode_num-1])
+    # print(chat_prompt)
+    now = datetime.now()
+    cl_name = "data/chatlog_" + str(now.strftime("%Y%m%d%H%M")) + ".txt"
+    with open(cl_name,"w") as l_file:
+        l_file.write(str(chat_prompts[mode_num-1]))
+    text_parts = re.split(r"Ferrybot:|UserB:|UserC:", re.sub(r'\([^)]*\)', '', raw_text))
+    responses = list()
+    for statement in text_parts[1:]:
+        clean_statement = statement.strip().strip("'")
+        responses.append(clean_statement)
+    return responses
+
+@app.route('/get_in_group_chat')
+def get_bot_response_in_group_chat():
+    user_input = request.args.get("input_text")
+    # cur_user_input = "UserA: " + user_input
+    mode_num = session.get('modeNum', 1)
+    chat_prompts[mode_num-1].append(HumanMessage(content = user_input))
+    llm = Ollama(model="dolphin-phi")   # ---for temporary block---
+    # llm = ChatOpenAI(temperature=0.1, openai_api_key=api_key)
     response = llm.invoke(chat_prompts[mode_num-1])
     raw_text = response.content
     chat_prompts[mode_num-1].append(AIMessage(content = raw_text))
