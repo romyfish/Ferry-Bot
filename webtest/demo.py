@@ -30,7 +30,7 @@ mode_descriptions.append("Match Newcomers with Suitable Peer Support Groups")
 mode_descriptions.append("Coordinate Group Availability and Preferences for Upcoming Events")
 mode_descriptions.append("Train Peer Supporters on Active Member Engagement")
 mode_descriptions.append("Train Peer Supporters on Empathic Care by Simulation Exercise")
-mode_descriptions.append("Train Peer Supporters on Appropriate Language and Behaviour in Group Chats")
+mode_descriptions.append("Train Peer Supporters on Conflict Management in Group Chats")
 
 mode_hints = []
 mode_hints.append("In this conversation, you need to pretend that you are a member of a peer support group and for some reason haven't responded to Ferrybot and bubbled in the group chat for a while. You may not want to talk to real people about your troubles but may be willing to open up when a chatbot reaches out to ask.")
@@ -120,8 +120,7 @@ def initial_group_chat():
     response = llm.invoke(chat_prompts[mode_num-1])
     raw_text = response.content
     chat_prompts[mode_num-1].append(AIMessage(content = raw_text))
-    print("then,")
-    print(chat_prompts[mode_num-1])
+    # print(chat_prompts[mode_num-1])
     text_parts = re.split(r"Ferrybot:|UserB:|UserC:", re.sub(r'\([^)]*\)', '', raw_text))
     responses = list()
     for statement in text_parts[1:]:
@@ -131,10 +130,25 @@ def initial_group_chat():
 
 @app.route('/set_group_chat')
 def set_group_chat():
+    mode_num = session.get('modeNum', 1)
+    sp_name = "texts/system_prompt_6.txt"   # reset the prompt
+    with open(sp_name, "r") as p_file:
+        sys_prompt = p_file.read()
+    chat_prompts[mode_num-1] = [SystemMessage(content = sys_prompt)]
+    # print(chat_prompts[mode_num-1])
+    llm = ChatOpenAI(temperature=0.1, openai_api_key=api_key, model="gpt-4-turbo")
+    response = llm.invoke(chat_prompts[mode_num-1])
+    raw_text = response.content
+    chat_prompts[mode_num-1].append(AIMessage(content = raw_text))
+    print(chat_prompts[mode_num-1])
+    if raw_text[0] == '*':
+        text_parts = re.split(r"\**UserC\**:|\**UserD\**:", re.sub(r'\([^)]*\)', '', raw_text))
+    else:
+        text_parts = re.split(r"UserC:|UserD:", re.sub(r'\([^)]*\)', '', raw_text))
     responses = list()
-    responses.append("I really think that last game was unfair, the referee clearly favored the other team.")
-    responses.append("That's just stupid, how can you not see it was fair? You always find something to complain about!")
-    responses.append("That's so rude man")
+    for statement in text_parts[1:]:
+        clean_statement = statement.strip("*").strip().strip("'")
+        responses.append(clean_statement)
     return responses
 
 @app.route('/get')
@@ -186,8 +200,7 @@ def get_bot_response_in_group_chat():
     # cur_user_input = "UserA: " + user_input
     mode_num = session.get('modeNum', 1)
     chat_prompts[mode_num-1].append(HumanMessage(content = user_input))
-    llm = Ollama(model="dolphin-phi")   # ---for temporary block---
-    # llm = ChatOpenAI(temperature=0.1, openai_api_key=api_key)
+    llm = ChatOpenAI(temperature=0.1, openai_api_key=api_key, model="gpt-4-turbo")
     response = llm.invoke(chat_prompts[mode_num-1])
     raw_text = response.content
     chat_prompts[mode_num-1].append(AIMessage(content = raw_text))
@@ -196,12 +209,16 @@ def get_bot_response_in_group_chat():
     cl_name = "data/chatlog_" + str(now.strftime("%Y%m%d%H%M")) + ".txt"
     with open(cl_name,"w") as l_file:
         l_file.write(str(chat_prompts[mode_num-1]))
-    text_parts = re.split(r"Ferrybot:|UserB:|UserC:", re.sub(r'\([^)]*\)', '', raw_text))
+    if raw_text[0] == '*':
+        text_parts = re.split(r"\**UserB\**:|\**UserC\**:|\**UserD\**:|\**Ferrybot\**:", re.sub(r'\([^)]*\)', '', raw_text))
+    else:
+        text_parts = re.split(r"UserB:|UserC:|UserD:|Ferrybot:", re.sub(r'\([^)]*\)', '', raw_text))
     responses = list()
     for statement in text_parts[1:]:
-        clean_statement = statement.strip().strip("'")
+        clean_statement = statement.strip("*").strip().strip("'")
         responses.append(clean_statement)
     return responses
+    # return raw_text
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
