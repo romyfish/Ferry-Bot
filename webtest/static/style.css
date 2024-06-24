@@ -95,6 +95,24 @@ body {
 	max-width: 70%;
 }
 
+.botTextG {
+	color: white;
+	background-color: #3170d7;
+	padding: 10px;
+	border-radius: 15px;
+	max-width: 70%;
+	margin-top: 10px;
+}
+
+.botTextGH {
+	color: white;
+	background-color: #3562ad;
+	padding: 10px;
+	border-radius: 15px;
+	max-width: 70%;
+	margin-top: 10px;
+}
+
 #loadBot {
 	padding: 10px;
 }
