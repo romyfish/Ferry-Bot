@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Ferrybot web demo</title>
+<title>Ferrybot Prototype</title>
 
 <head>
   <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/robot.png')}}" />
@@ -39,7 +39,7 @@
             style="width:60px;height:60px;margin-top:20px;margin-bottom:20px;">
         </div>
         <h3 class="flex-grow-1 ms-3" style="margin-bottom:0;">
-          Ferrybot: A Conversational AI Agent for wellbeing
+          Ferrybot: A Conversational AI Agent for Wellbeing
         </h3>
       </div>
     </div>
@@ -71,7 +71,8 @@
                     Member Engagement</a></li>
                 <li><a class="dropdown-item" href="{{ url_for('simulate_train') }}">Train Peer Supporters on Empathic
                     Care by Simulation Exercise</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Conflict Management in Group Chats</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Conflict
+                    Management in Group Chats</a></li>
               </ul>
             </li>
           </ul>
@@ -88,7 +89,13 @@
 
   <div id="chatbody" class="row">
     <div class="col">
-      <p class="text-center"></p>
+      <div id="profilecard" class="card">
+        <div class="card-body">
+          <h5 class="card-title">You are chatting with <strong>Ferrybot</strong>...</h5>
+          <img src="{{ url_for('static', filename='img/botLogo.png')}}" alt="group" style="width:75px;height:75px;margin-top:5px;margin-bottom:10px;">
+          <p class="card-text"><span>{{ mode_profile }}</span></p>
+        </div>
+      </div>
     </div>
     <div class="col-6">
       <div id="chatHistory"></div>
@@ -120,7 +127,7 @@
     <div class="col">
       <div id="hintcard" class="card">
         <div class="card-body">
-          <h5 class="card-title">Hints</h5>
+          <h5 class="card-title"><strong>Hints</strong></h5>
           <p class="card-text"><span>{{ hint_text }}</span></p>
           <p class="card-text" style="color: #0a58ca;"><strong>Scroll over the window to see sample messages, then try
               it out!</strong></p>

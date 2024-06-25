@@ -32,13 +32,21 @@ mode_descriptions.append("Train Peer Supporters on Active Member Engagement")
 mode_descriptions.append("Train Peer Supporters on Empathic Care by Simulation Exercise")
 mode_descriptions.append("Train Peer Supporters on Conflict Management in Group Chats")
 
+mode_profiles = []
+mode_profiles.append("Ferrybot is an intelligent agent within a peer support group, taking care of all the members. Its role is to provide emotional support and encourage members to engage with the peer support group. As a CARE INTERMEDIARY, it initiates conversations with inactive members to inquire about their mental and physical well-being.")
+mode_profiles.append("Ferrybot is an intelligent agent within a peer support organization. It serves as an ASSISTANT to help newcomers find the most appropriate group in this big organization which involves a variety of affiliated groups.")
+mode_profiles.append("This Group-chat consists of all members of a peer support group and Ferrybot, an intelligent agent for the group. Normally the group chat is the communication channel for the members. Here, Ferrybot, as an assistant, facilitates discussions within the group to determine the best time and type of activity that suits the majority.")
+mode_profiles.append("Ferrybot is an intelligent agent within a peer support group. It serves as a MENTOR for peer supporters to teach them the necessary skills and strategies to effectively engage with other group members, focusing on how to sensitively inquire about members' feelings, health, and personal interests, and how to encourage participation in group activities.")
+mode_profiles.append("Ferrybot is an intelligent agent within a peer support group. It serves as a TRAINER for peer supporters, instructing them to care someone upset by simulation exercises. It will pretend to be a very frustrated people and needs comfort from the supporter.")
+mode_profiles.append("This Group-chat consists of all members of a peer support group and Ferrybot, an intelligent agent for the group. Normally Ferrybot acts as a mediator to manage conflicts among group members in this group. Here, Ferrybot, as a trainer, guides supporters on effectively managing and promoting positive interactions by specific crisis simulations.")
+
 mode_hints = []
-mode_hints.append("In this conversation, you need to pretend that you are a member of a peer support group and for some reason haven't responded to Ferrybot and bubbled in the group chat for a while. You may not want to talk to real people about your troubles but may be willing to open up when a chatbot reaches out to ask.")
-mode_hints.append("In this conversation, you need to pretend that you are a new member of a peer support organisation in Glasgow that has various groups affiliate. You would like to join a group that is most suitable for you based on your personal characteristics (e.g. demographics and interests).")
-mode_hints.append("In this group chat conversation, you need to pretend that you are one of the members of a peer support group. This group usually arranges a weekly offline or online activity such as coffee chat, hiking, sports, picnic, crafting and gardening. You can talk freely about your availability and wanted activities for the next week, providing the conditions for Ferrybot to help determine the activities.")
-mode_hints.append("In this conversation, you need to pretend that you are in the role of a supporter of a peer support group. Through the communication with Ferrybot, you will get guidance be well-equipped to provide valuable support and foster a welcoming community atmosphere.")
-mode_hints.append("In this conversation, you need to pretend that you are in the role of a supporter of a peer support group and have some confusion about how to do a good job. Ferrybot will help you practice to care someone by pretending it is the one who is feeling extremely upset and needs comfort. After the simulation practice, Ferrybot will provide feedback on your performance.")
-mode_hints.append("In this group chat conversation, you need to pretend that you are one of the members of a peer support group. Try to intervene in the conversation and de-escalate the tension to help restore a positive dialogue flow like Ferrybot did in the sample messages. After the situation de-escalated, Ferrybot will provide feedback on your performance, or give you guidance when necessary.")
+mode_hints.append("In this scenario, you will play the role of Lisa, a member of a peer support group who hasn't interacted with Ferrybot or participated in the group chat recently. You might hesitate to discuss your issues with real people, but could feel more comfortable opening up if a chatbot initiates contact.")
+mode_hints.append("In this scenario, you will play the role of Joe, a new member of a peer support organization in Glasgow, which has a variety of affiliated groups. Your goal is to find the group that best matches your personal characteristics, such as demographics and interests.")
+mode_hints.append("In this scenario, you will play the role of Lisa, a member of a peer support group that regularly organizes weekly activities such as coffee chats, hiking, sports, picnics, crafting, and gardening. Feel free to discuss your availability and preferred activities for the upcoming week, providing information that will help Ferrybot suggest suitable options for the group.")
+mode_hints.append("In this scenario, you will play the role of Lisa, a supporter within a peer support group. Through interactions with Ferrybot, you'll receive guidance to enhance your ability to offer valuable support and cultivate a welcoming community atmosphere.")
+mode_hints.append("In this scenario, you will play the role of Joe, a supporter in a peer support group and might be unsure about how to effectively assist others. Ferrybot will help you practice providing care by simulating a situation where it acts as someone who is extremely upset and needs comforting. After the simulation, Ferrybot will review your performance and offer feedback to help improve your support skills.")
+mode_hints.append("In this scenario, you will play the role of Joe, a member in a peer support group where someone suddenly made aggressive remarks and heightened tensions. Try to intervene in the group conversation to help de-escalate any rising tensions and restore positive dialogue flow, similar to how Ferrybot demonstrated in sample messages. Once the situation de-escalated, Ferrybot will provide feedback on your intervention techniques or offer guidance as needed to enhance your skills in maintaining a supportive and harmonious group environment.")
 
 start_bot_texts = []
 start_bot_texts.append("Hi! I notice you haven't been active lately and want to check in. How's it going these days?")
@@ -57,37 +65,37 @@ def home():
 @app.route('/check_status')
 def check_status():
     session['modeNum'] = 1
-    return render_template("private.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='ask_group_advice')
+    return render_template("private.html", mode_profile=mode_profiles[mode_num-1], start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='ask_group_advice')
 
 @app.route('/ask_group_advice')
 def ask_group_advice():
     session['modeNum'] = 2
     mode_num = session.get('modeNum', 1)
-    return render_template("private.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='schedule')
+    return render_template("private.html", mode_profile=mode_profiles[mode_num-1], start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='schedule')
 
 @app.route('/schedule')
 def schedule():
     session['modeNum'] = 3
     mode_num = session.get('modeNum', 1)
-    return render_template("group.html", mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='support_train')
+    return render_template("group.html", mode_profile=mode_profiles[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='support_train')
 
 @app.route('/support_train')
 def support_train():
     session['modeNum'] = 4
     mode_num = session.get('modeNum', 1)
-    return render_template("private.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='simulate_train')
+    return render_template("private.html", mode_profile=mode_profiles[mode_num-1], start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='simulate_train')
 
 @app.route('/simulate_train')
 def simulate_train():
     session['modeNum'] = 5
     mode_num = session.get('modeNum', 1)
-    return render_template("private.html", start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='train_in_group')
+    return render_template("private.html", mode_profile=mode_profiles[mode_num-1], start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='train_in_group')
 
 @app.route('/train_in_group')
 def train_in_group():
     session['modeNum'] = 6
     mode_num = session.get('modeNum', 1)
-    return render_template("group_chat.html", mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1])
+    return render_template("group_chat.html", mode_profile=mode_profiles[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1])
 
 @app.route('/contact')
 def contact():
@@ -121,7 +129,7 @@ def initial_group_chat():
     raw_text = response.content
     chat_prompts[mode_num-1].append(AIMessage(content = raw_text))
     # print(chat_prompts[mode_num-1])
-    text_parts = re.split(r"Ferrybot:|UserB:|UserC:", re.sub(r'\([^)]*\)', '', raw_text))
+    text_parts = re.split(r"Ferrybot:|Bruce:|Carly:", re.sub(r'\([^)]*\)', '', raw_text))
     responses = list()
     for statement in text_parts[1:]:
         clean_statement = statement.strip().strip("'")
@@ -142,9 +150,9 @@ def set_group_chat():
     chat_prompts[mode_num-1].append(AIMessage(content = raw_text))
     print(chat_prompts[mode_num-1])
     if raw_text[0] == '*':
-        text_parts = re.split(r"\**UserC\**:|\**UserD\**:", re.sub(r'\([^)]*\)', '', raw_text))
+        text_parts = re.split(r"\**Carly\**:|\**Dan\**:", re.sub(r'\([^)]*\)', '', raw_text))
     else:
-        text_parts = re.split(r"UserC:|UserD:", re.sub(r'\([^)]*\)', '', raw_text))
+        text_parts = re.split(r"Carly:|Dan:", re.sub(r'\([^)]*\)', '', raw_text))
     responses = list()
     for statement in text_parts[1:]:
         clean_statement = statement.strip("*").strip().strip("'")
@@ -187,7 +195,7 @@ def get_bot_response_in_group():
     cl_name = "data/chatlog_" + str(now.strftime("%Y%m%d%H%M")) + ".txt"
     with open(cl_name,"w") as l_file:
         l_file.write(str(chat_prompts[mode_num-1]))
-    text_parts = re.split(r"Ferrybot:|UserB:|UserC:", re.sub(r'\([^)]*\)', '', raw_text))
+    text_parts = re.split(r"Ferrybot:|Bruce:|Carly:", re.sub(r'\([^)]*\)', '', raw_text))
     responses = list()
     for statement in text_parts[1:]:
         clean_statement = statement.strip().strip("'")
@@ -210,9 +218,9 @@ def get_bot_response_in_group_chat():
     with open(cl_name,"w") as l_file:
         l_file.write(str(chat_prompts[mode_num-1]))
     if raw_text[0] == '*':
-        text_parts = re.split(r"\**UserB\**:|\**UserC\**:|\**UserD\**:|\**Ferrybot\**:", re.sub(r'\([^)]*\)', '', raw_text))
+        text_parts = re.split(r"\**Bruce\**:|\**Carly\**:|\**Dan\**:|\**Ferrybot\**:", re.sub(r'\([^)]*\)', '', raw_text))
     else:
-        text_parts = re.split(r"UserB:|UserC:|UserD:|Ferrybot:", re.sub(r'\([^)]*\)', '', raw_text))
+        text_parts = re.split(r"Bruce:|Carly:|Dan:|Ferrybot:", re.sub(r'\([^)]*\)', '', raw_text))
     responses = list()
     for statement in text_parts[1:]:
         clean_statement = statement.strip("*").strip().strip("'")

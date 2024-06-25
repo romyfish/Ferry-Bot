@@ -89,8 +89,9 @@
             <p>
               We are eager to partner with real-world peer support organizations to further develop this smart chatbot
               by a participatory design approach, delving into its practical applications. If you find our project
-              intriguing and wish to explore this pioneering journey with us, please do not hesitate to reach out. We
-              are excited about the possibility of collaborating with you and eagerly anticipate your response!
+              intriguing and wish to explore this pioneering journey with us, please leave your information and comments
+              below or contact us directly! We are excited about the possibility of collaborating with you and eagerly
+              anticipate your response!
             </p>
           </div>
           <div>
@@ -107,15 +108,44 @@
       <p class="text-center"></p>
     </div>
     <div class="col-6">
-      <h3>
-        Contact details
-      </h3>
-      <p><strong>Wanshu Yu</strong><br />
-        (she/her/hers)<br />
-        School of Computing Science<br />
-        University of Glasgow<br />
-        Email: <a href="mailto:w.yu.1@research.gla.ac.uk">w.yu.1@research.gla.ac.uk</a><br />
-        Twitter/X: <a href="https://x.com/RomyfishY" target="_blank">@RomyfishY</a></p>
+      <form action="/submit" method="post">
+        <div class="mb-3">
+          <label for="titleInput" class="form-label">Title</label>
+          <input type="text" class="form-control" id="titleInput" name="titleInput" required>
+        </div>
+        <div class="mb-3">
+          <label for="nameInput" class="form-label">Name</label>
+          <input type="text" class="form-control" id="nameInput" name="nameInput" required>
+        </div>
+        <div class="mb-3">
+          <label for="emailInput" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="emailInput" placeholder="name@example.com"
+            aria-describedby="emailHelp" name="emailInput" required>
+        </div>
+        <div class="mb-3">
+          <label for="typeInput" class="form-label">How would you describe yourself?</label>
+          <select class="form-select" id="typeInput" aria-label="Default select example" name="typeInput">
+            <option selected>Open to select</option>
+            <option value="Peer support practitioner">Peer support practitioner</option>
+            <option value="Peer support participant">Peer support participant</option>
+            <option value="Charity or/and medical institution stakeholder">Charity or/and medical institution
+              stakeholder</option>
+            <option value="Researcher in relevant areas">Researcher in relevant areas</option>
+            <option value="Other">Other (please tell us in your comments)</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="commentInput" class="form-label">Comments</label>
+          <textarea class="form-control" id="commentInput" name="commentInput" rows="3" required></textarea>
+          <div class="form-text">We'll never share your personal information with anyone else.</div>
+        </div>
+        {% if success_flag %}
+        <div class="alert alert-success" role="alert" style="width: auto; margin-top: 10px; margin-bottom: 15px;">
+          Submission successful!
+        </div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
     <div class="col">
       <p class="text-center"></p>

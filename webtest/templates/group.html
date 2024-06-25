@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Ferrybot web demo</title>
+<title>Ferrybot Prototype</title>
 
 <head>
   <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/robot.png')}}" />
@@ -39,7 +39,7 @@
             style="width:60px;height:60px;margin-top:20px;margin-bottom:20px;">
         </div>
         <h3 class="flex-grow-1 ms-3" style="margin-bottom:0;">
-          Ferrybot: A Conversational AI Agent for wellbeing
+          Ferrybot: A Conversational AI Agent for Wellbeing
         </h3>
       </div>
     </div>
@@ -71,7 +71,8 @@
                     Member Engagement</a></li>
                 <li><a class="dropdown-item" href="{{ url_for('simulate_train') }}">Train Peer Supporters on Empathic
                     Care by Simulation Exercise</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Conflict Management in Group Chats</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('train_in_group') }}">Train Peer Supporters on Conflict
+                    Management in Group Chats</a></li>
               </ul>
             </li>
           </ul>
@@ -88,15 +89,12 @@
 
   <div id="chatbody" class="row">
     <div class="col">
-      <div class="d-flex justify-content-center" style="position:fixed;margin-left:20px;">
-        <div class="d-flex align-items-center">
-          <div class="flex-shrink-0">
-            <img src="{{ url_for('static', filename='img/group.png')}}" alt="group"
-              style="width:50px;height:50px;">
-          </div>
-          <h5 class="flex-grow-1 ms-3" style="margin-bottom:0;">
-            Group chat
-          </h5>
+      <div id="profilecard" class="card">
+        <div class="card-body">
+          <h5 class="card-title">You are in a <strong>Group-chat</strong>...</h5>
+          <img src="{{ url_for('static', filename='img/group.png')}}" alt="group"
+            style="width:75px;height:75px;margin-top:5px;margin-bottom:10px;">
+          <p class="card-text"><span>{{ mode_profile }}</span></p>
         </div>
       </div>
     </div>
@@ -104,40 +102,42 @@
       <div id="chatHistory">
         <div class="d-flex">
           <img class="botIcon" src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot" />
-            <p class="botTextH">
-              Hello everyone! We're planning a fun offline event for our group and would love to find a time that works for everyone. Could you please share when you are generally free over the next week?
-            </p>
+          <p class="botTextH">
+            Hello everyone! We're planning a fun offline event for our group and would love to find a time that works
+            for everyone. Could you please share when you are generally free over the next week?
+          </p>
         </div>
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userD.png')}}" alt="userD" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Dan.jpg')}}" alt="Dan" />
           <div class="otherPart">
-            <p class="ouserName">userD</p>
+            <p class="ouserName">Dan</p>
             <p class="otherTextH">
               I'll follow whatever your final decision
             </p>
           </div>
         </div>
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userB.png')}}" alt="userB" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Bruce.jpg')}}" alt="Bruce" />
           <div class="otherPart">
-            <p class="ouserName">userB</p>
+            <p class="ouserName">Bruce</p>
             <p class="otherTextH">
               Hi, I would really enjoy a coffee chat. Thursday works best for me. How does that sound to you?
             </p>
           </div>
         </div>
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userC.png')}}" alt="userC" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Carly.jpg')}}" alt="Carly" />
           <div class="otherPart">
-            <p class="ouserName">userC</p>
+            <p class="ouserName">Carly</p>
             <p class="otherTextH">
-              I'm pretty flexible with my schedule. I'm open to any day and almost any activity, especially if it's a casual meet-up.
+              I'm pretty flexible with my schedule. I'm open to any day and almost any activity, especially if it's a
+              casual meet-up.
             </p>
           </div>
         </div>
         <div class="d-flex justify-content-end">
           <div class="otherPart">
-            <p class="userName d-flex justify-content-end">UserA</p>
+            <p class="userName d-flex justify-content-end">Lisa</p>
             <p class="userTextGH">
               I'm okay with Wednesday and Thursday
             </p>
@@ -145,14 +145,16 @@
         </div>
         <div class="d-flex">
           <img class="botIcon" src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot" />
-            <p class="botTextH">
-              Thanks for sharing! It looks like Thursday could be a good option since it works for everyone. And let's talk about the activity. UserB suggested a coffee chat. How does everyone feel about that for our Thursday meet-up?
-            </p>
+          <p class="botTextH">
+            Thanks for sharing! It looks like Thursday could be a good option since it works for everyone. And let's
+            talk about the activity. Bruce suggested a coffee chat. How does everyone feel about that for our Thursday
+            meet-up?
+          </p>
         </div>
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userC.png')}}" alt="userC" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Carly.jpg')}}" alt="Carly" />
           <div class="otherPart">
-            <p class="ouserName">userC</p>
+            <p class="ouserName">Carly</p>
             <p class="otherTextH">
               Sounds good to me! A coffee chat is always nice for catching up and relaxing a bit.
             </p>
@@ -160,7 +162,7 @@
         </div>
         <div class="d-flex justify-content-end">
           <div class="otherPart">
-            <p class="userName d-flex justify-content-end">UserA</p>
+            <p class="userName d-flex justify-content-end">Lisa</p>
             <p class="userTextGH">
               I'm okay with that. but it's better after 2pm
             </p>
@@ -168,23 +170,25 @@
         </div>
         <div class="d-flex">
           <img class="botIcon" src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot" />
-            <p class="botTextH">
-              Perfect! We'll schedule our coffee chat for Thursday after 2pm then. This time should allow everyone to join comfortably. I'll send out a reminder and location details as we get closer to the date. If anyone has any specific coffee shops in mind or other preferences, feel free to let me know!
-            </p>
+          <p class="botTextH">
+            Perfect! We'll schedule our coffee chat for Thursday after 2pm then. This time should allow everyone to join
+            comfortably. I'll send out a reminder and location details as we get closer to the date. If anyone has any
+            specific coffee shops in mind or other preferences, feel free to let me know!
+          </p>
         </div>
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userB.png')}}" alt="userB" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Bruce.jpg')}}" alt="Bruce" />
           <div class="otherPart">
-            <p class="ouserName">userB</p>
+            <p class="ouserName">Bruce</p>
             <p class="otherTextH">
               That sounds great! Looking forward to it.
             </p>
           </div>
         </div>
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userC.png')}}" alt="userC" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Carly.jpg')}}" alt="Carly" />
           <div class="otherPart">
-            <p class="ouserName">userC</p>
+            <p class="ouserName">Carly</p>
             <p class="otherTextH">
               Me too! It'll be nice to meet everyone and have a good chat.
             </p>
@@ -212,7 +216,7 @@
     <div class="col">
       <div id="hintcard" class="card">
         <div class="card-body">
-          <h5 class="card-title">Hints</h5>
+          <h5 class="card-title"><strong>Hints</strong></h5>
           <p class="card-text"><span>{{ hint_text }}</span></p>
           <p class="card-text" style="color: #0a58ca;"><strong>Scroll over the window to see sample messages,
               then try it out!</strong></p>
@@ -248,21 +252,21 @@
           .getElementById("userInput")
           .scrollIntoView({ block: "start", behavior: "smooth" });
         setTimeout(() => {
-          var userDHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userD.png')}}' alt='userD' /><div class='otherPart'><p class='ouserName'>UserD</p><p class='otherText'>" + "I'll follow whatever your final decision" + "</p></div></div>";
+          var userDHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/Dan.jpg')}}' alt='Dan' /><div class='otherPart'><p class='ouserName'>Dan</p><p class='otherText'>" + "I'll follow whatever your final decision" + "</p></div></div>";
           $("#chatbox").append(userDHtml);
           document
             .getElementById("userInput")
             .scrollIntoView({ block: "start", behavior: "smooth" });
         }, 2000);
         setTimeout(() => {
-          var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userB.png')}}' alt='userB' /><div class='otherPart'><p class='ouserName'>UserB</p><p class='otherText'>" + data[1] + "</p></div></div>";
+          var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/Bruce.jpg')}}' alt='Bruce' /><div class='otherPart'><p class='ouserName'>Bruce</p><p class='otherText'>" + data[1] + "</p></div></div>";
           $("#chatbox").append(userBHtml);
           document
             .getElementById("userInput")
             .scrollIntoView({ block: "start", behavior: "smooth" });
         }, 3000);
         setTimeout(() => {
-          var userCHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userC.png')}}' alt='userC' /><div class='otherPart'><p class='ouserName'>UserC</p><p class='otherText'>" + data[2] + "</p></div></div>";
+          var userCHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/Carly.jpg')}}' alt='Carly' /><div class='otherPart'><p class='ouserName'>Carly</p><p class='otherText'>" + data[2] + "</p></div></div>";
           $("#chatbox").append(userCHtml);
           document
             .getElementById("userInput")
@@ -273,7 +277,7 @@
     function getBotResponse() {
       document.getElementById('textInput').disabled = true;
       var rawText = $("#textInput").val();
-      var userHtml = '<div class="d-flex justify-content-end"><div class="otherPart"><p class="userName d-flex justify-content-end">UserA</p><p class="userTextG"><span>' + rawText + "</span></p></div></div>";
+      var userHtml = '<div class="d-flex justify-content-end"><div class="otherPart"><p class="userName d-flex justify-content-end">Lisa</p><p class="userTextG"><span>' + rawText + "</span></p></div></div>";
       $("#textInput").val("");
       $("#chatbox").append(userHtml);
       document
@@ -287,14 +291,14 @@
           .scrollIntoView({ block: "start", behavior: "smooth" });
         document.getElementById('textInput').disabled = false;
         setTimeout(() => {
-          var userCHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userC.png')}}' alt='userC' /><div class='otherPart'><p class='ouserName'>UserC</p><p class='otherText'>" + data[2] + "</p></div></div>";
+          var userCHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/Carly.jpg')}}' alt='Carly' /><div class='otherPart'><p class='ouserName'>Carly</p><p class='otherText'>" + data[2] + "</p></div></div>";
           $("#chatbox").append(userCHtml);
           document
             .getElementById("userInput")
             .scrollIntoView({ block: "start", behavior: "smooth" });
         }, 2000);
         setTimeout(() => {
-          var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userB.png')}}' alt='userB' /><div class='otherPart'><p class='ouserName'>UserB</p><p class='otherText'>" + data[1] + "</p></div>";
+          var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/Bruce.jpg')}}' alt='Bruce' /><div class='otherPart'><p class='ouserName'>Bruce</p><p class='otherText'>" + data[1] + "</p></div>";
           $("#chatbox").append(userBHtml);
           document
             .getElementById("userInput")

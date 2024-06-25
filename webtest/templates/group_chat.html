@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Ferrybot web demo</title>
+<title>Ferrybot Prototype</title>
 
 <head>
   <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/robot.png')}}" />
@@ -39,7 +39,7 @@
             style="width:60px;height:60px;margin-top:20px;margin-bottom:20px;">
         </div>
         <h3 class="flex-grow-1 ms-3" style="margin-bottom:0;">
-          Ferrybot: A Conversational AI Agent for wellbeing
+          Ferrybot: A Conversational AI Agent for Wellbeing
         </h3>
       </div>
     </div>
@@ -89,41 +89,39 @@
 
   <div id="chatbody" class="row">
     <div class="col">
-      <div class="d-flex justify-content-center" style="position:fixed;margin-left:20px;">
-        <div class="d-flex align-items-center">
-          <div class="flex-shrink-0">
-            <img src="{{ url_for('static', filename='img/group.png')}}" alt="group" style="width:50px;height:50px;">
-          </div>
-          <h5 class="flex-grow-1 ms-3" style="margin-bottom:0;">
-            Group chat
-          </h5>
+      <div id="profilecard" class="card">
+        <div class="card-body">
+          <h5 class="card-title">You are in a <strong>Group-chat</strong>...</h5>
+          <img src="{{ url_for('static', filename='img/group.png')}}" alt="group"
+            style="width:75px;height:75px;margin-top:5px;margin-bottom:10px;">
+          <p class="card-text"><span>{{ mode_profile }}</span></p>
         </div>
       </div>
     </div>
     <div class="col-6">
       <div id="chatHistory">
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userC.png')}}" alt="userC" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Carly.jpg')}}" alt="Carly" />
           <div class="otherPart">
-            <p class="ouserName">userC</p>
+            <p class="ouserName">Carly</p>
             <p class="otherTextH">
               I really think that last game was unfair, the referee clearly favored the other team.
             </p>
           </div>
         </div>
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userD.png')}}" alt="userD" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Dan.jpg')}}" alt="Dan" />
           <div class="otherPart">
-            <p class="ouserName">userD</p>
+            <p class="ouserName">Dan</p>
             <p class="otherTextH">
               That's just stupid, how can you not see it was fair? You always find something to complain about!
             </p>
           </div>
         </div>
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userB.png')}}" alt="userB" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Bruce.jpg')}}" alt="Bruce" />
           <div class="otherPart">
-            <p class="ouserName">userB</p>
+            <p class="ouserName">Bruce</p>
             <p class="otherTextH">
               That's so rude man
             </p>
@@ -133,40 +131,40 @@
           <img class="botIcon" src="{{ url_for('static', filename='img/robot.png')}}" alt="ferrybot" />
           <p class="botTextGH">
             Let's keep our discussion friendly, everyone. It's important to respect different viewpoints without
-            personal attacks. UserD, I understand your point, but let's express our opinions respectfully. What are some
+            personal attacks. Dan, I understand your point, but let's express our opinions respectfully. What are some
             positive aspects we can discuss about the game?
           </p>
         </div>
         <!-- <div class="d-flex justify-content-end">
           <div class="otherPart">
-            <p class="userName d-flex justify-content-end">UserA</p>
+            <p class="userName d-flex justify-content-end">Joe</p>
             <p class="userTextGH">
               Yeah it's hard to say fair or not, but we can be open to discuss
             </p>
           </div>
         </div> -->
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userB.png')}}" alt="userB" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Bruce.jpg')}}" alt="Bruce" />
           <div class="otherPart">
-            <p class="ouserName">userB</p>
+            <p class="ouserName">Bruce</p>
             <p class="otherTextH">
               Both teams played well despite some controversial calls. It was a tough match for sure.
             </p>
           </div>
         </div>
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userC.png')}}" alt="userC" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Carly.jpg')}}" alt="Carly" />
           <div class="otherPart">
-            <p class="ouserName">userC</p>
+            <p class="ouserName">Carly</p>
             <p class="otherTextH">
               True, it was intense. Maybe I'm a bit biased towards my favorite team.
             </p>
           </div>
         </div>
         <div class="d-flex">
-          <img class="ouserIcon" src="{{ url_for('static', filename='img/userD.png')}}" alt="userD" />
+          <img class="ouserIcon" src="{{ url_for('static', filename='img/Dan.jpg')}}" alt="Dan" />
           <div class="otherPart">
-            <p class="ouserName">userD</p>
+            <p class="ouserName">Dan</p>
             <p class="otherTextH">
               Sorry, I got carried away. Yeah, it was a good game overall.
             </p>
@@ -202,7 +200,7 @@
     <div class="col">
       <div id="hintcard" class="card">
         <div class="card-body">
-          <h5 class="card-title">Hints</h5>
+          <h5 class="card-title"><strong>Hints</strong></h5>
           <p class="card-text"><span>{{ hint_text }}</span></p>
           <p class="card-text" style="color: #0a58ca;"><strong>Scroll over the window to see sample messages,
               then try it out!</strong></p>
@@ -233,14 +231,14 @@
     (function setGroupChat() {
       $.get("/set_group_chat", {}).done(function (data) {
         setTimeout(() => {
-          var userCHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userC.png')}}' alt='userC' /><div class='otherPart'><p class='ouserName'>UserC</p><p class='otherText'>" + data[0] + "</p></div></div>";
+          var userCHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/Carly.jpg')}}' alt='Carly' /><div class='otherPart'><p class='ouserName'>Carly</p><p class='otherText'>" + data[0] + "</p></div></div>";
           $("#chatbox").append(userCHtml);
           document
             .getElementById("userInput")
             .scrollIntoView({ block: "start", behavior: "smooth" });
         }, 1000);
         setTimeout(() => {
-          var userDHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userD.png')}}' alt='userD' /><div class='otherPart'><p class='ouserName'>UserD</p><p class='otherText'>" + data[1] + "</p></div></div>";
+          var userDHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/Dan.jpg')}}' alt='Dan' /><div class='otherPart'><p class='ouserName'>Dan</p><p class='otherText'>" + data[1] + "</p></div></div>";
           $("#chatbox").append(userDHtml);
           document
             .getElementById("userInput")
@@ -251,7 +249,7 @@
     function getBotResponse() {
       document.getElementById('textInput').disabled = true;
       var rawText = $("#textInput").val();
-      var userHtml = '<div class="d-flex justify-content-end"><div class="otherPart"><p class="userName d-flex justify-content-end">UserA</p><p class="userTextG"><span>' + rawText + "</span></p></div></div>";
+      var userHtml = '<div class="d-flex justify-content-end"><div class="otherPart"><p class="userName d-flex justify-content-end">Joe</p><p class="userTextG"><span>' + rawText + "</span></p></div></div>";
       $("#textInput").val("");
       $("#chatbox").append(userHtml);
       document
@@ -266,20 +264,20 @@
             .scrollIntoView({ block: "start", behavior: "smooth" });
           document.getElementById('textInput').disabled = false;
         } else {
-          var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userB.png')}}' alt='userB' /><div class='otherPart'><p class='ouserName'>UserB</p><p class='otherText'>" + data[0] + "</p></div>";
+          var userBHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/Bruce.jpg')}}' alt='Bruce' /><div class='otherPart'><p class='ouserName'>Bruce</p><p class='otherText'>" + data[0] + "</p></div>";
           $("#chatbox").append(userBHtml);
           document
             .getElementById("userInput")
             .scrollIntoView({ block: "start", behavior: "smooth" });
           setTimeout(() => {
-            var userCHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userC.png')}}' alt='userC' /><div class='otherPart'><p class='ouserName'>UserC</p><p class='otherText'>" + data[1] + "</p></div></div>";
+            var userCHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/Carly.jpg')}}' alt='Carly' /><div class='otherPart'><p class='ouserName'>Carly</p><p class='otherText'>" + data[1] + "</p></div></div>";
             $("#chatbox").append(userCHtml);
             document
               .getElementById("userInput")
               .scrollIntoView({ block: "start", behavior: "smooth" });
           }, 2000);
           setTimeout(() => {
-            var userDHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/userD.png')}}' alt='userB' /><div class='otherPart'><p class='ouserName'>UserD</p><p class='otherText'>" + data[2] + "</p></div>";
+            var userDHtml = "<div class='d-flex'><img class='ouserIcon' src='{{ url_for('static', filename='img/Dan.jpg')}}' alt='Bruce' /><div class='otherPart'><p class='ouserName'>Dan</p><p class='otherText'>" + data[2] + "</p></div>";
             $("#chatbox").append(userDHtml);
             document
               .getElementById("userInput")
