@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, session
 
-from langchain_community.llms.ollama import Ollama
+# from langchain_community.llms.ollama import Ollama
 
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
@@ -41,11 +41,11 @@ mode_profiles.append("Ferrybot is an intelligent agent within a peer support gro
 mode_profiles.append("This Group-chat consists of all members of a peer support group and Ferrybot, an intelligent agent for the group. Normally Ferrybot acts as a mediator to manage conflicts among group members in this group. Here, Ferrybot, as a trainer, guides supporters on effectively managing and promoting positive interactions by specific crisis simulations.")
 
 mode_hints = []
-mode_hints.append("In this scenario, you will play the role of Lisa, a member of a peer support group who hasn't interacted with Ferrybot or participated in the group chat recently. You might hesitate to discuss your issues with real people, but could feel more comfortable opening up if a chatbot initiates contact.")
-mode_hints.append("In this scenario, you will play the role of Joe, a new member of a peer support organization in Glasgow, which has a variety of affiliated groups. Your goal is to find the group that best matches your personal characteristics, such as demographics and interests.")
+mode_hints.append("In this scenario, you will play the role of a member of a peer support group who hasn't interacted with Ferrybot or participated in the group chat recently. You might hesitate to discuss your issues with real people, but could feel more comfortable opening up if a chatbot initiates contact.")
+mode_hints.append("In this scenario, you will play the role of a new member of a peer support organization in Glasgow, which has a variety of affiliated groups. Your goal is to find the group that best matches your personal characteristics, such as demographics and interests.")
 mode_hints.append("In this scenario, you will play the role of Lisa, a member of a peer support group that regularly organizes weekly activities such as coffee chats, hiking, sports, picnics, crafting, and gardening. Feel free to discuss your availability and preferred activities for the upcoming week, providing information that will help Ferrybot suggest suitable options for the group.")
-mode_hints.append("In this scenario, you will play the role of Lisa, a supporter within a peer support group. Through interactions with Ferrybot, you'll receive guidance to enhance your ability to offer valuable support and cultivate a welcoming community atmosphere.")
-mode_hints.append("In this scenario, you will play the role of Joe, a supporter in a peer support group and might be unsure about how to effectively assist others. Ferrybot will help you practice providing care by simulating a situation where it acts as someone who is extremely upset and needs comforting. After the simulation, Ferrybot will review your performance and offer feedback to help improve your support skills.")
+mode_hints.append("In this scenario, you will play the role of a supporter within a peer support group. Through interactions with Ferrybot, you'll receive guidance to enhance your ability to offer valuable support and cultivate a welcoming community atmosphere.")
+mode_hints.append("In this scenario, you will play the role of a supporter in a peer support group and might be unsure about how to effectively assist others. Ferrybot will help you practice providing care by simulating a situation where it acts as someone who is extremely upset and needs comforting. After the simulation, Ferrybot will review your performance and offer feedback to help improve your support skills.")
 mode_hints.append("In this scenario, you will play the role of Joe, a member in a peer support group where someone suddenly made aggressive remarks and heightened tensions. Try to intervene in the group conversation to help de-escalate any rising tensions and restore positive dialogue flow, similar to how Ferrybot demonstrated in sample messages. Once the situation de-escalated, Ferrybot will provide feedback on your intervention techniques or offer guidance as needed to enhance your skills in maintaining a supportive and harmonious group environment.")
 
 start_bot_texts = []
@@ -89,7 +89,7 @@ def support_train():
 def simulate_train():
     session['modeNum'] = 5
     mode_num = session.get('modeNum', 1)
-    return render_template("private.html", mode_profile=mode_profiles[mode_num-1], start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='train_in_group')
+    return render_template("private_simul.html", mode_profile=mode_profiles[mode_num-1], start_bot_text=start_bot_texts[mode_num-1], mode_num=str(mode_num), mode_description=mode_descriptions[mode_num-1], hint_text=mode_hints[mode_num-1], next_text=mode_descriptions[mode_num], next_url='train_in_group')
 
 @app.route('/train_in_group')
 def train_in_group():

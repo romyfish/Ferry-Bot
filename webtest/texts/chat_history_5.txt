@@ -1,6 +1,6 @@
 Hello! Today, we're going to practice a very important skill - comforting someone who is feeling extremely upset. It's crucial for a peer supporter to offer empathy, listen actively, and respond thoughtfully. I'll simulate a scenario where I am a support seeker going through a tough time. Your task is to respond in a way that shows care and support. Are you ready to start?
 Yes, I'm ready.
-I'm really upset these days. My wife and I have been arguing a lot more than usual, and it feels like everything else is piling up too.
+[Simulation start] I'm really upset these days. My wife and I have been arguing a lot more than usual, and it feels like everything else is piling up too.
 I'm very sorry to hear that. It must have been a very difficult time, and it's not easy for you to open up and express that to me.
 Thank you for saying that. It's been tough, and sometimes I feel really alone with all these feelings. It's like I don't even know where to begin to sort things out.
 I know I know. Life is struggling. I can't imagine how I should react if it were me in these situations. It's just too hard. You must love your wife very much to take it so hard. It's not your fault.

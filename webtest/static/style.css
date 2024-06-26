@@ -80,6 +80,14 @@ body {
 	border-radius: 8px;
 }
 
+.botSIcon {
+	width: 40px;
+	height: 40px;
+	margin: 10px;
+	margin-top: 25px;
+	border-radius: 20px;
+}
+
 .botText {
 	color: white;
 	background-color: #3170d7;
@@ -88,12 +96,26 @@ body {
 	max-width: 70%;
 }
 
+.botTextS {
+	color: white;
+	background-color: #8442db;
+	padding: 10px;
+	border-radius: 15px;
+}
+
 .botTextH {
 	color: white;
 	background-color: #3562ad;
 	padding: 10px;
 	border-radius: 15px;
 	max-width: 70%;
+}
+
+.botTextSH {
+	color: white;
+	background-color: #623799;
+	padding: 10px;
+	border-radius: 15px;
 }
 
 .botTextG {

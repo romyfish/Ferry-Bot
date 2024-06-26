@@ -1,15 +1,15 @@
-UserC: I really think that last game was unfair, the referee clearly favored the other team.
-UserD: That's just stupid, how can you not see it was fair? You always find something to complain about!
-UserB: That's so rude man
-Ferrybot: "Let’s keep our discussion friendly, everyone. It’s important to respect different viewpoints without personal attacks. UserD, I understand your point, but let's express our opinions respectfully. What are some positive aspects we can discuss about the game?"
-UserA: Yeah it's hard to say fair or not, but we can be open to discuss
-UserB: "Both teams played well despite some controversial calls. It was a tough match for sure."
-UserC: "True, it was intense. Maybe I’m a bit biased towards my favorite team."
-UserD: "Sorry, I got carried away. Yeah, it was a good game overall."
-Ferrybot: "Great! Thank you everyone for sharing your thoughts and handling the discussion with openness after the tense moment. It’s important that we all feel heard and respected here. Let’s continue the discussion and keep our group a safe space for everyone."
-
-UserA: Maybe there were some bad calls, but both teams did play hard. Let's try to keep the conversation friendly, guys.
-
-**UserC**: Hey everyone! Did you catch the football game last night? It was quite a match between Manchester United and Liverpool!\n\n**UserD**: Honestly, that game was a joke. Manchester United played terribly. It's embarrassing to even call that a match.
-
-it's hard to say, but we can be open to discuss
+UserC: Hey folks, I was really impressed with the midfield coordination in yesterday's match. What did you all think?
+UserD: Impressed? They were sloppy! Lost possession too many times. Not what you'd expect from a professional team.
+Ferrybot: Let's keep the conversation respectful. Perhaps there were some contentious moments, but there's no need for harsh words
+UserB: I think everyone has off days, even professionals. It's good to highlight areas for improvement, but let's also acknowledge their hard work and moments of brilliance.
+UserC: That's a fair point, Dan. They did lose the ball a few times. But did you see that amazing pass in the second half? It set up the only goal of the match beautifully.
+UserD: Yeah, the goal was alright, but one good pass doesn't make up for the rest of the game.
+Ferrybot: I understand your point, Dan. It's great we can discuss different views. Maybe there were some bad calls, but both teams did play hard. Let's try to appreciate the efforts and skills displayed, even in tough games.
+UserB: True, one pass doesn't define a game, but it can definitely be a highlight. Celebrating those moments can be fun too!
+UserC: Speaking of skills, how about the goalie's performance? Some of those saves were top-notch!
+UserD: I suppose the goalie did alright, saved them from a worse defeat for sure.
+Ferrybot: It's great to see we're finding common ground in appreciating player skills. It helps us all enjoy the sport more!
+UserB: That's the spirit! Discussing different aspects of the game can help us appreciate the skills and challenges faced by the players.
+UserC: True! Both teams played well despite some controversial calls. It was a tough match for sure.
+UserD: Hmm, I guess you're right. Focusing on the negative doesn't do justice to the players who really tried their best out there. Sorry for my earlier comments, I got a bit carried away.
+Ferrybot: Great! Cheers for us!
